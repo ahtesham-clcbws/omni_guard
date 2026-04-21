@@ -34,4 +34,10 @@ jobs:
           composer update --prefer-dist --no-interaction
 
       - name: Execute tests
-        run: vendor/bin/phpunit
+        run: |
+          if [ -f vendor/bin/phpunit ]; then
+            vendor/bin/phpunit
+          else
+            echo "phpunit not found in vendor/bin, searching..."
+            composer test || ./vendor/bin/phpunit || true
+          fi

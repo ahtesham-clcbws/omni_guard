@@ -20,6 +20,13 @@ use OmniGuard\PermissionRegistrar;
 use OmniGuard\WildcardPermission;
 
 /**
+ * @property-read int|string $id
+ * @method mixed getKey()
+ * @method string getKeyName()
+ * @method \Illuminate\Database\Eloquent\Relations\BelongsToMany users()
+ * @method \Illuminate\Database\Eloquent\Model getModel()
+ * @method \Illuminate\Database\Eloquent\Relations\BelongsToMany morphToMany(string $related, string $name, string $table = null, string $foreignPivotKey = null, string $relatedPivotKey = null, string $parentKey = null, string $relatedKey = null, bool $inverse = false)
+ * @method \Illuminate\Database\Eloquent\Model loadMissing(array|string $relations)
  * @mixin \Illuminate\Database\Eloquent\Model
  */
 trait HasPermissions
@@ -43,6 +50,7 @@ trait HasPermissions
                 $model->permissions()->detach();
             }
             if (is_a($model, Role::class)) {
+                /** @var \OmniGuard\Contracts\Role $model */
                 $model->users()->detach();
             }
             app(PermissionRegistrar::class)->teams = $teams;
@@ -342,7 +350,10 @@ trait HasPermissions
         }
 
         return $this->loadMissing('roles', 'roles.permissions')
-            ->roles->flatMap(fn ($role) => $role->permissions)
+            ->roles->flatMap(function ($role) {
+                /** @var \OmniGuard\Contracts\Role $role */
+                return $role->permissions;
+            })
             ->sort()->values();
     }
 

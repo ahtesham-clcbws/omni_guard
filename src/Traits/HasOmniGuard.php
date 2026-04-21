@@ -15,6 +15,13 @@ use OmniGuard\PermissionRegistrar;
 /**
  * @property-read int|string $id
  * @property string $email
+ * @method mixed getKey()
+ * @method string getKeyName()
+ * @method \Illuminate\Database\Eloquent\Relations\BelongsToMany users()
+ * @method \Illuminate\Database\Eloquent\Model getModel()
+ * @method \Illuminate\Database\Eloquent\Model load(array|string $relations)
+ * @method \Illuminate\Database\Eloquent\Model loadMissing(array|string $relations)
+ * @method \Illuminate\Database\Eloquent\Relations\BelongsToMany morphToMany(string $related, string $name, string $table = null, string $foreignPivotKey = null, string $relatedPivotKey = null, string $parentKey = null, string $relatedKey = null, bool $inverse = false)
  * @mixin \Illuminate\Database\Eloquent\Model
  */
 trait HasOmniGuard
@@ -51,10 +58,12 @@ trait HasOmniGuard
             app(PermissionRegistrar::class)->teams = false;
             
             if (method_exists($model, 'roles')) {
+                /** @var \Illuminate\Database\Eloquent\Model $model */
                 $model->roles()->detach();
             }
 
             if ($model instanceof \OmniGuard\Contracts\Permission && method_exists($model, 'users')) {
+                /** @var \OmniGuard\Contracts\Permission $model */
                 $model->users()->detach();
             }
             
@@ -236,7 +245,7 @@ trait HasOmniGuard
         /** @var \Illuminate\Database\Eloquent\Model $this */
         if ($this->exists) {
             $this->collectRoles($roles);
-            if (config('omniguard.events_enabled')) {
+            if (config('omniguard.events_enabled') ?? true) {
                 $currentRoles = $this->roles()->get();
                 if ($currentRoles->isNotEmpty()) {
                     $this->removeRole($currentRoles);
