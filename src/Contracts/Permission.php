@@ -22,6 +22,11 @@ interface Permission
     public function roles(): BelongsToMany;
 
     /**
+     * A permission can be applied directly to users.
+     */
+    public function users(): BelongsToMany;
+
+    /**
      * Find a permission by its name.
      *
      *

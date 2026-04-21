@@ -18,6 +18,8 @@ use OmniGuard\PermissionRegistrar;
  * @method mixed getKey()
  * @method string getKeyName()
  * @method \Illuminate\Database\Eloquent\Relations\BelongsToMany users()
+ * @method \Illuminate\Database\Eloquent\Relations\BelongsToMany roles()
+ * @method \Illuminate\Database\Eloquent\Relations\BelongsToMany permissions()
  * @method \Illuminate\Database\Eloquent\Model getModel()
  * @method \Illuminate\Database\Eloquent\Model load(array|string $relations)
  * @method \Illuminate\Database\Eloquent\Model loadMissing(array|string $relations)
@@ -57,13 +59,13 @@ trait HasOmniGuard
             $teams = app(PermissionRegistrar::class)->teams;
             app(PermissionRegistrar::class)->teams = false;
             
-            if (method_exists($model, 'roles')) {
-                /** @var \Illuminate\Database\Eloquent\Model $model */
-                $model->roles()->detach();
+            if ($model instanceof \OmniGuard\Contracts\Role) {
+                $model->permissions()->detach();
+                $model->users()->detach();
             }
 
-            if ($model instanceof \OmniGuard\Contracts\Permission && method_exists($model, 'users')) {
-                /** @var \OmniGuard\Contracts\Permission $model */
+            if ($model instanceof \OmniGuard\Contracts\Permission) {
+                $model->roles()->detach();
                 $model->users()->detach();
             }
             
@@ -208,7 +210,7 @@ trait HasOmniGuard
             $this->forgetCachedPermissions();
         }
 
-        if (config('omniguard.events_enabled')) {
+        if (config('omniguard.events_enabled') ?? true) {
             event(new RoleAttached($this->getModel(), $roles));
         }
 
@@ -230,7 +232,7 @@ trait HasOmniGuard
             $this->forgetCachedPermissions();
         }
 
-        if (config('omniguard.events_enabled')) {
+        if (config('omniguard.events_enabled') ?? true) {
             event(new RoleDetached($this->getModel(), $roles));
         }
 

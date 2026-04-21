@@ -22,6 +22,11 @@ interface Role
     public function permissions(): BelongsToMany;
 
     /**
+     * A role belongs to many users.
+     */
+    public function users(): BelongsToMany;
+
+    /**
      * Find a role by its name and guard name.
      *
      *

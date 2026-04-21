@@ -24,6 +24,8 @@ use OmniGuard\WildcardPermission;
  * @method mixed getKey()
  * @method string getKeyName()
  * @method \Illuminate\Database\Eloquent\Relations\BelongsToMany users()
+ * @method \Illuminate\Database\Eloquent\Relations\BelongsToMany roles()
+ * @method \Illuminate\Database\Eloquent\Relations\BelongsToMany permissions()
  * @method \Illuminate\Database\Eloquent\Model getModel()
  * @method \Illuminate\Database\Eloquent\Relations\BelongsToMany morphToMany(string $related, string $name, string $table = null, string $foreignPivotKey = null, string $relatedPivotKey = null, string $parentKey = null, string $relatedKey = null, bool $inverse = false)
  * @method \Illuminate\Database\Eloquent\Model loadMissing(array|string $relations)
@@ -46,11 +48,17 @@ trait HasPermissions
 
             $teams = app(PermissionRegistrar::class)->teams;
             app(PermissionRegistrar::class)->teams = false;
-            if (! is_a($model, Permission::class)) {
+            if ($model instanceof \OmniGuard\Contracts\Role) {
                 $model->permissions()->detach();
+                $model->users()->detach();
             }
-            if (is_a($model, Role::class)) {
-                /** @var \OmniGuard\Contracts\Role $model */
+
+            if ($model instanceof \OmniGuard\Contracts\Permission) {
+                // Permissions relate to roles, but the role side handles the detach in most cases.
+                // We ensure consistency here.
+                if (method_exists($model, 'roles')) {
+                    $model->roles()->detach();
+                }
                 $model->users()->detach();
             }
             app(PermissionRegistrar::class)->teams = $teams;
@@ -439,7 +447,7 @@ trait HasPermissions
             $this->forgetCachedPermissions();
         }
 
-        if (config('omniguard.events_enabled')) {
+        if (config('omniguard.events_enabled') ?? true) {
             event(new PermissionAttached($this->getModel(), $permissions));
         }
 
@@ -488,7 +496,7 @@ trait HasPermissions
             $this->forgetCachedPermissions();
         }
 
-        if (config('omniguard.events_enabled')) {
+        if (config('omniguard.events_enabled') ?? true) {
             event(new PermissionDetached($this->getModel(), $storedPermission));
         }
 
