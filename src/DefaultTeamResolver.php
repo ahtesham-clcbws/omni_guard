@@ -1,0 +1,29 @@
+<?php
+
+namespace OmniGuard;
+
+use Illuminate\Database\Eloquent\Model;
+use OmniGuard\Contracts\PermissionsTeamResolver;
+
+class DefaultTeamResolver implements PermissionsTeamResolver
+{
+    protected int|string|null $teamId = null;
+
+    /**
+     * Set the team id for teams/groups support, this id is used when querying permissions/roles
+     *
+     * @param  int|string|Model|null  $id
+     */
+    public function setPermissionsTeamId($id): void
+    {
+        if ($id instanceof Model) {
+            $id = $id->getKey();
+        }
+        $this->teamId = $id;
+    }
+
+    public function getPermissionsTeamId(): int|string|null
+    {
+        return $this->teamId;
+    }
+}

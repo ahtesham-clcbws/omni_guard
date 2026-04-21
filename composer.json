@@ -1,0 +1,54 @@
+{
+    "name": "omniguard/omniguard",
+    "description": "The absolute sovereign authorization orchestrator for Laravel. Zero-dependency runtime, heuristic discovery, and JIT binary bitmasking optimized for $1 shared hosting.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "php",
+        "authorization",
+        "permissions",
+        "rbac",
+        "security",
+        "orchestrator",
+        "zero-dependency",
+        "multitenancy",
+        "high-performance",
+        "sovereign-code",
+        "bitmasking",
+        "heuristic-discovery"
+    ],
+    "authors": [
+        {
+            "name": "OmniGuard Core Team"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^11.0|^12.0|^13.0",
+        "illuminate/database": "^11.0|^12.0|^13.0",
+        "illuminate/auth": "^11.0|^12.0|^13.0"
+    },
+    "require-dev": {
+        "roave/better-reflection": "^6.0",
+        "orchestra/testbench": "^9.0",
+        "calebporzio/sushi": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "OmniGuard\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OmniGuard\\OmniGuardServiceProvider"
+            ],
+            "aliases": {
+                "OmniGuard": "OmniGuard\\Facades\\OmniGuard"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
