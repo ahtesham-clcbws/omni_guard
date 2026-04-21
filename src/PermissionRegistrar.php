@@ -12,9 +12,17 @@ use Illuminate\Database\Eloquent\Model;
 use OmniGuard\Contracts\Permission;
 use OmniGuard\Contracts\PermissionsTeamResolver;
 use OmniGuard\Contracts\Role;
+use OmniGuard\Engine\TenantManager;
 
 class PermissionRegistrar
 {
+    /** @var \OmniGuard\Engine\TenantManager */
+    protected $tenantManager;
+
+    public function __construct()
+    {
+        $this->tenantManager = app(TenantManager::class);
+    }
     protected Repository $cache;
 
     protected CacheManager $cacheManager;

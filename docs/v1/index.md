@@ -1,4 +1,35 @@
-# 🛡️ OmniGuard Sovereign Orchestrator
+---
+layout: home
+
+hero:
+  name: "OmniGuard Sovereign"
+  text: "The Absolute Authority for Laravel"
+  tagline: Absolute Sovereignty. Zero Runtime Dependencies. Mission-Critical stability.
+  image:
+    src: /shield.svg
+    alt: OmniGuard Shield
+  actions:
+    - theme: brand
+      text: Get Started
+      link: /v1/installation
+    - theme: alt
+      text: The Philosophy
+      link: /v1/index
+    - theme: alt
+      text: View on GitHub
+      link: https://github.com/ahtesham-clcbws/omni_guard
+
+features:
+  - icon: 🛡️
+    title: Sovereign Core
+    details: Fork-and-Absorb architecture means zero external runtime dependencies. No version conflicts, ever.
+  - icon: 🧠
+    title: Heuristic Brain
+    details: Automated Multi-Discovery Hub maps your codebase using semantic synonym mapping and Fuzzy matching.
+  - icon: ⚡
+    title: JIT Bitmasking
+    details: Industrial O(1) performance using binary integer comparison. Optimized for $1 budget hosting.
+---
 
 > **Absolute Sovereignty. Zero Runtime Dependencies. Mission-Critical Authority.**
 
