@@ -11,12 +11,15 @@ env:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: true
       matrix:
         php: [8.2, 8.3, 8.4]
         laravel: [12.*, 13.*]
+        exclude:
+          - php: 8.2
+            laravel: 13.*
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }}
 
@@ -37,7 +40,7 @@ jobs:
           if [[ "${{ matrix.laravel }}" == "12.*" ]]; then TESTBENCH="^10.0"; fi
           if [[ "${{ matrix.laravel }}" == "13.*" ]]; then TESTBENCH="^11.0"; fi
           
-          composer require "illuminate/support:${{ matrix.laravel }}" "orchestra/testbench:${TESTBENCH:-^10.0}" "calebporzio/sushi:^2.5" --no-interaction --no-update
+          composer require "illuminate/support:${{ matrix.laravel }}" "orchestra/testbench:${TESTBENCH:-^10.0}" "calebporzio/sushi:^2.5" --no-interaction --no-update --with-all-dependencies
           composer update --prefer-dist --no-interaction --prefer-stable
 
       - name: Execute tests
