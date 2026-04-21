@@ -40,6 +40,11 @@
             "OmniGuard\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "OmniGuard\\Tests\\": "tests/"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
