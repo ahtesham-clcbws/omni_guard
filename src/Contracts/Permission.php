@@ -17,6 +17,15 @@ use OmniGuard\Exceptions\PermissionDoesNotExist;
 interface Permission
 {
     /**
+     * Get the value of the model's primary key.
+     */
+    public function getKey(): mixed;
+
+    /**
+     * Get the primary key for the model.
+     */
+    public function getKeyName(): string;
+    /**
      * A permission can be applied to roles.
      */
     public function roles(): BelongsToMany;

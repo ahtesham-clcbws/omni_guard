@@ -1,18 +1,18 @@
-# Installation Guide
+# Installation & Setup
 
-Setting up **OmniGuard** is a streamlined process designed to bring sovereign authority to your Laravel application in minutes.
+OmniGuard is a Sovereign Orchestrator. It is designed to be forked, absorbed, and owned by your application.
+
+## Prerequisites
+
+- **PHP**: 8.2 or higher.
+- **Laravel**: 11.x, 12.x, or 13.x (preview).
+- **Storage**: Redis or Database (Recommended for $1 shared hosting).
 
 ---
 
-## 📦 Requirements
-*   **PHP**: 8.2 or higher
-*   **Laravel**: 11.x, 12.x, or 13.x
+## 1. Composer Installation
 
----
-
-## 🛠️ Step 1: Install via Composer
-
-Install the package via composer. Since OmniGuard is zero-dependency at runtime, this will be a lightweight install.
+Add OmniGuard to your project. Since OmniGuard is a sovereign package, you may be installing it from a local repository or a private registry.
 
 ```bash
 composer require omniguard/omniguard
@@ -20,38 +20,39 @@ composer require omniguard/omniguard
 
 ---
 
-## 🛠️ Step 2: Publish Assets
+## 2. Service Provider Registration
 
-You must publish the configuration and migrations to take total control over the database schema and engine behavior.
+OmniGuard should automatically register its service provider. If it doesn't, add the following to your `bootstrap/providers.php` or `config/app.php`:
 
-```bash
-php artisan vendor:publish --tag="omniguard-config"
-php artisan vendor:publish --tag="omniguard-migrations"
+```php
+OmniGuard\OmniGuardServiceProvider::class,
 ```
 
 ---
 
-## 🛠️ Step 3: Run Migrations
+## 3. Publication & Migrations
 
-OmniGuard uses six sovereign tables. These are prefixed by default with `omni_` to avoid collisions with other packages.
+OmniGuard manages its own tables to ensure zero-conflict with your existing data. Publish the configuration and migration files:
+
+```bash
+php artisan omniguard:install
+```
+
+This will create:
+- `config/omniguard.php`: The central brain configuration.
+- `database/migrations/*_create_omniguard_tables.php`: The relational structure.
+
+Run the migrations to establish the authority:
 
 ```bash
 php artisan migrate
 ```
 
-### The Sovereign Schema:
-*   `omni_roles`: The hierarchical roles table.
-*   `omni_permissions`: The permission registry.
-*   `omni_model_has_roles`: Pivot for user roles mapping.
-*   `omni_model_has_permissions`: Pivot for direct user overrides.
-*   `omni_role_has_permissions`: Pivot for role-to-permission mapping.
-*   `omni_audit_log`: Heuristic Audit trail for all permission changes.
-
 ---
 
-## 🛠️ Step 4: Configure your User Model
+## 4. Setting up the User Model
 
-Add the `HasOmniGuard` trait to your `User` model. This trait replaces standard permission traits and provides the necessary ranking logic for the hierarchy engine.
+To grant your User model Sovereign powers, add the `HasOmniGuard` trait:
 
 ```php
 namespace App\Models;
@@ -62,22 +63,37 @@ use OmniGuard\Traits\HasOmniGuard;
 class User extends Authenticatable
 {
     use HasOmniGuard;
-    
+
     // ...
 }
 ```
 
 ---
 
-## 🛠️ Step 5: Initialize the SuperAdmin
+## 5. The Sovereign Configuration
 
-In your `.env` file, define the email of the absolute administrator. The **HierarchyEngine** will always grant full access to this user, regardless of role state.
+The `config/omniguard.php` file is where you define the ultimate behavior of the system.
 
-```env
-OMNIGUARD_SUPER_ADMIN_EMAIL=admin@clcbws.com
-```
+### Key Settings:
+- `models`: If you wish to extend the core `Role` or `Permission` models, define them here.
+- `table_names`: Custom table names for your database.
+- `teams`: Enable multi-tenant / team-based authorization.
+- `enable_wildcard_permission`: Allow complex string-based permissions (e.g., `user.*`).
 
 ---
 
-## 🛰️ Next Step: The Multi-Discovery Hub
-Now that OmniGuard is installed, you can begin automatically discovering permissions from your codebase. Learn more in the **[Heuristics Guide](heuristics.md)**.
+## 6. Initial Sync (Heuristic Discovery)
+
+OmniGuard's brain needs to scan your codebase to understand your initial permission structure. Run the sync command:
+
+```bash
+php artisan omniguard:sync
+```
+
+This will crawl your controllers and livewire components, identifying `#[OmniResource]` attributes and mapping them to the database.
+
+---
+
+## Next Steps
+
+Now that you have established the Absolute Foundation, explore the **[Core Concepts of Hierarchy](hierarchy.md)** or dive into the **[Discovery Brain](heuristics.md)**.

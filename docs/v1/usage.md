@@ -1,106 +1,86 @@
-# Usage & API Reference
+# Usage Reference
 
-OmniGuard provides a clean, intuitive API for both backend logic and frontend templates.
+This guide provides a comprehensive API reference for interacting with the OmniGuard Sovereign Orchestrator.
 
----
+## Blade Directives
 
-## 🎨 Blade Directives
+OmniGuard provides clean, semantic Blade directives to control your UI based on authority.
 
-Use the `@omniguard` directive to hide or show content based on sovereign authority. It automatically handles hierarchy, superadmin status, and bitmasking checks.
+### @omniguard
+Checks if the current user has a specific permission.
 
-### Basic Check
 ```blade
-@omniguard('student.view')
-    <p>Welcome to the Student Dashboard.</p>
+@omniguard('posts.edit')
+    <button>Edit Post</button>
 @else
-    <p>Unauthorized Access.</p>
+    <span>Viewing Mode</span>
 @endomniguard
 ```
 
-### Multiple Permissions (Any)
+### @omnirole
+Checks if the current user has a specific role (or one of a set of roles).
+
 ```blade
-@omniguardAny(['student.view', 'teacher.view'])
-    <!-- Content for either role -->
-@endomniguardAny
+@omnirole('Administrator|Manager')
+    <p>Staff Dashboard</p>
+@endomnirole
 ```
 
 ---
 
-## 🧱 Livewire Integration
+## The HasOmniGuard Trait
 
-OmniGuard is deeply integrated with Livewire 3 synthesis. You can use direct authorization in your components:
+Adding this trait to your User model unlocks the core orchestration Methods.
 
-```php
-use Livewire\Component;
+### Permission Methods
+- `$user->hasPermissionTo('permission.name')`: Check for a specific authority.
+- `$user->hasDirectPermission('permission.name')`: Check if granted directly to the user (ignoring roles).
+- `$user->hasAnyPermission(...$permissions)`: Returns true if any match.
 
-class StudentManager extends Component
-{
-    public function delete($id)
-    {
-        $this->authorize('student.delete'); // Standard Laravel authorization
-        
-        // ...
-    }
-}
-```
+### Role Methods
+- `$user->assignRole('Role Name')`: Grant a role to the user.
+- `$user->removeRole('Role Name')`: Revoke a role.
+- `$user->syncRoles(...$roles)`: Wipe existing roles and set new ones.
+- `$user->hasRole('Role Name')`: Check role membership.
+- `$user->getTopRole()`: Returns the Role model with the lowest `sort_order`.
 
 ---
 
-## 🛰️ The OmniGuard Facade
+## The OmniGuard Facade
 
-The Facade is your main entry point for controlling the orchestrator's state.
+For global orchestration and management.
 
-### Tenant Context
 ```php
 use OmniGuard\Facades\OmniGuard;
 
-// Set the active tenant
-OmniGuard::setTenant($id);
+// Get the central registrar
+$registrar = OmniGuard::registrar();
 
-// Check if tenant is active
-if (OmniGuard::hasTenant()) { /* ... */ }
+// Clear the entire authority cache
+OmniGuard::registrar()->forgetCachedPermissions();
+
+// Find or Create authority records
+$permission = OmniGuard::permission()->findOrCreate('reports.view');
 ```
 
-### System Controls
+---
+
+## Common Orchestration Tasks
+
+### Granting Permission to a Role
 ```php
-// Check if system is in Panic Mode
-if (OmniGuard::panicMode()) {
-    return redirect()->to('maintenance');
+$role = Role::findByName('Manager');
+$role->givePermissionTo('orders.edit');
+```
+
+### Checking Rank
+```php
+if ($user->getTopRole()->hasHigherRankThan(Role::findByName('User'))) {
+    // Highly authorized logic
 }
 ```
 
 ---
 
-## 🎛️ Artisan Commands
-
-OmniGuard provides several critical commands for managing your sovereign registry.
-
-### `omniguard:install`
-Initializes the package, publishes config, and prepares migrations.
-
-### `omniguard:sync`
-The most important command. It runs the Heuristic Multi-Discovery Hub to scan your codebase and reconcile permissions in the database.
-
-**Flags**:
-*   `--force`: Overwrite existing permission metadata.
-*   `--dry-run`: See what would be changed without writing to DB.
-
-### `omniguard:bitmask`
-Freshly hydrates the JIT Binary Bitmask cache. Automatically run after a sync, but can be triggered manually if cache is corrupted.
-
----
-
-## 🛡️ Exception Handling
-
-If an authorization check fails, OmniGuard throws an `OmniGuard\Exceptions\UnauthorizedException`. You can catch this in your `App\Exceptions\Handler`:
-
-```php
-use OmniGuard\Exceptions\UnauthorizedException;
-
-public function register()
-{
-    $this->renderable(function (UnauthorizedException $e, $request) {
-        return response()->view('errors.403', [], 403);
-    });
-}
-```
+## 💎 Support & Enterprise Credits
+OmniGuard is a proprietary software architected by **Ahtesham** and **Broadway Web Services**. A major thank you to **Gemini (AI Architect)** for the mission-critical helping hand in building this Sovereign engine.

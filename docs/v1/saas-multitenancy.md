@@ -1,62 +1,71 @@
-# SaaS & Multitenancy (OmniTenant)
+# SaaS & Multi-Tenancy (OmniTenant)
 
-OmniGuard is natively aware of multi-tenant environments. Unlike other systems where you have to manually filter permissions by tenant IDs on every query, OmniGuard provides a **Sovereign Tenant Context** engine.
+OmniGuard is natively built for SaaS. Its **OmniTenant Engine** allows you to isolate permissions and roles within a specific tenant context (Team, School, Organization) without writing custom database scopes.
 
----
+## Enabling Teams
 
-## 🏢 The OmniTenant Philosophy
-
-In a SaaS application, a user might have different roles in different companies.
-*   User is an **Admin** in "Company A".
-*   User is a **Staff** in "Company B".
-
-OmniGuard scopes roles and permissions to a specific `tenant_id` automatically when a tenant context is active.
-
----
-
-## 🛠️ Setting the Tenant Context
-
-Use the `OmniGuard` facade to set the active tenant during your application's bootstrap phase (e.g., in a Middleware or ServiceProvider).
+In `config/omniguard.php`, enable the `teams` flag:
 
 ```php
-use OmniGuard\Facades\OmniGuard;
-
-// Set by ID
-OmniGuard::setTenant($tenantId);
-
-// Or set by Model
-OmniGuard::setTenant($organization);
-```
-
-Once set, all authorization checks will only consider roles and permissions associated with that specific tenant.
-
----
-
-## 🔗 Scoped Roles
-
-When creating roles for a specific organization, ensure the `scope` is set correctly. OmniGuard handles this through the `omni_roles` table.
-
-```php
-use OmniGuard\Models\Role;
-
-// A global role (available everywhere)
-Role::create(['name' => 'super-executive', 'scope' => 'global']);
-
-// A tenant-scoped role
-Role::create(['name' => 'manager', 'tenant_id' => 123, 'scope' => 'tenant']);
+'teams' => true,
+'column_names' => [
+    'team_foreign_key' => 'team_id',
+],
 ```
 
 ---
 
-## 🛡️ Scoped Authorization Logic
+## The Tenant Scope
 
-If you check a permission while a tenant is active, the `TenantManager` ensures:
-1.  **Global Roles** are always included in the check.
-2.  **Tenant Roles** are only included if their `tenant_id` matches the current active `OmniGuard::getTenantId()`.
+When `teams` is enabled, all authorization checks become **Context-Aware**. OmniGuard will automatically filter permissions and roles by the current "Active Tenant ID."
 
-This isolation ensures total security and prevents "cross-tenant leakage" where a role from one company might grant access to another company's data.
+### Setting the Active Tenant
+
+You can set the tenant globally using the `setPermissionsTeamId` helper:
+
+```php
+setPermissionsTeamId($organization->id);
+```
+
+Once set, all calls like `$user->hasPermissionTo('billing.view')` will only look for that permission within the database records associated with that specific `team_id`.
 
 ---
 
-## 🛰️ Next Step: Advanced Security
-Learn about deterministic fail-safes in the **[Security Guide](security.md)**.
+## Global vs. Local Roles
+
+OmniGuard supports **Sovereign Global Roles**. In your database, if a Role has a `null` team_id, it is considered "Global Authority" and is accessible to users across all tenants.
+
+| Role | Team ID | Access Level |
+| :--- | :--- | :--- |
+| `Super Admin` | `null` | All Tenants |
+| `Organization Manager` | `101` | Only Tenant 101 |
+
+---
+
+## Multi-Tenant Middleware
+
+To automate this, OmniGuard suggests a central middleware that identifies the tenant from the URL or session:
+
+```php
+namespace App\Http\Middleware;
+
+use Closure;
+
+class ScopeOmniGuard
+{
+    public function handle($request, Closure $next)
+    {
+        if ($tenant = $request->user()?->active_tenant_id) {
+            setPermissionsTeamId($tenant);
+        }
+
+        return $next($request);
+    }
+}
+```
+
+---
+
+## Next Steps
+
+Learn how OmniGuard achieves industrial performance at scale in **[Performance: JIT Bitmasking](bitmasking.md)**.

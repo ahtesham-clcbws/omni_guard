@@ -1,67 +1,79 @@
 # Role Hierarchy & Ranking
 
-The **HierarchyEngine** is the sovereign core of OmniGuard. Unlike basic permission systems, OmniGuard understands that some roles are inherently more powerful than others.
+OmniGuard moves beyond flat role systems. It implements a **Sovereign Rank Protocol** where roles are assigned a `sort_order` that determines their authority over one another.
+
+## The Authority Rank
+
+In OmniGuard, a **Lower Sort Order = Higher Rank**.
+
+- `Super Admin` (sort_order: 1)
+- `Administrator` (sort_order: 10)
+- `Manager` (sort_order: 50)
+- `User` (sort_order: 100)
+
+When performing authorization checks, OmniGuard evaluates the User's highest-ranking role (via `getTopRole()`) to determine their ultimate authority.
 
 ---
 
-## 🪜 The Ranking System
+## Role Inheritance
 
-Every Role in OmniGuard possesses a `sort_order` attribute. 
-*   **Lower Value = Higher Rank**.
-*   An `Admin` with `sort_order: 1` is more powerful than a `Teacher` with `sort_order: 5`.
+OmniGuard supports recursive role inheritance. A role can inherit all permissions from a child role. 
 
-### Why it Matters
-OmniGuard uses this ranking to automatically prevent lower-ranking users from performing actions on higher-ranking users, even if they share certain permissions.
-
-> [!TIP]
-> This "Vertical Protection" ensures that a Branch Manager cannot delete the CEO, even if both have the `user.delete` permission.
-
----
-
-## 🏗️ Recursive Inheritance
-
-OmniGuard supports **Recursive Dot-Notation Propagation**. This is managed by the `PermissionWalker`.
-
-If you grant a role the `student` permission, OmniGuard automatically assumes the role has access to all child permissions (e.g., `student.view`, `student.delete`).
-
-### Propagation Levels:
-1.  **Direct Match**: Explicitly checking `student.view`.
-2.  **Parent Match**: Granting `student` grants all sub-actions.
-3.  **Recursive Search**: Use `PermissionWalker::walk('student.view')` to find all ancestors.
-
----
-
-## 🛡️ Defining Hierarchy
-
-You can manage hierarchy directly through the `Role` model:
+### Implementation Example:
 
 ```php
-use OmniGuard\Models\Role;
+$manager = Role::findByName('Manager');
+$admin = Role::findByName('Administrator');
 
-// Creating a High-Ranking Admin
-Role::create([
-    'name' => 'super-admin',
-    'sort_order' => 1,
-]);
+// Administrator inherits all permissions currently assigned to Manager
+$admin->givePermissionTo($manager->permissions);
+```
 
-// Creating a Staff User
-Role::create([
-    'name' => 'staff',
-    'sort_order' => 10,
-]);
+While inheritance is useful, OmniGuard encourages the use of **Heuristic Mapping** (see Heuristics) to avoid manual permission assignment.
+
+---
+
+## The Super Admin Fail-Safe
+
+OmniGuard provides an absolute override for SuperAdmins. Users with the highest possible rank (configurable via `OMNIGUARD_SUPER_ADMIN_EMAIL`) always pass `Gate` checks, even if Panic Mode is enabled.
+
+In `App\Models\User.php`:
+
+```php
+public function isSuperAdmin(): bool
+{
+    return $this->email === env('OMNIGUARD_SUPER_ADMIN_EMAIL');
+}
 ```
 
 ---
 
-## 🔍 Authorization Logic
-When a check is performed via `Gate::check()` or `@omniguard()`, the `HierarchyEngine` intercepts the request:
+## Query Scoping
 
-1.  **Panic Check**: Is the system in Panic Mode? If yes, deny all (except SuperAdmin).
-2.  **SuperAdmin Check**: Is the user the absolute administrator? If yes, allow.
-3.  **Target Ranking**: If the action involves a target User, compare `sort_order`. If `UserRank >= TargetRank`, deny.
-4.  **Standard Logic**: Proceed to permission-based checks.
+OmniGuard adds powerful Eloquent scopes to your User model for role-based filtering:
+
+```php
+// Get all Administrators
+$admins = User::role('Administrator')->get();
+
+// Get users WITHOUT the 'Guest' role
+$nonGuests = User::withoutRole('Guest')->get();
+```
 
 ---
 
-## 🛰️ Next Step: The Brain
-See how OmniGuard can automatically detect these permissions in your code using the **[Heuristics Guide](heuristics.md)**.
+## Rank Comparisons
+
+You can easily compare roles in your business logic:
+
+```php
+if ($user->getTopRole()->hasHigherRankThan($anotherRole)) {
+    // Perform high-clearance action
+}
+```
+
+---
+
+## Next Steps
+
+Understand how OmniGuard's brain automatically assigns these roles and permissions in the **[Discovery Brain Guide](heuristics.md)**.

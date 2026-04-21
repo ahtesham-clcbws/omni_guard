@@ -17,6 +17,15 @@ use OmniGuard\Exceptions\RoleDoesNotExist;
 interface Role
 {
     /**
+     * Get the value of the model's primary key.
+     */
+    public function getKey(): mixed;
+
+    /**
+     * Get the primary key for the model.
+     */
+    public function getKeyName(): string;
+    /**
      * A role may be given various permissions.
      */
     public function permissions(): BelongsToMany;

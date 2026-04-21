@@ -1,60 +1,68 @@
-# Advanced Security: Protocols & Guarding
+# Security Protocols
 
-OmniGuard is built for "Mission Critical" resilience. In high-stakes environments, simple authorization is not enough—you need deterministic fail-safes and advanced session control.
+OmniGuard is a mission-critical orchestrator. It provides advanced security protocols designed for high-stakes environments where authorization failure is not an option.
 
----
+## 🔴 Panic Mode Protocol
 
-## 🚨 The Panic Mode Protocol
+Panic Mode is a deterministic fail-safe. When your application enters an unstable state (or manually triggered for maintenance), OmniGuard flips its logic to **Strict Denial**.
 
-Silicon silence is safer than a mistake. If your system detects critical data leakage, a major bug, or an ongoing attack, you can trigger **Panic Mode**.
+### Enabling Panic Mode
 
-### Behavior:
-*   **Strict Denial**: Every authorization check (Gate, Blade, Middleware) will return `false`.
-*   **SuperAdmin Exemption**: Only the absolute administrator defined in `OMNIGUARD_SUPER_ADMIN_EMAIL` can bypass this.
-*   **Fail-Safe**: It prevents "Permission Leakage" where a system failure might accidentally open access.
-
-### Activation:
-Update your `.env` or use the Facade to toggle:
-```env
+In your `.env` file:
+```bash
 OMNIGUARD_PANIC_MODE=true
+```
+
+### The Behavior:
+- **Normal Users**: All `Gate::check()` calls return `false` instantly. No database calls are made. 
+- **Super Admins**: Remain operational. Users defined in `OMNIGUARD_SUPER_ADMIN_EMAIL` retain full access to fix the system.
+
+You can also trigger it programmatically via the Middleware for specific routes:
+
+```php
+Route::middleware('omniguard.panic')->group(function () {
+    // Critical routes protected by the panic protocol
+});
 ```
 
 ---
 
-## 👻 Ghost Mode (Virtual Testing)
+## 👻 Ghost Mode (Virtual Authorization)
 
-Want to test new permissions in production without actually blocking your users? Use **Ghost Mode**.
+Ghost Mode allows you to safely test new roles or permission changes in production without actually denying access to users.
 
-When a Role or Permission is in Ghost Mode:
-1.  OmniGuard performs the check as usual.
-2.  If access would be denied, it **does not** throw an Exception or return `false`.
-3.  Instead, it grants access but logs a **Virtual Denial** in the `omni_audit_log`.
+### The Behavior:
+OmniGuard evaluates the authorization as usual, but instead of denying the request, it logs a **"Virtual Denial"** and allows the user through.
 
-> [!TIP]
-> This allows you to verify your new security architecture against real-world traffic before "Going Live" with strict enforcement.
+```bash
+OMNIGUARD_GHOST_MODE=true
+```
 
----
-
-## 👥 Impersonation Guard
-
-OmniGuard provides built-in support for "Acting As" another user, with a mandatory audit trail for accountability.
-
-When Admin A impersonates User B:
-*   `Auth::user()` returns User B.
-*   The `HierarchyEngine` remains aware that the **Originating User** is Admin A.
-*   All actions performed during impersonation are logged in the `omni_audit_log` as `action_by: Admin A (as User B)`.
+Use this to audit how a new rank hierarchy would impact your users before committing to the changes.
 
 ---
 
-## 📜 Heuristic Audit Log
+## 🎭 ImpersonationGuard (Act As)
 
-Every time a permission or role is attached, detached, or changed, OmniGuard writes to the sovereign audit log. This log is high-density and optimized for shared hosting storage.
+OmniGuard includes a secure high-level impersonation service. This allows an Administrator to "Act As" another user while maintaining a mandatory, immutable audit trail.
 
-*   **Who**: The actor (and original actor if impersonating).
-*   **What**: The permission or role affected.
-*   **Heuristic Metadata**: Why the change happened (Auto-Sync, Manual Override, etc.).
+### Implementation:
+
+```php
+use OmniGuard\Services\ImpersonationGuard;
+
+// Start impersonating student ID 10
+ImpersonationGuard::start($studentId);
+
+// Stop impersonating and return to Admin context
+ImpersonationGuard::stop();
+```
+
+### Audit Trail:
+The `ImpersonationGuard` ensures that every action taken while "Acting As" is tagged with the **Original Admin ID** in the logs, ensuring absolute accountability.
 
 ---
 
-## 🛰️ Next Step: The Usage Manual
-See the full list of Blade directives and API methods in the **[Usage Guide](usage.md)**.
+## Next Steps
+
+Learn the final API surface in the **[Usage Reference](usage.md)**.

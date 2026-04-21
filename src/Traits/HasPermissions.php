@@ -344,8 +344,13 @@ trait HasPermissions
     {
         $permission = $this->filterPermission($permission);
 
-        return $this->loadMissing('permissions')->permissions
-            ->contains($permission->getKeyName(), $permission->getKey());
+        if ($permission instanceof \OmniGuard\Contracts\Permission) {
+            /** @var \OmniGuard\Contracts\Permission $permission */
+            return $this->loadMissing('permissions')->permissions
+                ->contains($permission->getKeyName(), $permission->getKey());
+        }
+
+        return false;
     }
 
     /**
@@ -399,6 +404,7 @@ trait HasPermissions
                     return $array;
                 }
 
+                /** @var \Permission $permission */
                 if (! in_array($permission->getKey(), $array)) {
                     $this->ensureModelSharesGuard($permission);
                     $array[] = $permission->getKey();
@@ -447,7 +453,9 @@ trait HasPermissions
             $this->forgetCachedPermissions();
         }
 
-        if (config('omniguard.events_enabled') ?? true) {
+        /** @var bool $eventsEnabled */
+        $eventsEnabled = config('omniguard.events_enabled') ?? true;
+        if ($eventsEnabled) {
             event(new PermissionAttached($this->getModel(), $permissions));
         }
 
@@ -496,7 +504,9 @@ trait HasPermissions
             $this->forgetCachedPermissions();
         }
 
-        if (config('omniguard.events_enabled') ?? true) {
+        /** @var bool $eventsEnabled */
+        $eventsEnabled = config('omniguard.events_enabled') ?? true;
+        if ($eventsEnabled) {
             event(new PermissionDetached($this->getModel(), $storedPermission));
         }
 

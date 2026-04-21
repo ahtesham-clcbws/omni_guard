@@ -1,72 +1,75 @@
-# The Heuristic Brain
+# The Heuristic Discovery Brain
 
-OmniGuard moves beyond manual permission entry. Its **Multi-Discovery Hub** scans your codebase using heuristic intelligence to automatically map actions and roles.
+OmniGuard is a "Cognitive" orchestrator. Instead of manually entering every permission into a database, OmniGuard uses a **Discovery Brain** to map your codebase structure to authorization state automatically.
 
----
+## #[OmniResource] Attribute
 
-## 🧠 Brain Logic: Synonym Mapping
-
-The `HeuristicMapper` is the unit responsible for "understanding" your code intents. It decomposes method names and applies semantic synonym mapping to determine permissions.
-
-### Common Mappings:
-*   **View**: `get`, `see`, `show`, `index`, `read`, `display`.
-*   **Create**: `add`, `store`, `new`, `post`, `insert`.
-*   **Update**: `edit`, `patch`, `modify`, `save`, `change`.
-*   **Delete**: `remove`, `destroy`, `trash`, `wipe`.
-
-> **Example**: A method named `getStudentDetails()` in a `StudentController` will be automatically mapped to the `student.view` permission slug.
-
----
-
-## 🔍 The Discovery Scanners
-
-OmniGuard uses chunked scanning to discover permissions without impacting memory performance on budget hosting.
-
-### Supported Discovery Hubs:
-1.  **Model Hub**: Detects models implementing `HasOmniGuard`.
-2.  **Controller Hub**: Scans public methods in standard Laravel controllers.
-3.  **Livewire Hub**: Analyzes Livewire components for public methods and synthesis.
-4.  **Attribute Hub**: The most powerful hub, which reads PHP 8 attributes.
-
----
-
-## 🛠️ Decorating with #[OmniResource]
-
-While heuristics are automatic, you can use the `#[OmniResource]` attribute for 100% precise control and UI metadata.
+The primary way to signal the Brain is through the `#[OmniResource]` attribute. You can apply this to Controllers, Livewire Components, or even Model classes.
 
 ```php
-namespace App\Livewire;
-
 use OmniGuard\Attributes\OmniResource;
-use Livewire\Component;
 
-#[OmniResource(group: 'Finance', icon: 'cash')]
-class InvoiceManager extends Component
+#[OmniResource(group: 'Finances', icon: 'currency-dollar')]
+class PayrollController extends Controller
 {
-    public function recordPayment()
-    {
-        // OmniGuard maps this to 'invoice.pay' (heuristic)
-        // Groups it under 'Finance' and adds the 'cash' icon.
-    }
+    // ...
 }
 ```
 
+When you run `php artisan omniguard:sync`, the brain:
+1.  **Scans** your application for these attributes.
+2.  **Analyzes** the public methods (actions) inside the class.
+3.  **Applies Heuristics**: If you have a method `store()`, it automatically maps it to the `finances.create` permission.
+
 ---
 
-## ⚡ Synchronizing the Registry
+## Semantic Synonym Mapping
 
-To run the brain and populate your permission tables, use the sovereign sync command:
+The Brain doesn't just look for exact words. It uses an internal dictionary of **Semantic Synonyms** to map common actions to standardized permissions.
+
+| Method Name | Heuristic Permission |
+| :--- | :--- |
+| `store`, `save`, `create` | `create` |
+| `index`, `show`, `list` | `view` |
+| `update`, `patch`, `edit` | `edit` |
+| `destroy`, `remove`, `delete` | `delete` |
+
+---
+
+## Fuzzy Matching & Groups
+
+The `group` parameter in the `#[OmniResource]` attribute acts as the root namespace for the discovered permissions.
+
+- Resource: `Payroll`
+- Method: `calculate()`
+- **Resulting Permission**: `payroll.calculate`
+
+If the method doesn't strictly match a known synonym, OmniGuard uses **Fuzzy Matching** to identify if it targets a broad permission category or if it requires a new, unique permission record.
+
+---
+
+## Industrial Syncing
+
+The sync engine is designed for **$1 Shared Hosting**. It uses a **Chunked Discovery** protocol to ensure memory usage stays flat, even in a repository with thousands of files.
 
 ```bash
-php artisan omniguard:sync
+php artisan omniguard:sync --chunk=50
 ```
 
-This command scans your designated directories (configured in `omniguard.php`) and reconciles the heuristic map with your database. It handles:
-*   ✨ Adding new permissions found in code.
-*   🗑️ Marking old permissions as "Ghost" mode if they are no longer found.
-*   💾 Caching the results for $O(1)$ performance.
+This command will scan 50 files per pass, serializing the results into a temporary cache before finalizing the authority registry.
 
 ---
 
-## 🛰️ Next Step: JIT Performance
-Learn how OmniGuard achieves industrial-grade speed using the **[Bitmasking Guide](bitmasking.md)**.
+## Manual Overrides
+
+The Heuristic Brain is an assistant, not a dictator. You can manually create permissions in your migrations or via the OmniGuard Facade, and the Brain will automatically **Respect and Protect** them, never overwriting manual data.
+
+```php
+OmniGuard::permission()->findOrCreate('payroll.custom_report');
+```
+
+---
+
+## Next Steps
+
+Learn how to manage this authority at scale in **[Performance: JIT Bitmasking](bitmasking.md)**.

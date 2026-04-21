@@ -30,8 +30,13 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer require "illuminate/support:${{ matrix.laravel }}" --no-interaction --no-update
-          composer update --prefer-dist --no-interaction
+          # Dynamic Dependency Injection for framework compatibility
+          if [[ "${{ matrix.laravel }}" == "11.*" ]]; then TESTBENCH="^9.0"; SUSHI="^2.5"; fi
+          if [[ "${{ matrix.laravel }}" == "12.*" ]]; then TESTBENCH="^10.0"; SUSHI="^2.6"; fi
+          if [[ "${{ matrix.laravel }}" == "13.*" ]]; then TESTBENCH="^11.0"; SUSHI="^3.0"; fi
+          
+          composer require "illuminate/support:${{ matrix.laravel }}" "orchestra/testbench:${TESTBENCH:-^9.0}" "calebporzio/sushi:${SUSHI:-^2.5}" --no-interaction --no-update
+          composer update --prefer-dist --no-interaction --prefer-stable
 
       - name: Execute tests
         run: |

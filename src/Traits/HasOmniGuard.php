@@ -160,6 +160,7 @@ trait HasOmniGuard
 
                 $role = $this->getStoredRole($role);
 
+                /** @var \Illuminate\Database\Eloquent\Model $role */
                 if (! in_array($role->getKey(), $array)) {
                     $this->ensureModelSharesGuard($role);
                     $array[] = $role->getKey();
@@ -210,7 +211,9 @@ trait HasOmniGuard
             $this->forgetCachedPermissions();
         }
 
-        if (config('omniguard.events_enabled') ?? true) {
+        /** @var bool $eventsEnabled */
+        $eventsEnabled = config('omniguard.events_enabled') ?? true;
+        if ($eventsEnabled) {
             event(new RoleAttached($this->getModel(), $roles));
         }
 
@@ -232,7 +235,9 @@ trait HasOmniGuard
             $this->forgetCachedPermissions();
         }
 
-        if (config('omniguard.events_enabled') ?? true) {
+        /** @var bool $eventsEnabled */
+        $eventsEnabled = config('omniguard.events_enabled') ?? true;
+        if ($eventsEnabled) {
             event(new RoleDetached($this->getModel(), $roles));
         }
 
@@ -247,7 +252,9 @@ trait HasOmniGuard
         /** @var \Illuminate\Database\Eloquent\Model $this */
         if ($this->exists) {
             $this->collectRoles($roles);
-            if (config('omniguard.events_enabled') ?? true) {
+            /** @var bool $eventsEnabled */
+            $eventsEnabled = config('omniguard.events_enabled') ?? true;
+            if ($eventsEnabled) {
                 $currentRoles = $this->roles()->get();
                 if ($currentRoles->isNotEmpty()) {
                     $this->removeRole($currentRoles);
@@ -288,7 +295,8 @@ trait HasOmniGuard
         }
 
         if (is_int($roles) || PermissionRegistrar::isUid($roles)) {
-            $key = (new ($this->getRoleClass())())->getKeyName();
+            /** @var \Illuminate\Database\Eloquent\Model $this */
+            $key = $this->getRoleClass()::newInstance()->getKeyName();
 
             return $guard
                 ? $this->roles->where('guard_name', $guard)->contains($key, $roles)
@@ -302,6 +310,7 @@ trait HasOmniGuard
         }
 
         if ($roles instanceof Role) {
+            /** @var \OmniGuard\Contracts\Role $roles */
             return $this->roles->contains($roles->getKeyName(), $roles->getKey());
         }
 
@@ -350,6 +359,7 @@ trait HasOmniGuard
         }
 
         if ($roles instanceof Role) {
+            /** @var \OmniGuard\Contracts\Role $roles */
             return $this->roles->contains($roles->getKeyName(), $roles->getKey());
         }
 
