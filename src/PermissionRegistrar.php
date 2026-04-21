@@ -58,9 +58,9 @@ class PermissionRegistrar
     public function __construct(CacheManager $cacheManager)
     {
         $this->tenantManager = app(TenantManager::class);
-        $this->permissionClass = config('omniguard.models.permission');
-        $this->roleClass = config('omniguard.models.role');
-        $this->teamResolver = new (config('omniguard.team_resolver', \OmniGuard\DefaultTeamResolver::class));
+        $this->permissionClass = config('omniguard.models.permission') ?? '\OmniGuard\Models\Permission';
+        $this->roleClass = config('omniguard.models.role') ?? '\OmniGuard\Models\Role';
+        $this->teamResolver = new (config('omniguard.team_resolver') ?? \OmniGuard\DefaultTeamResolver::class);
 
         $this->cacheManager = $cacheManager;
         $this->initializeCache();
@@ -75,8 +75,8 @@ class PermissionRegistrar
 
         $this->cacheKey = config('omniguard.cache.key');
 
-        $this->pivotRole = config('omniguard.column_names.role_pivot_key') ?: 'role_id';
-        $this->pivotPermission = config('omniguard.column_names.permission_pivot_key') ?: 'permission_id';
+        $this->pivotRole = config('omniguard.column_names.role_pivot_key') ?? 'role_id';
+        $this->pivotPermission = config('omniguard.column_names.permission_pivot_key') ?? 'permission_id';
 
         $this->cache = $this->getCacheStoreFromConfig();
     }

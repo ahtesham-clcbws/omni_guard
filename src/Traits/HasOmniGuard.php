@@ -19,7 +19,7 @@ use OmniGuard\PermissionRegistrar;
  */
 trait HasOmniGuard
 {
-    use \OmniGuard\Traits\HasPermissions;
+    use HasPermissions;
 
     /**
      * Get the highest ranking role for this user.

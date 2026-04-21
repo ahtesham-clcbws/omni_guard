@@ -19,6 +19,9 @@ use OmniGuard\Guard;
 use OmniGuard\PermissionRegistrar;
 use OmniGuard\WildcardPermission;
 
+/**
+ * @mixin \Illuminate\Database\Eloquent\Model
+ */
 trait HasPermissions
 {
     private ?string $permissionClass = null;
