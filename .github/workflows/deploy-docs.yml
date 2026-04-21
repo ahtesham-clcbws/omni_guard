@@ -32,7 +32,7 @@ jobs:
         run: cd docs && npm install
 
       - name: Build with VitePress
-        run: npx vitepress build docs
+        run: cd docs && npm run docs:build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
