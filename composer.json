@@ -2,7 +2,7 @@
     "name": "omniguard/omniguard",
     "description": "The absolute sovereign authorization orchestrator for Laravel. Zero-dependency runtime, heuristic discovery, and JIT binary bitmasking optimized for $1 shared hosting.",
     "type": "library",
-    "license": "MIT",
+    "license": "proprietary",
     "keywords": [
         "laravel",
         "php",
