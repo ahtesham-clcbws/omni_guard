@@ -31,7 +31,6 @@ class OmniGuardServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(__DIR__.'/../config/omniguard.php', 'omniguard');
-        $this->mergeConfigFrom(__DIR__.'/../config/permission.php', 'permission');
 
         $this->app->singleton(\OmniGuard\PermissionRegistrar::class);
         $this->app->singleton(\OmniGuard\Engine\HierarchyEngine::class);
@@ -41,8 +40,8 @@ class OmniGuardServiceProvider extends ServiceProvider
         $this->app->singleton(\OmniGuard\Services\ImpersonationGuard::class);
         $this->app->singleton('omniguard', \OmniGuard\OmniGuardManager::class);
 
-        $this->app->bind(PermissionContract::class, fn ($app) => $app->make($app->config['permission.models.permission']));
-        $this->app->bind(RoleContract::class, fn ($app) => $app->make($app->config['permission.models.role']));
+        $this->app->bind(PermissionContract::class, fn ($app) => $app->make($app->config['omniguard.models.permission']));
+        $this->app->bind(RoleContract::class, fn ($app) => $app->make($app->config['omniguard.models.role']));
 
         $this->callAfterResolving('blade.compiler', fn (BladeCompiler $bladeCompiler) => $this->registerBladeExtensions($bladeCompiler));
     }
@@ -66,12 +65,10 @@ class OmniGuardServiceProvider extends ServiceProvider
         $this->app['router']->aliasMiddleware('omniguard.impersonate', Impersonate::class);
 
         $this->callAfterResolving(Gate::class, function (Gate $gate, Application $app) {
-            if ($this->app['config']->get('permission.register_permission_check_method')) {
-                /** @var PermissionRegistrar $permissionLoader */
-                $permissionLoader = $app->get(PermissionRegistrar::class);
-                $permissionLoader->clearPermissionsCollection();
-                $permissionLoader->registerPermissions($gate);
-            }
+            /** @var PermissionRegistrar $permissionLoader */
+            $permissionLoader = $app->get(PermissionRegistrar::class);
+            $permissionLoader->clearPermissionsCollection();
+            $permissionLoader->registerPermissions($gate);
         });
 
         $this->registerGateInterceptors();
@@ -87,7 +84,6 @@ class OmniGuardServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../config/omniguard.php' => config_path('omniguard.php'),
-            __DIR__.'/../config/permission.php' => config_path('permission.php'),
         ], 'omniguard-config');
 
         $this->publishes([
@@ -111,6 +107,7 @@ class OmniGuardServiceProvider extends ServiceProvider
             Commands\Show::class,
             Commands\UpgradeForTeams::class,
             Commands\AssignRole::class,
+            Commands\AuditIntegrationCommand::class,
         ]);
     }
 
@@ -127,11 +124,9 @@ class OmniGuardServiceProvider extends ServiceProvider
                 $event->sandbox->make(PermissionRegistrar::class)->setPermissionsTeamId(null);
             });
 
-            if ($this->app['config']->get('permission.register_octane_reset_listener')) {
-                $dispatcher->listen(function ($event) {
-                    $event->sandbox->make(PermissionRegistrar::class)->clearPermissionsCollection();
-                });
-            }
+            $dispatcher->listen(function ($event) {
+                $event->sandbox->make(PermissionRegistrar::class)->clearPermissionsCollection();
+            });
         }
     }
 
@@ -209,7 +204,7 @@ class OmniGuardServiceProvider extends ServiceProvider
         $features = [
             'Teams' => 'omniguard.teams',
             'Wildcard' => 'omniguard.enable_wildcard_permission',
-            'Octane' => 'permission.register_octane_reset_listener',
+            'Octane' => 'omniguard.register_octane_reset_listener',
             'Impersonation' => 'omniguard.impersonation.enabled',
         ];
 

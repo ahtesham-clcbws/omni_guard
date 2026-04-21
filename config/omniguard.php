@@ -12,6 +12,16 @@ return [
          * The model that should be used for roles.
          */
         'role' => OmniGuard\Models\Role::class,
+
+        /*
+         * Dynamic Model Integrations (The Models that OmniGuard will protect via bitmasking)
+         */
+        'targets' => [
+            'users' => [
+                'class' => \App\Models\User::class,
+                'bitmask_column' => 'bit_mask',
+            ],
+        ],
     ],
 
     'table_names' => [
