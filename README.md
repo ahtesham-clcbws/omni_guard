@@ -72,8 +72,13 @@ class InvoiceManager extends Component
 
 ---
 
+## 📖 Extended Documentation
+The absolute, "Laravel-grade" manual for OmniGuard is available in the **[docs/](docs/v1/index.md)** directory. It covers everything from basic setup to JIT Bitmasking and SaaS orchestration.
+
+---
+
 ## 💎 Credits
-OmniGuard Sovereign is architected and maintained by **[Ahtesham](https://github.com/ahtesham-clcbws)** and the team at **[Broadway Web Services](https://www.clcbws.com)**.
+OmniGuard Sovereign is architected and maintained by **[Ahtesham](https://github.com/ahtesham-clcbws)** and the team at **[Broadway Web Services](https://www.clcbws.com)**, with a major helping hand from **[Gemini](https://deepmind.google/technologies/gemini/) (AI Architect)**.
 
 ---
 
