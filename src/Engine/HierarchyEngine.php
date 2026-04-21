@@ -22,6 +22,7 @@ class HierarchyEngine
             return null;
         }
 
+        /** @var \OmniGuard\Traits\HasOmniGuard $user */
         $userRole = $user->getTopRole();
         
         if (!$userRole) {
@@ -30,6 +31,7 @@ class HierarchyEngine
 
         // If target is another user/authorizable
         if ($target instanceof Authorizable && method_exists($target, 'getTopRole')) {
+            /** @var \OmniGuard\Traits\HasOmniGuard $target */
             $targetRole = $target->getTopRole();
             
             if ($targetRole && !$userRole->hasHigherRankThan($targetRole)) {
@@ -45,6 +47,7 @@ class HierarchyEngine
     {
         $superAdminEmail = config('omniguard.super_admin.email');
         if ($superAdminEmail && method_exists($user, 'getEmail')) {
+            /** @var \OmniGuard\Traits\HasOmniGuard $user */
             return $user->getEmail() === $superAdminEmail;
         }
 

@@ -26,6 +26,7 @@ class OmniGuardServiceProvider extends ServiceProvider
         $this->app->singleton(HierarchyEngine::class);
         $this->app->singleton(PermissionWalker::class);
         $this->app->singleton(BitmaskRegistrar::class);
+        $this->app->singleton(TenantManager::class);
 
         $this->app->bind(PermissionContract::class, function ($app) {
             return $app->make(config('omniguard.models.permission'));
