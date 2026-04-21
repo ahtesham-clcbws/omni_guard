@@ -1,6 +1,4 @@
-import { defineConfig } from 'vitepress'
-
-export default defineConfig({
+export default {
   title: "OmniGuard",
   description: "A friendly and helpful authorization assistant for Laravel",
   base: '/omni_guard/',
@@ -8,31 +6,30 @@ export default defineConfig({
     logo: '/shield.svg',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Guide', link: '/v1/' },
       { text: 'Broadway Web Services', link: 'https://www.clcbws.com' }
     ],
     sidebar: [
       {
         text: 'Getting Started',
         items: [
-          { text: 'Introduction', link: '/v1/' },
-          { text: 'Installation', link: '/v1/installation' },
+          { text: 'Introduction', link: '/' },
+          { text: 'Installation', link: '/installation' },
         ]
       },
       {
         text: 'Core Concepts',
         items: [
-          { text: 'Hierarchy & Ranking', link: '/v1/hierarchy' },
-          { text: 'The Discovery Helper', link: '/v1/heuristics' },
-          { text: 'Bitmasking Performance', link: '/v1/bitmasking' },
+          { text: 'Hierarchy & Ranking', link: '/hierarchy' },
+          { text: 'The Discovery Helper', link: '/heuristics' },
+          { text: 'Bitmasking Performance', link: '/bitmasking' },
         ]
       },
       {
         text: 'Advanced Orchestration',
         items: [
-          { text: 'SaaS & Multitenancy', link: '/v1/saas-multitenancy' },
-          { text: 'Security & Panic Mode', link: '/v1/security' },
-          { text: 'Usage Reference', link: '/v1/usage' },
+          { text: 'SaaS & Multitenancy', link: '/saas-multitenancy' },
+          { text: 'Security & Panic Mode', link: '/security' },
+          { text: 'Usage Reference', link: '/usage' },
         ]
       }
     ],
@@ -47,4 +44,4 @@ export default defineConfig({
       provider: 'local'
     }
   }
-})
+}

@@ -1,0 +1,1 @@
+import{_ as a,o as i,c as e,ag as n}from"./chunks/framework.uucRfDOW.js";const g=JSON.parse('{"title":"Usage Reference","description":"","frontmatter":{},"headers":[],"relativePath":"usage.md","filePath":"usage.md"}'),t={name:"usage.md"};function l(r,s,h,p,o,d){return i(),e("div",null,[...s[0]||(s[0]=[n("",21)])])}const c=a(t,[["render",l]]);export{g as __pageData,c as default};
