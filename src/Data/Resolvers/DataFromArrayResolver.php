@@ -1,16 +1,16 @@
 <?php
 
-namespace Spatie\LaravelData\Resolvers;
+namespace OmniGuard\Data\Resolvers;
 
 use ArgumentCountError;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\Exceptions\CannotCreateData;
-use Spatie\LaravelData\Exceptions\CannotSetComputedValue;
-use Spatie\LaravelData\Optional;
-use Spatie\LaravelData\Support\DataClass;
-use Spatie\LaravelData\Support\DataConfig;
-use Spatie\LaravelData\Support\DataParameter;
-use Spatie\LaravelData\Support\DataProperty;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\Exceptions\CannotCreateData;
+use OmniGuard\Data\Exceptions\CannotSetComputedValue;
+use OmniGuard\Data\Optional;
+use OmniGuard\Data\Support\DataClass;
+use OmniGuard\Data\Support\DataConfig;
+use OmniGuard\Data\Support\DataParameter;
+use OmniGuard\Data\Support\DataProperty;
 
 /**
  * @template TData of BaseData

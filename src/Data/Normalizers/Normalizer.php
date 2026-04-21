@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\LaravelData\Normalizers;
+namespace OmniGuard\Data\Normalizers;
 
-use Spatie\LaravelData\Normalizers\Normalized\Normalized;
+use OmniGuard\Data\Normalizers\Normalized\Normalized;
 
 interface Normalizer
 {

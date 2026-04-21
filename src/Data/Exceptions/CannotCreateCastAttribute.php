@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelData\Exceptions;
+namespace OmniGuard\Data\Exceptions;
 
 use Exception;
-use Spatie\LaravelData\Casts\Cast;
-use Spatie\LaravelData\Casts\Castable;
+use OmniGuard\Data\Casts\Cast;
+use OmniGuard\Data\Casts\Castable;
 
 class CannotCreateCastAttribute extends Exception
 {

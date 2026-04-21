@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Transformation;
+namespace OmniGuard\Data\Support\Transformation;
 
 use ArrayIterator;
 use IteratorAggregate;
-use Spatie\LaravelData\Transformers\Transformer;
+use OmniGuard\Data\Transformers\Transformer;
 use Traversable;
 
 class GlobalTransformersCollection implements IteratorAggregate

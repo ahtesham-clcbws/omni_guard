@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelData\Support;
+namespace OmniGuard\Data\Support;
 
-use Spatie\LaravelData\Attributes\AutoLazy;
-use Spatie\LaravelData\Casts\Cast;
-use Spatie\LaravelData\Transformers\Transformer;
+use OmniGuard\Data\Attributes\AutoLazy;
+use OmniGuard\Data\Casts\Cast;
+use OmniGuard\Data\Transformers\Transformer;
 
 class DataProperty
 {

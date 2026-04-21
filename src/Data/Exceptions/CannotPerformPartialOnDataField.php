@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\Exceptions;
+namespace OmniGuard\Data\Exceptions;
 
 use ErrorException;
 use Exception;
-use Spatie\LaravelData\Support\DataClass;
-use Spatie\LaravelData\Support\Partials\PartialType;
-use Spatie\LaravelData\Support\Transformation\TransformationContext;
+use OmniGuard\Data\Support\DataClass;
+use OmniGuard\Data\Support\Partials\PartialType;
+use OmniGuard\Data\Support\Transformation\TransformationContext;
 
 class CannotPerformPartialOnDataField extends Exception
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Transformation;
+namespace OmniGuard\Data\Support\Transformation;
 
-use Spatie\LaravelData\Contracts\IncludeableData;
-use Spatie\LaravelData\Support\DataContainer;
-use Spatie\LaravelData\Support\Partials\PartialsCollection;
-use Spatie\LaravelData\Support\Wrapping\Wrap;
+use OmniGuard\Data\Contracts\IncludeableData;
+use OmniGuard\Data\Support\DataContainer;
+use OmniGuard\Data\Support\Partials\PartialsCollection;
+use OmniGuard\Data\Support\Wrapping\Wrap;
 
 class DataContext
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes;
+namespace OmniGuard\Data\Attributes;
 
 use Attribute;
 use Illuminate\Support\Facades\Auth;
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\Skipped;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\Skipped;
 
 #[Attribute(Attribute::TARGET_PROPERTY)]
 class FromAuthenticatedUser implements InjectsPropertyValue

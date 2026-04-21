@@ -1,20 +1,20 @@
 <?php
 
-namespace Spatie\LaravelData\DataPipes;
+namespace OmniGuard\Data\DataPipes;
 
 use Illuminate\Support\Enumerable;
-use Spatie\LaravelData\Casts\BuiltinTypeCast;
-use Spatie\LaravelData\Casts\IterableItemCast;
-use Spatie\LaravelData\Casts\Uncastable;
-use Spatie\LaravelData\Enums\DataTypeKind;
-use Spatie\LaravelData\Exceptions\CannotCreateData;
-use Spatie\LaravelData\Lazy;
-use Spatie\LaravelData\Optional;
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\DataClass;
-use Spatie\LaravelData\Support\DataConfig;
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\Types\CombinationType;
+use OmniGuard\Data\Casts\BuiltinTypeCast;
+use OmniGuard\Data\Casts\IterableItemCast;
+use OmniGuard\Data\Casts\Uncastable;
+use OmniGuard\Data\Enums\DataTypeKind;
+use OmniGuard\Data\Exceptions\CannotCreateData;
+use OmniGuard\Data\Lazy;
+use OmniGuard\Data\Optional;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\DataClass;
+use OmniGuard\Data\Support\DataConfig;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\Types\CombinationType;
 
 class CastPropertiesDataPipe implements DataPipe
 {

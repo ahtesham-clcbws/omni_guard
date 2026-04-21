@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Validation\Constraints;
+namespace OmniGuard\Data\Support\Validation\Constraints;
 
 use BackedEnum;
 use Illuminate\Contracts\Support\Arrayable;
-use Spatie\LaravelData\Support\Validation\References\ExternalReference;
+use OmniGuard\Data\Support\Validation\References\ExternalReference;
 
 class WhereInConstraint extends DatabaseConstraint
 {

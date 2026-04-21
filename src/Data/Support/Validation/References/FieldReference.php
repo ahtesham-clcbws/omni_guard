@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Validation\References;
+namespace OmniGuard\Data\Support\Validation\References;
 
-use Spatie\LaravelData\Support\Validation\ValidationPath;
+use OmniGuard\Data\Support\Validation\ValidationPath;
 
 class FieldReference
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Support\TypeScriptTransformer;
+namespace OmniGuard\Data\Support\TypeScriptTransformer;
 
 use Exception;
 use phpDocumentor\Reflection\Type;
@@ -9,9 +9,9 @@ use phpDocumentor\Reflection\Types\Object_;
 use ReflectionMethod;
 use ReflectionParameter;
 use ReflectionProperty;
-use Spatie\LaravelData\Optional;
-use Spatie\TypeScriptTransformer\Structures\MissingSymbolsCollection;
-use Spatie\TypeScriptTransformer\TypeProcessors\TypeProcessor;
+use OmniGuard\Data\Optional;
+use OmniGuard\TypeScript\Structures\MissingSymbolsCollection;
+use OmniGuard\TypeScript\TypeProcessors\TypeProcessor;
 
 class RemoveOptionalTypeProcessor implements TypeProcessor
 {

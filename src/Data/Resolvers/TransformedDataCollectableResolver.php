@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Resolvers;
+namespace OmniGuard\Data\Resolvers;
 
 use Closure;
 use Exception;
@@ -9,19 +9,19 @@ use Illuminate\Pagination\CursorPaginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Enumerable;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\Contracts\ContextableData as ContextableDataContract;
-use Spatie\LaravelData\Contracts\TransformableData;
-use Spatie\LaravelData\Contracts\WrappableData;
-use Spatie\LaravelData\CursorPaginatedDataCollection;
-use Spatie\LaravelData\DataCollection;
-use Spatie\LaravelData\PaginatedDataCollection;
-use Spatie\LaravelData\Resolvers\Concerns\ChecksTransformationDepth;
-use Spatie\LaravelData\Support\DataConfig;
-use Spatie\LaravelData\Support\Transformation\TransformationContext;
-use Spatie\LaravelData\Support\Wrapping\Wrap;
-use Spatie\LaravelData\Support\Wrapping\WrapExecutionType;
-use Spatie\LaravelData\Support\Wrapping\WrapType;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\Contracts\ContextableData as ContextableDataContract;
+use OmniGuard\Data\Contracts\TransformableData;
+use OmniGuard\Data\Contracts\WrappableData;
+use OmniGuard\Data\CursorPaginatedDataCollection;
+use OmniGuard\Data\DataCollection;
+use OmniGuard\Data\PaginatedDataCollection;
+use OmniGuard\Data\Resolvers\Concerns\ChecksTransformationDepth;
+use OmniGuard\Data\Support\DataConfig;
+use OmniGuard\Data\Support\Transformation\TransformationContext;
+use OmniGuard\Data\Support\Wrapping\Wrap;
+use OmniGuard\Data\Support\Wrapping\WrapExecutionType;
+use OmniGuard\Data\Support\Wrapping\WrapType;
 
 class TransformedDataCollectableResolver
 {

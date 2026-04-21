@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Enums;
+namespace OmniGuard\Data\Enums;
 
 enum CustomCreationMethodType: string
 {

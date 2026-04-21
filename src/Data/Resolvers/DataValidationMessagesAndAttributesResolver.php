@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\Resolvers;
+namespace OmniGuard\Data\Resolvers;
 
 use Illuminate\Support\Arr;
-use Spatie\LaravelData\Support\DataClass;
-use Spatie\LaravelData\Support\DataConfig;
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\Validation\ValidationPath;
+use OmniGuard\Data\Support\DataClass;
+use OmniGuard\Data\Support\DataConfig;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\Validation\ValidationPath;
 
 class DataValidationMessagesAndAttributesResolver
 {

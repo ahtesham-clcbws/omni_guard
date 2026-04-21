@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelData\DataPipes;
+namespace OmniGuard\Data\DataPipes;
 
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\DataClass;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\DataClass;
 
 class AuthorizedDataPipe implements DataPipe
 {

@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\LaravelData\Concerns;
+namespace OmniGuard\Data\Concerns;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Validation\Validator;
-use Spatie\LaravelData\Resolvers\DataValidationRulesResolver;
-use Spatie\LaravelData\Support\DataContainer;
-use Spatie\LaravelData\Support\Validation\DataRules;
-use Spatie\LaravelData\Support\Validation\ValidationContext;
-use Spatie\LaravelData\Support\Validation\ValidationPath;
+use OmniGuard\Data\Resolvers\DataValidationRulesResolver;
+use OmniGuard\Data\Support\DataContainer;
+use OmniGuard\Data\Support\Validation\DataRules;
+use OmniGuard\Data\Support\Validation\ValidationContext;
+use OmniGuard\Data\Support\Validation\ValidationPath;
 
 /**
  * @method static array rules(?ValidationContext $context = null)

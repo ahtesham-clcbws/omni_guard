@@ -1,16 +1,16 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Livewire;
+namespace OmniGuard\Data\Support\Livewire;
 
 use Livewire\Mechanisms\HandleComponents\ComponentContext;
 use Livewire\Mechanisms\HandleComponents\Synthesizers\Synth;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\Contracts\ContextableData;
-use Spatie\LaravelData\Contracts\TransformableData;
-use Spatie\LaravelData\Support\Creation\CreationContextFactory;
-use Spatie\LaravelData\Support\DataConfig;
-use Spatie\LaravelData\Support\Lazy\LivewireLostLazy;
-use Spatie\LaravelData\Support\Transformation\TransformationContextFactory;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\Contracts\ContextableData;
+use OmniGuard\Data\Contracts\TransformableData;
+use OmniGuard\Data\Support\Creation\CreationContextFactory;
+use OmniGuard\Data\Support\DataConfig;
+use OmniGuard\Data\Support\Lazy\LivewireLostLazy;
+use OmniGuard\Data\Support\Transformation\TransformationContextFactory;
 
 class LivewireDataSynth extends Synth
 {

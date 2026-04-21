@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\LaravelData\Concerns;
+namespace OmniGuard\Data\Concerns;
 
-use Spatie\LaravelData\DataCollection;
+use OmniGuard\Data\DataCollection;
 
 /**
  * @template TKey of array-key

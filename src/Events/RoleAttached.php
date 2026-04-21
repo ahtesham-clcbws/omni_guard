@@ -18,7 +18,7 @@ class RoleAttached
     use SerializesModels;
 
     /**
-     * Internally the HasRoles trait passes an array of role ids (eg: int's or uuid's)
+     * Internally the HasOmniGuard trait passes an array of role ids (eg: int's or uuid's)
      * Theoretically one could register the event to other places passing other types
      * So a Listener should inspect the type of $rolesOrIds received before using.
      *

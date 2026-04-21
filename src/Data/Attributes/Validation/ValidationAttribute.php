@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes\Validation;
+namespace OmniGuard\Data\Attributes\Validation;
 
 use Carbon\Carbon;
-use Spatie\LaravelData\Support\Validation\References\ExternalReference;
-use Spatie\LaravelData\Support\Validation\References\FieldReference;
-use Spatie\LaravelData\Support\Validation\RuleDenormalizer;
-use Spatie\LaravelData\Support\Validation\ValidationPath;
-use Spatie\LaravelData\Support\Validation\ValidationRule;
+use OmniGuard\Data\Support\Validation\References\ExternalReference;
+use OmniGuard\Data\Support\Validation\References\FieldReference;
+use OmniGuard\Data\Support\Validation\RuleDenormalizer;
+use OmniGuard\Data\Support\Validation\ValidationPath;
+use OmniGuard\Data\Support\Validation\ValidationRule;
 use Stringable;
 
 abstract class ValidationAttribute extends ValidationRule implements Stringable

@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelData\Exceptions;
+namespace OmniGuard\Data\Exceptions;
 
 use Exception;
-use Spatie\LaravelData\Support\DataProperty;
+use OmniGuard\Data\Support\DataProperty;
 
 class CannotSetComputedValue extends Exception
 {

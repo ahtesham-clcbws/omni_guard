@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelData\Normalizers;
+namespace OmniGuard\Data\Normalizers;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\LaravelData\Normalizers\Normalized\Normalized;
-use Spatie\LaravelData\Normalizers\Normalized\NormalizedModel;
+use OmniGuard\Data\Normalizers\Normalized\Normalized;
+use OmniGuard\Data\Normalizers\Normalized\NormalizedModel;
 
 class ModelNormalizer implements Normalizer
 {

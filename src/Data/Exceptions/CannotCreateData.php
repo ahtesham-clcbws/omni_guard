@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelData\Exceptions;
+namespace OmniGuard\Data\Exceptions;
 
 use Exception;
-use Spatie\LaravelData\Support\DataClass;
-use Spatie\LaravelData\Support\DataParameter;
-use Spatie\LaravelData\Support\DataProperty;
+use OmniGuard\Data\Support\DataClass;
+use OmniGuard\Data\Support\DataParameter;
+use OmniGuard\Data\Support\DataProperty;
 use Throwable;
 
 class CannotCreateData extends Exception

@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Creation;
+namespace OmniGuard\Data\Support\Creation;
 
 use ArrayIterator;
 use Generator;
 use IteratorAggregate;
-use Spatie\LaravelData\Casts\Cast;
-use Spatie\LaravelData\Casts\IterableItemCast;
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\Types\Storage\AcceptedTypesStorage;
+use OmniGuard\Data\Casts\Cast;
+use OmniGuard\Data\Casts\IterableItemCast;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\Types\Storage\AcceptedTypesStorage;
 use Traversable;
 
 class GlobalCastsCollection implements IteratorAggregate

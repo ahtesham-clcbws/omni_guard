@@ -1,15 +1,15 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Factories;
+namespace OmniGuard\Data\Support\Factories;
 
 use Attribute;
 use ReflectionAttribute;
 use ReflectionClass;
 use ReflectionProperty;
-use Spatie\LaravelData\Dto;
-use Spatie\LaravelData\Resource;
-use Spatie\LaravelData\Support\DataAttributesCollection;
-use Spatie\LaravelData\Support\DataClass;
+use OmniGuard\Data\Dto;
+use OmniGuard\Data\Resource;
+use OmniGuard\Data\Support\DataAttributesCollection;
+use OmniGuard\Data\Support\DataClass;
 
 class DataAttributesCollectionFactory
 {

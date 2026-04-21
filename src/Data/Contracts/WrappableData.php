@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\LaravelData\Contracts;
+namespace OmniGuard\Data\Contracts;
 
-use Spatie\LaravelData\Support\Wrapping\Wrap;
+use OmniGuard\Data\Support\Wrapping\Wrap;
 
 interface WrappableData
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelData\Exceptions;
+namespace OmniGuard\Data\Exceptions;
 
 use Exception;
 use Illuminate\Support\Str;
-use Spatie\LaravelData\Attributes\InjectsPropertyValue;
-use Spatie\LaravelData\Support\DataProperty;
+use OmniGuard\Data\Attributes\InjectsPropertyValue;
+use OmniGuard\Data\Support\DataProperty;
 
 class CannotFillFromRouteParameterPropertyUsingScalarValue extends Exception
 {

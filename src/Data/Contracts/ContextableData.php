@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\LaravelData\Contracts;
+namespace OmniGuard\Data\Contracts;
 
-use Spatie\LaravelData\Support\Transformation\DataContext;
+use OmniGuard\Data\Support\Transformation\DataContext;
 
 interface ContextableData
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Lazy;
+namespace OmniGuard\Data\Support\Lazy;
 
 use Closure;
 use Laravel\SerializableClosure\SerializableClosure;
-use Spatie\LaravelData\Lazy;
+use OmniGuard\Data\Lazy;
 
 class DefaultLazy extends Lazy
 {

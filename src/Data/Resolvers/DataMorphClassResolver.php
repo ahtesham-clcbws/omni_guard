@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\Resolvers;
+namespace OmniGuard\Data\Resolvers;
 
 use BackedEnum;
-use Spatie\LaravelData\Contracts\PropertyMorphableData;
-use Spatie\LaravelData\Support\DataClass;
-use Spatie\LaravelData\Support\DataConfig;
-use Spatie\LaravelData\Support\DataProperty;
+use OmniGuard\Data\Contracts\PropertyMorphableData;
+use OmniGuard\Data\Support\DataClass;
+use OmniGuard\Data\Support\DataConfig;
+use OmniGuard\Data\Support\DataProperty;
 use UnitEnum;
 
 class DataMorphClassResolver

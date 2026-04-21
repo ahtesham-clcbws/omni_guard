@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelData\Support;
+namespace OmniGuard\Data\Support;
 
 use Illuminate\Support\Collection;
-use Spatie\LaravelData\Enums\CustomCreationMethodType;
+use OmniGuard\Data\Enums\CustomCreationMethodType;
 
 /**
  * @property Collection<DataParameter|DataProperty> $parameters

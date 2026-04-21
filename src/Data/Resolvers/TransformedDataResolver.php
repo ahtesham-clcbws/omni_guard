@@ -1,23 +1,23 @@
 <?php
 
-namespace Spatie\LaravelData\Resolvers;
+namespace OmniGuard\Data\Resolvers;
 
 use Illuminate\Support\Arr;
-use Spatie\LaravelData\Contracts\AppendableData;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\Contracts\TransformableData;
-use Spatie\LaravelData\Contracts\WrappableData;
-use Spatie\LaravelData\Lazy;
-use Spatie\LaravelData\Optional;
-use Spatie\LaravelData\Resolvers\Concerns\ChecksTransformationDepth;
-use Spatie\LaravelData\Support\DataClass;
-use Spatie\LaravelData\Support\DataConfig;
-use Spatie\LaravelData\Support\DataContainer;
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\Transformation\TransformationContext;
-use Spatie\LaravelData\Support\Wrapping\WrapExecutionType;
-use Spatie\LaravelData\Transformers\ArrayableTransformer;
-use Spatie\LaravelData\Transformers\Transformer;
+use OmniGuard\Data\Contracts\AppendableData;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\Contracts\TransformableData;
+use OmniGuard\Data\Contracts\WrappableData;
+use OmniGuard\Data\Lazy;
+use OmniGuard\Data\Optional;
+use OmniGuard\Data\Resolvers\Concerns\ChecksTransformationDepth;
+use OmniGuard\Data\Support\DataClass;
+use OmniGuard\Data\Support\DataConfig;
+use OmniGuard\Data\Support\DataContainer;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\Transformation\TransformationContext;
+use OmniGuard\Data\Support\Wrapping\WrapExecutionType;
+use OmniGuard\Data\Transformers\ArrayableTransformer;
+use OmniGuard\Data\Transformers\Transformer;
 
 class TransformedDataResolver
 {

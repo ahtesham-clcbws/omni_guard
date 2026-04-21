@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\LaravelData\Concerns;
+namespace OmniGuard\Data\Concerns;
 
-use Spatie\LaravelData\Contracts\IncludeableData as IncludeableDataContract;
-use Spatie\LaravelData\Contracts\WrappableData as WrappableDataContract;
-use Spatie\LaravelData\Support\Partials\Partial;
-use Spatie\LaravelData\Support\Partials\PartialsCollection;
-use Spatie\LaravelData\Support\Transformation\DataContext;
-use Spatie\LaravelData\Support\Wrapping\Wrap;
-use Spatie\LaravelData\Support\Wrapping\WrapType;
+use OmniGuard\Data\Contracts\IncludeableData as IncludeableDataContract;
+use OmniGuard\Data\Contracts\WrappableData as WrappableDataContract;
+use OmniGuard\Data\Support\Partials\Partial;
+use OmniGuard\Data\Support\Partials\PartialsCollection;
+use OmniGuard\Data\Support\Transformation\DataContext;
+use OmniGuard\Data\Support\Wrapping\Wrap;
+use OmniGuard\Data\Support\Wrapping\WrapType;
 
 trait ContextableData
 {

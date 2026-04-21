@@ -1,15 +1,15 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes\Validation;
+namespace OmniGuard\Data\Attributes\Validation;
 
 use Attribute;
 use Closure;
 use Exception;
 use Illuminate\Validation\Rules\Unique as BaseUnique;
-use Spatie\LaravelData\Attributes\Concerns\AppliesDatabaseConstraints;
-use Spatie\LaravelData\Support\Validation\Constraints\DatabaseConstraint;
-use Spatie\LaravelData\Support\Validation\References\ExternalReference;
-use Spatie\LaravelData\Support\Validation\ValidationPath;
+use OmniGuard\Data\Attributes\Concerns\AppliesDatabaseConstraints;
+use OmniGuard\Data\Support\Validation\Constraints\DatabaseConstraint;
+use OmniGuard\Data\Support\Validation\References\ExternalReference;
+use OmniGuard\Data\Support\Validation\ValidationPath;
 
 #[Attribute(Attribute::TARGET_PROPERTY | Attribute::TARGET_PARAMETER)]
 class Unique extends ObjectValidationAttribute

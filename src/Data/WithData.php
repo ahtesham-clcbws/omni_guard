@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelData;
+namespace OmniGuard\Data;
 
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\Exceptions\InvalidDataClass;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\Exceptions\InvalidDataClass;
 
 /**
  * @template T

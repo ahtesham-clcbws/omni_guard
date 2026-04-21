@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Partials;
+namespace OmniGuard\Data\Support\Partials;
 
 use SplObjectStorage;
 use Stringable;

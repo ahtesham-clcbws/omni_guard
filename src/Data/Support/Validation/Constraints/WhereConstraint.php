@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Validation\Constraints;
+namespace OmniGuard\Data\Support\Validation\Constraints;
 
 use Closure;
-use Spatie\LaravelData\Support\Validation\References\ExternalReference;
+use OmniGuard\Data\Support\Validation\References\ExternalReference;
 
 class WhereConstraint extends DatabaseConstraint
 {

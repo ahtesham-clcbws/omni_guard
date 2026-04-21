@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes;
+namespace OmniGuard\Data\Attributes;
 
 use Attribute;
 use Closure;
-use Spatie\LaravelData\Lazy;
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\Lazy\ClosureLazy;
+use OmniGuard\Data\Lazy;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\Lazy\ClosureLazy;
 
 #[Attribute(Attribute::TARGET_CLASS | Attribute::TARGET_PROPERTY)]
 class AutoClosureLazy extends AutoLazy

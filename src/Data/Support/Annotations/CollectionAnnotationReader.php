@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Annotations;
+namespace OmniGuard\Data\Support\Annotations;
 
 use Iterator;
 use IteratorAggregate;
@@ -8,8 +8,8 @@ use phpDocumentor\Reflection\DocBlockFactory;
 use phpDocumentor\Reflection\TypeResolver;
 use phpDocumentor\Reflection\Types\Context;
 use ReflectionClass;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\Resolvers\ContextResolver;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\Resolvers\ContextResolver;
 
 class CollectionAnnotationReader
 {

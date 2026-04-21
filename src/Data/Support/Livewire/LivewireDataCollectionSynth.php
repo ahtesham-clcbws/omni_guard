@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Livewire;
+namespace OmniGuard\Data\Support\Livewire;
 
 use Livewire\Mechanisms\HandleComponents\ComponentContext;
 use Livewire\Mechanisms\HandleComponents\Synthesizers\Synth;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\DataCollection;
-use Spatie\LaravelData\Support\DataConfig;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\DataCollection;
+use OmniGuard\Data\Support\DataConfig;
 
 class LivewireDataCollectionSynth extends Synth
 {

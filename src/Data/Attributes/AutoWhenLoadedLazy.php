@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes;
+namespace OmniGuard\Data\Attributes;
 
 use Attribute;
 use Closure;
-use Spatie\LaravelData\Lazy;
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\Lazy\ConditionalLazy;
+use OmniGuard\Data\Lazy;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\Lazy\ConditionalLazy;
 
 #[Attribute(Attribute::TARGET_PROPERTY)]
 class AutoWhenLoadedLazy extends AutoLazy

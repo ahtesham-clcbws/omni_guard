@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes\Validation;
+namespace OmniGuard\Data\Attributes\Validation;
 
-use Spatie\LaravelData\Support\Validation\ValidationPath;
+use OmniGuard\Data\Support\Validation\ValidationPath;
 
 abstract class ObjectValidationAttribute extends ValidationAttribute
 {

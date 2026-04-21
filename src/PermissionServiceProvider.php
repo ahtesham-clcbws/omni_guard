@@ -130,7 +130,7 @@ class PermissionServiceProvider extends ServiceProvider
 
     protected function registerBladeExtensions(BladeCompiler $bladeCompiler): void
     {
-        $bladeMethodWrapper = '\\Spatie\\Permission\\PermissionServiceProvider::bladeMethodWrapper';
+        $bladeMethodWrapper = '\\OmniGuard\\Permission\\PermissionServiceProvider::bladeMethodWrapper';
 
         // permission checks
         $bladeCompiler->if('haspermission', fn () => $bladeMethodWrapper('checkPermissionTo', ...func_get_args()));
@@ -206,7 +206,7 @@ class PermissionServiceProvider extends ServiceProvider
 
         $config = $this->app['config'];
 
-        AboutCommand::add('Spatie Permissions', static fn () => [
+        AboutCommand::add('OmniGuard Sovereign', static fn () => [
             'Features Enabled' => collect($features)
                 ->filter(fn (string $feature, string $name): bool => $config->get("permission.{$feature}"))
                 ->keys()

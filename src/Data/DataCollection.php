@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData;
+namespace OmniGuard\Data;
 
 use ArrayAccess;
 use Countable;
@@ -9,23 +9,23 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Traits\Macroable;
 use IteratorAggregate;
-use Spatie\LaravelData\Concerns\BaseDataCollectable;
-use Spatie\LaravelData\Concerns\ContextableData;
-use Spatie\LaravelData\Concerns\EnumerableMethods;
-use Spatie\LaravelData\Concerns\IncludeableData;
-use Spatie\LaravelData\Concerns\ResponsableData;
-use Spatie\LaravelData\Concerns\TransformableData;
-use Spatie\LaravelData\Concerns\WrappableData;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\Contracts\BaseDataCollectable as BaseDataCollectableContract;
-use Spatie\LaravelData\Contracts\ContextableData as ContextableDataContract;
-use Spatie\LaravelData\Contracts\IncludeableData as IncludeableDataContract;
-use Spatie\LaravelData\Contracts\ResponsableData as ResponsableDataContract;
-use Spatie\LaravelData\Contracts\TransformableData as TransformableDataContract;
-use Spatie\LaravelData\Contracts\WrappableData as WrappableDataContract;
-use Spatie\LaravelData\Exceptions\CannotCastData;
-use Spatie\LaravelData\Exceptions\InvalidDataCollectionOperation;
-use Spatie\LaravelData\Support\EloquentCasts\DataCollectionEloquentCast;
+use OmniGuard\Data\Concerns\BaseDataCollectable;
+use OmniGuard\Data\Concerns\ContextableData;
+use OmniGuard\Data\Concerns\EnumerableMethods;
+use OmniGuard\Data\Concerns\IncludeableData;
+use OmniGuard\Data\Concerns\ResponsableData;
+use OmniGuard\Data\Concerns\TransformableData;
+use OmniGuard\Data\Concerns\WrappableData;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\Contracts\BaseDataCollectable as BaseDataCollectableContract;
+use OmniGuard\Data\Contracts\ContextableData as ContextableDataContract;
+use OmniGuard\Data\Contracts\IncludeableData as IncludeableDataContract;
+use OmniGuard\Data\Contracts\ResponsableData as ResponsableDataContract;
+use OmniGuard\Data\Contracts\TransformableData as TransformableDataContract;
+use OmniGuard\Data\Contracts\WrappableData as WrappableDataContract;
+use OmniGuard\Data\Exceptions\CannotCastData;
+use OmniGuard\Data\Exceptions\InvalidDataCollectionOperation;
+use OmniGuard\Data\Support\EloquentCasts\DataCollectionEloquentCast;
 
 /**
  * @template TKey of array-key
@@ -36,7 +36,7 @@ use Spatie\LaravelData\Support\EloquentCasts\DataCollectionEloquentCast;
  */
 class DataCollection implements Responsable, BaseDataCollectableContract, TransformableDataContract, ResponsableDataContract, IncludeableDataContract, WrappableDataContract, ContextableDataContract, IteratorAggregate, Countable, ArrayAccess
 {
-    /** @use \Spatie\LaravelData\Concerns\BaseDataCollectable<TKey, TValue> */
+    /** @use \OmniGuard\Data\Concerns\BaseDataCollectable<TKey, TValue> */
     use BaseDataCollectable;
     use ResponsableData;
     use IncludeableData;
@@ -46,7 +46,7 @@ class DataCollection implements Responsable, BaseDataCollectableContract, Transf
 
     use Macroable;
 
-    /** @use \Spatie\LaravelData\Concerns\EnumerableMethods<TKey, TValue> */
+    /** @use \OmniGuard\Data\Concerns\EnumerableMethods<TKey, TValue> */
     use EnumerableMethods;
 
     /** @var Enumerable<TKey, TValue> */

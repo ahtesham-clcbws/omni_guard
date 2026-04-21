@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelData\Transformers;
+namespace OmniGuard\Data\Transformers;
 
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\Transformation\TransformationContext;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\Transformation\TransformationContext;
 
 interface Transformer
 {

@@ -20,7 +20,14 @@
     ],
     "authors": [
         {
-            "name": "OmniGuard Core Team"
+            "name": "Ahtesham",
+            "homepage": "https://github.com/ahtesham-clcbws",
+            "role": "Lead Architect"
+        },
+        {
+            "name": "Broadway Web Services",
+            "homepage": "https://www.clcbws.com",
+            "role": "Company"
         }
     ],
     "require": {

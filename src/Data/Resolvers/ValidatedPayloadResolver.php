@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelData\Resolvers;
+namespace OmniGuard\Data\Resolvers;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Validation\ValidationException;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\Contracts\ValidateableData;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\Contracts\ValidateableData;
 
 class ValidatedPayloadResolver
 {

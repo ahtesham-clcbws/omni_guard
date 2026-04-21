@@ -42,10 +42,15 @@ interface Role
      */
     public static function findOrCreate(string $name, ?string $guardName): self;
 
-    /**
+     /**
      * Determine if the user may perform the given permission.
      *
      * @param  string|int|Permission|\BackedEnum  $permission
      */
     public function hasPermissionTo($permission, ?string $guardName): bool;
+
+    /**
+     * Determine if this role has a higher rank (lower sort_order) than another role.
+     */
+    public function hasHigherRankThan(Role $role): bool;
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Support;
+namespace OmniGuard\Data\Support;
 
 use Illuminate\Support\Collection;
 
@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
  * @property  class-string $name
  * @property  Collection<string, DataProperty> $properties
  * @property  Collection<string, DataMethod> $methods
- * @property  array<string, \Spatie\LaravelData\Support\Annotations\DataIterableAnnotation> $dataCollectablePropertyAnnotations
+ * @property  array<string, \OmniGuard\Data\Support\Annotations\DataIterableAnnotation> $dataCollectablePropertyAnnotations
  */
 class DataClass
 {

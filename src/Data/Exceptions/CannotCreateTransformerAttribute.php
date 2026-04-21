@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelData\Exceptions;
+namespace OmniGuard\Data\Exceptions;
 
 use Exception;
-use Spatie\LaravelData\Transformers\Transformer;
+use OmniGuard\Data\Transformers\Transformer;
 
 class CannotCreateTransformerAttribute extends Exception
 {

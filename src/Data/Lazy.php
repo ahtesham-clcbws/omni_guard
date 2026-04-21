@@ -1,16 +1,16 @@
 <?php
 
-namespace Spatie\LaravelData;
+namespace OmniGuard\Data;
 
 use Closure;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Traits\Macroable;
-use Spatie\LaravelData\Support\Lazy\ClosureLazy;
-use Spatie\LaravelData\Support\Lazy\ConditionalLazy;
-use Spatie\LaravelData\Support\Lazy\DefaultLazy;
-use Spatie\LaravelData\Support\Lazy\InertiaDeferred;
-use Spatie\LaravelData\Support\Lazy\InertiaLazy;
-use Spatie\LaravelData\Support\Lazy\RelationalLazy;
+use OmniGuard\Data\Support\Lazy\ClosureLazy;
+use OmniGuard\Data\Support\Lazy\ConditionalLazy;
+use OmniGuard\Data\Support\Lazy\DefaultLazy;
+use OmniGuard\Data\Support\Lazy\InertiaDeferred;
+use OmniGuard\Data\Support\Lazy\InertiaLazy;
+use OmniGuard\Data\Support\Lazy\RelationalLazy;
 
 abstract class Lazy
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes;
+namespace OmniGuard\Data\Attributes;
 
 use Attribute;
-use Spatie\LaravelData\Attributes\Concerns\ResolvesPropertyForInjectedValue;
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\DataProperty;
+use OmniGuard\Data\Attributes\Concerns\ResolvesPropertyForInjectedValue;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\DataProperty;
 
 #[Attribute(Attribute::TARGET_PROPERTY)]
 class FromContainerProperty extends FromContainer

@@ -10,6 +10,7 @@ use OmniGuard\Contracts\Role as RoleContract;
 use OmniGuard\Engine\HierarchyEngine;
 use OmniGuard\Engine\PermissionWalker;
 use OmniGuard\Engine\BitmaskRegistrar;
+use OmniGuard\Engine\TenantManager;
 
 class OmniGuardServiceProvider extends ServiceProvider
 {
@@ -22,11 +23,12 @@ class OmniGuardServiceProvider extends ServiceProvider
             __DIR__.'/../config/omniguard.php', 'omniguard'
         );
 
-        $this->app->singleton(PermissionRegistrar::class);
-        $this->app->singleton(HierarchyEngine::class);
-        $this->app->singleton(PermissionWalker::class);
-        $this->app->singleton(BitmaskRegistrar::class);
-        $this->app->singleton(TenantManager::class);
+        $this->app->singleton(\OmniGuard\PermissionRegistrar::class);
+        $this->app->singleton(\OmniGuard\Engine\HierarchyEngine::class);
+        $this->app->singleton(\OmniGuard\Engine\PermissionWalker::class);
+        $this->app->singleton(\OmniGuard\Engine\BitmaskRegistrar::class);
+        $this->app->singleton(\OmniGuard\Engine\TenantManager::class);
+        $this->app->singleton('omniguard', \OmniGuard\OmniGuardManager::class);
 
         $this->app->bind(PermissionContract::class, function ($app) {
             return $app->make(config('omniguard.models.permission'));
@@ -71,7 +73,7 @@ class OmniGuardServiceProvider extends ServiceProvider
                 return $result;
             }
 
-            // 2. Fall-through to standard Spatie logic (which we call via HasRoles)
+            // 2. Fall-through to standard OmniGuard logic (which we call via HasOmniGuard)
             // Note: registerPermissions() from PermissionRegistrar will be called individually 
             // after we ensure our hierarchy doesn't block it.
         });

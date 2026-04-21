@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\Resolvers;
+namespace OmniGuard\Data\Resolvers;
 
-use Spatie\LaravelData\Concerns\EmptyData;
-use Spatie\LaravelData\Exceptions\DataPropertyCanOnlyHaveOneType;
-use Spatie\LaravelData\Support\DataConfig;
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\Types\CombinationType;
+use OmniGuard\Data\Concerns\EmptyData;
+use OmniGuard\Data\Exceptions\DataPropertyCanOnlyHaveOneType;
+use OmniGuard\Data\Support\DataConfig;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\Types\CombinationType;
 use Traversable;
 
 class EmptyDataResolver

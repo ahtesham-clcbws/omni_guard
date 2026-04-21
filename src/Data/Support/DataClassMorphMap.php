@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\LaravelData\Support;
+namespace OmniGuard\Data\Support;
 
-use Spatie\LaravelData\Contracts\BaseData;
+use OmniGuard\Data\Contracts\BaseData;
 
 class DataClassMorphMap
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Types;
+namespace OmniGuard\Data\Support\Types;
 
-use Spatie\LaravelData\Casts\Castable;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\Enums\DataTypeKind;
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\Types\Storage\AcceptedTypesStorage;
+use OmniGuard\Data\Casts\Castable;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\Enums\DataTypeKind;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\Types\Storage\AcceptedTypesStorage;
 
 class NamedType extends Type
 {

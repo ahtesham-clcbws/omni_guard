@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelData\Concerns;
+namespace OmniGuard\Data\Concerns;
 
-use Spatie\LaravelData\Support\Wrapping\Wrap;
-use Spatie\LaravelData\Support\Wrapping\WrapType;
+use OmniGuard\Data\Support\Wrapping\Wrap;
+use OmniGuard\Data\Support\Wrapping\WrapType;
 
 trait WrappableData
 {

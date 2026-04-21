@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Caching;
+namespace OmniGuard\Data\Support\Caching;
 
 use Illuminate\Contracts\Cache\Store;
-use Spatie\LaravelData\Support\DataClass;
+use OmniGuard\Data\Support\DataClass;
 use Throwable;
 
 class DataStructureCache

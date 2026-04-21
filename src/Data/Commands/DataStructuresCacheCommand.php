@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\LaravelData\Commands;
+namespace OmniGuard\Data\Commands;
 
 use Illuminate\Console\Command;
 use ReflectionClass;
-use Spatie\LaravelData\Support\Caching\CachedDataConfig;
-use Spatie\LaravelData\Support\Caching\DataClassFinder;
-use Spatie\LaravelData\Support\Caching\DataStructureCache;
-use Spatie\LaravelData\Support\Factories\DataClassFactory;
+use OmniGuard\Data\Support\Caching\CachedDataConfig;
+use OmniGuard\Data\Support\Caching\DataClassFinder;
+use OmniGuard\Data\Support\Caching\DataStructureCache;
+use OmniGuard\Data\Support\Factories\DataClassFactory;
 
 class DataStructuresCacheCommand extends Command
 {

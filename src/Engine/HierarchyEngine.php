@@ -23,6 +23,7 @@ class HierarchyEngine
         }
 
         /** @var \OmniGuard\Traits\HasOmniGuard $user */
+        /** @var \OmniGuard\Contracts\Role $userRole */
         $userRole = $user->getTopRole();
         
         if (!$userRole) {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelData\RuleInferrers;
+namespace OmniGuard\Data\RuleInferrers;
 
-use Spatie\LaravelData\Attributes\Validation\Nullable;
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\Validation\PropertyRules;
-use Spatie\LaravelData\Support\Validation\ValidationContext;
+use OmniGuard\Data\Attributes\Validation\Nullable;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\Validation\PropertyRules;
+use OmniGuard\Data\Support\Validation\ValidationContext;
 
 class NullableRuleInferrer implements RuleInferrer
 {

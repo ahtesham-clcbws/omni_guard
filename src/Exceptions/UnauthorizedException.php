@@ -53,11 +53,11 @@ class UnauthorizedException extends HttpException
         return $exception;
     }
 
-    public static function missingTraitHasRoles(Authorizable $user): self
+    public static function missingTraitHasOmniGuard(Authorizable $user): self
     {
         $class = get_class($user);
 
-        return new static(403, __('Authorizable class `:class` must use Spatie\\Permission\\Traits\\HasRoles trait.', [
+        return new static(403, __('Authorizable class `:class` must use OmniGuard\\Permission\\Traits\\HasOmniGuard trait.', [
             'class' => $class,
         ]), null, []);
     }

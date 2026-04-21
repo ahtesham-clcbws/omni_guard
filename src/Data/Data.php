@@ -1,26 +1,26 @@
 <?php
 
-namespace Spatie\LaravelData;
+namespace OmniGuard\Data;
 
 use Illuminate\Contracts\Support\Responsable;
-use Spatie\LaravelData\Concerns\AppendableData;
-use Spatie\LaravelData\Concerns\BaseData;
-use Spatie\LaravelData\Concerns\ContextableData;
-use Spatie\LaravelData\Concerns\EmptyData;
-use Spatie\LaravelData\Concerns\IncludeableData;
-use Spatie\LaravelData\Concerns\ResponsableData;
-use Spatie\LaravelData\Concerns\TransformableData;
-use Spatie\LaravelData\Concerns\ValidateableData;
-use Spatie\LaravelData\Concerns\WrappableData;
-use Spatie\LaravelData\Contracts\AppendableData as AppendableDataContract;
-use Spatie\LaravelData\Contracts\BaseData as BaseDataContract;
-use Spatie\LaravelData\Contracts\ContextableData as ContextableDataContract;
-use Spatie\LaravelData\Contracts\EmptyData as EmptyDataContract;
-use Spatie\LaravelData\Contracts\IncludeableData as IncludeableDataContract;
-use Spatie\LaravelData\Contracts\ResponsableData as ResponsableDataContract;
-use Spatie\LaravelData\Contracts\TransformableData as TransformableDataContract;
-use Spatie\LaravelData\Contracts\ValidateableData as ValidateableDataContract;
-use Spatie\LaravelData\Contracts\WrappableData as WrappableDataContract;
+use OmniGuard\Data\Concerns\AppendableData;
+use OmniGuard\Data\Concerns\BaseData;
+use OmniGuard\Data\Concerns\ContextableData;
+use OmniGuard\Data\Concerns\EmptyData;
+use OmniGuard\Data\Concerns\IncludeableData;
+use OmniGuard\Data\Concerns\ResponsableData;
+use OmniGuard\Data\Concerns\TransformableData;
+use OmniGuard\Data\Concerns\ValidateableData;
+use OmniGuard\Data\Concerns\WrappableData;
+use OmniGuard\Data\Contracts\AppendableData as AppendableDataContract;
+use OmniGuard\Data\Contracts\BaseData as BaseDataContract;
+use OmniGuard\Data\Contracts\ContextableData as ContextableDataContract;
+use OmniGuard\Data\Contracts\EmptyData as EmptyDataContract;
+use OmniGuard\Data\Contracts\IncludeableData as IncludeableDataContract;
+use OmniGuard\Data\Contracts\ResponsableData as ResponsableDataContract;
+use OmniGuard\Data\Contracts\TransformableData as TransformableDataContract;
+use OmniGuard\Data\Contracts\ValidateableData as ValidateableDataContract;
+use OmniGuard\Data\Contracts\WrappableData as WrappableDataContract;
 
 abstract class Data implements Responsable, AppendableDataContract, BaseDataContract, TransformableDataContract, ContextableDataContract, IncludeableDataContract, ResponsableDataContract, ValidateableDataContract, WrappableDataContract, EmptyDataContract
 {

@@ -1,16 +1,16 @@
 <?php
 
-namespace Spatie\LaravelData\Resolvers;
+namespace OmniGuard\Data\Resolvers;
 
 use Illuminate\Http\Request;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\Enums\CustomCreationMethodType;
-use Spatie\LaravelData\Exceptions\CannotCreateAbstractClass;
-use Spatie\LaravelData\Normalizers\Normalized\Normalized;
-use Spatie\LaravelData\Optional;
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\DataConfig;
-use Spatie\LaravelData\Support\ResolvedDataPipeline;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\Enums\CustomCreationMethodType;
+use OmniGuard\Data\Exceptions\CannotCreateAbstractClass;
+use OmniGuard\Data\Normalizers\Normalized\Normalized;
+use OmniGuard\Data\Optional;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\DataConfig;
+use OmniGuard\Data\Support\ResolvedDataPipeline;
 
 /**
  * @template TData of BaseData

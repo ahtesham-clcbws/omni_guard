@@ -2,8 +2,8 @@
 
 namespace OmniGuard\Scanner;
 
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
+use OmniGuard\Support\PackageTools\Package;
+use OmniGuard\Support\PackageTools\PackageServiceProvider;
 use OmniGuard\Scanner\Commands\CacheStructureScoutsCommand;
 use OmniGuard\Scanner\Commands\ClearStructureScoutsCommand;
 use OmniGuard\Scanner\Support\DiscoverCacheDriverFactory;

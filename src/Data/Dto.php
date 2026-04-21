@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelData;
+namespace OmniGuard\Data;
 
-use Spatie\LaravelData\Concerns\BaseData;
-use Spatie\LaravelData\Concerns\ValidateableData;
-use Spatie\LaravelData\Contracts\BaseData as BaseDataContract;
-use Spatie\LaravelData\Contracts\ValidateableData as ValidateableDataContract;
+use OmniGuard\Data\Concerns\BaseData;
+use OmniGuard\Data\Concerns\ValidateableData;
+use OmniGuard\Data\Contracts\BaseData as BaseDataContract;
+use OmniGuard\Data\Contracts\ValidateableData as ValidateableDataContract;
 
 class Dto implements ValidateableDataContract, BaseDataContract
 {

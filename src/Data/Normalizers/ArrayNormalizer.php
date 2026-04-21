@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Normalizers;
+namespace OmniGuard\Data\Normalizers;
 
 class ArrayNormalizer implements Normalizer
 {

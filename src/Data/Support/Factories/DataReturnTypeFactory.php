@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Factories;
+namespace OmniGuard\Data\Support\Factories;
 
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionNamedType;
-use Spatie\LaravelData\Support\DataType;
+use OmniGuard\Data\Support\DataType;
 
 class DataReturnTypeFactory
 {

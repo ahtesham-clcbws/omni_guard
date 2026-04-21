@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Wrapping;
+namespace OmniGuard\Data\Support\Wrapping;
 
 enum WrapExecutionType
 {

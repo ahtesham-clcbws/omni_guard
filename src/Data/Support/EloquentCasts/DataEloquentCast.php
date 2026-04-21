@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\LaravelData\Support\EloquentCasts;
+namespace OmniGuard\Data\Support\EloquentCasts;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Support\Facades\Crypt;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\Contracts\IncludeableData;
-use Spatie\LaravelData\Contracts\TransformableData;
-use Spatie\LaravelData\Exceptions\CannotCastData;
-use Spatie\LaravelData\Support\DataConfig;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\Contracts\IncludeableData;
+use OmniGuard\Data\Contracts\TransformableData;
+use OmniGuard\Data\Exceptions\CannotCastData;
+use OmniGuard\Data\Support\DataConfig;
 
 /**
  * @template TData of (BaseData&TransformableData)

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Creation;
+namespace OmniGuard\Data\Support\Creation;
 
 enum ValidationStrategy: string
 {

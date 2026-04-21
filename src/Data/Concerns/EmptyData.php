@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelData\Concerns;
+namespace OmniGuard\Data\Concerns;
 
 use Illuminate\Support\Arr;
-use Spatie\LaravelData\Resolvers\EmptyDataResolver;
+use OmniGuard\Data\Resolvers\EmptyDataResolver;
 
 trait EmptyData
 {

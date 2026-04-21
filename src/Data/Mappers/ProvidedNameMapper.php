@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Mappers;
+namespace OmniGuard\Data\Mappers;
 
 class ProvidedNameMapper implements NameMapper
 {

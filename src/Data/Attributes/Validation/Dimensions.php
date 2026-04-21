@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes\Validation;
+namespace OmniGuard\Data\Attributes\Validation;
 
 use Attribute;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Dimensions as BaseDimensions;
-use Spatie\LaravelData\Exceptions\CannotBuildValidationRule;
-use Spatie\LaravelData\Support\Validation\References\ExternalReference;
-use Spatie\LaravelData\Support\Validation\ValidationPath;
+use OmniGuard\Data\Exceptions\CannotBuildValidationRule;
+use OmniGuard\Data\Support\Validation\References\ExternalReference;
+use OmniGuard\Data\Support\Validation\ValidationPath;
 
 #[Attribute(Attribute::TARGET_PROPERTY | Attribute::TARGET_PARAMETER)]
 class Dimensions extends ObjectValidationAttribute

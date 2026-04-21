@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\LaravelData\DataPipes;
+namespace OmniGuard\Data\DataPipes;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\LaravelData\Attributes\AutoWhenLoadedLazy;
-use Spatie\LaravelData\Lazy;
-use Spatie\LaravelData\Optional;
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\DataClass;
+use OmniGuard\Data\Attributes\AutoWhenLoadedLazy;
+use OmniGuard\Data\Lazy;
+use OmniGuard\Data\Optional;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\DataClass;
 
 class DefaultValuesDataPipe implements DataPipe
 {

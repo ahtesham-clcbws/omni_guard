@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Caching;
+namespace OmniGuard\Data\Support\Caching;
 
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\Data;
-use Spatie\LaravelData\Dto;
-use Spatie\LaravelData\Resource;
-use Spatie\StructureDiscoverer\Discover;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\Data;
+use OmniGuard\Data\Dto;
+use OmniGuard\Data\Resource;
+use OmniGuard\Scanner\Discover;
 
 class DataClassFinder
 {

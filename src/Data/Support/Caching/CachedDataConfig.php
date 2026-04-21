@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Caching;
+namespace OmniGuard\Data\Support\Caching;
 
-use Spatie\LaravelData\Support\DataClass;
-use Spatie\LaravelData\Support\DataConfig;
+use OmniGuard\Data\Support\DataClass;
+use OmniGuard\Data\Support\DataConfig;
 
 class CachedDataConfig extends DataConfig
 {

@@ -1,23 +1,23 @@
 <?php
 
-namespace Spatie\LaravelData\Resolvers;
+namespace OmniGuard\Data\Resolvers;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use Spatie\LaravelData\Attributes\MergeValidationRules;
-use Spatie\LaravelData\Attributes\Validation\ArrayType;
-use Spatie\LaravelData\Attributes\Validation\Present;
-use Spatie\LaravelData\Support\DataClass;
-use Spatie\LaravelData\Support\DataConfig;
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\Validation\DataRules;
-use Spatie\LaravelData\Support\Validation\EnsurePropertyMorphable;
-use Spatie\LaravelData\Support\Validation\PropertyRules;
-use Spatie\LaravelData\Support\Validation\RuleDenormalizer;
-use Spatie\LaravelData\Support\Validation\RuleNormalizer;
-use Spatie\LaravelData\Support\Validation\ValidationContext;
-use Spatie\LaravelData\Support\Validation\ValidationPath;
+use OmniGuard\Data\Attributes\MergeValidationRules;
+use OmniGuard\Data\Attributes\Validation\ArrayType;
+use OmniGuard\Data\Attributes\Validation\Present;
+use OmniGuard\Data\Support\DataClass;
+use OmniGuard\Data\Support\DataConfig;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\Validation\DataRules;
+use OmniGuard\Data\Support\Validation\EnsurePropertyMorphable;
+use OmniGuard\Data\Support\Validation\PropertyRules;
+use OmniGuard\Data\Support\Validation\RuleDenormalizer;
+use OmniGuard\Data\Support\Validation\RuleNormalizer;
+use OmniGuard\Data\Support\Validation\ValidationContext;
+use OmniGuard\Data\Support\Validation\ValidationPath;
 
 class DataValidationRulesResolver
 {

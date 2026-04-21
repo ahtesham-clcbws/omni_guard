@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Annotations;
+namespace OmniGuard\Data\Support\Annotations;
 
 class CollectionAnnotation
 {

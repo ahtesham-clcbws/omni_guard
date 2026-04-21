@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Lazy;
+namespace OmniGuard\Data\Support\Lazy;
 
 use Closure;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Casts;
+namespace OmniGuard\Data\Casts;
 
 interface Castable
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelData\Support;
+namespace OmniGuard\Data\Support;
 
-use Spatie\LaravelData\Enums\DataTypeKind;
-use Spatie\LaravelData\Lazy;
-use Spatie\LaravelData\Support\Types\Type;
+use OmniGuard\Data\Enums\DataTypeKind;
+use OmniGuard\Data\Lazy;
+use OmniGuard\Data\Support\Types\Type;
 
 class DataPropertyType extends DataType
 {

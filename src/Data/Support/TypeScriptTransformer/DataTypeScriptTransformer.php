@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Support\TypeScriptTransformer;
+namespace OmniGuard\Data\Support\TypeScriptTransformer;
 
 use phpDocumentor\Reflection\Fqsen;
 use phpDocumentor\Reflection\Type;
@@ -14,18 +14,18 @@ use phpDocumentor\Reflection\Types\String_;
 use ReflectionClass;
 use ReflectionProperty;
 use RuntimeException;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\Enums\DataTypeKind;
-use Spatie\LaravelData\Support\DataConfig;
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\Lazy\ClosureLazy;
-use Spatie\LaravelTypeScriptTransformer\Transformers\DtoTransformer;
-use Spatie\TypeScriptTransformer\Attributes\Hidden;
-use Spatie\TypeScriptTransformer\Attributes\Optional as TypeScriptOptional;
-use Spatie\TypeScriptTransformer\Structures\MissingSymbolsCollection;
-use Spatie\TypeScriptTransformer\TypeProcessors\DtoCollectionTypeProcessor;
-use Spatie\TypeScriptTransformer\TypeProcessors\ReplaceDefaultsTypeProcessor;
-use Spatie\TypeScriptTransformer\Types\StructType;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\Enums\DataTypeKind;
+use OmniGuard\Data\Support\DataConfig;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\Lazy\ClosureLazy;
+use OmniGuard\LaravelTypeScriptTransformer\Transformers\DtoTransformer;
+use OmniGuard\TypeScript\Attributes\Hidden;
+use OmniGuard\TypeScript\Attributes\Optional as TypeScriptOptional;
+use OmniGuard\TypeScript\Structures\MissingSymbolsCollection;
+use OmniGuard\TypeScript\TypeProcessors\DtoCollectionTypeProcessor;
+use OmniGuard\TypeScript\TypeProcessors\ReplaceDefaultsTypeProcessor;
+use OmniGuard\TypeScript\Types\StructType;
 
 class DataTypeScriptTransformer extends DtoTransformer
 {
@@ -58,7 +58,7 @@ class DataTypeScriptTransformer extends DtoTransformer
         return array_reduce(
             $this->resolveProperties($class),
             function (string $carry, ReflectionProperty $property) use ($isOptional, $dataClass, $missingSymbols) {
-                /** @var \Spatie\LaravelData\Support\DataProperty $dataProperty */
+                /** @var \OmniGuard\Data\Support\DataProperty $dataProperty */
                 $dataProperty = $dataClass->properties[$property->getName()];
 
                 $type = $this->resolveTypeForProperty($property, $dataProperty, $missingSymbols);

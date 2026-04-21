@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes;
+namespace OmniGuard\Data\Attributes;
 
 use Attribute;
-use Spatie\LaravelData\Casts\Cast;
-use Spatie\LaravelData\Exceptions\CannotCreateCastAttribute;
-use Spatie\LaravelData\Exceptions\CannotCreateTransformerAttribute;
-use Spatie\LaravelData\Transformers\Transformer;
+use OmniGuard\Data\Casts\Cast;
+use OmniGuard\Data\Exceptions\CannotCreateCastAttribute;
+use OmniGuard\Data\Exceptions\CannotCreateTransformerAttribute;
+use OmniGuard\Data\Transformers\Transformer;
 
 #[Attribute(Attribute::TARGET_CLASS | Attribute::TARGET_PROPERTY)]
 class WithCastAndTransformer implements GetsCast

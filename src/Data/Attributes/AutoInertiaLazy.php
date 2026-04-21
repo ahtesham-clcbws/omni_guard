@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes;
+namespace OmniGuard\Data\Attributes;
 
 use Attribute;
 use Closure;
-use Spatie\LaravelData\Lazy;
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\Lazy\InertiaLazy;
+use OmniGuard\Data\Lazy;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\Lazy\InertiaLazy;
 
 #[Attribute(Attribute::TARGET_CLASS | Attribute::TARGET_PROPERTY)]
 class AutoInertiaLazy extends AutoLazy

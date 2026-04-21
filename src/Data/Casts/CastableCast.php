@@ -1,16 +1,16 @@
 <?php
 
-namespace Spatie\LaravelData\Casts;
+namespace OmniGuard\Data\Casts;
 
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\DataProperty;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\DataProperty;
 
 class CastableCast implements Cast
 {
     protected Cast $cast;
 
     /**
-     * @param class-string<\Spatie\LaravelData\Casts\Castable> $castableClass
+     * @param class-string<\OmniGuard\Data\Casts\Castable> $castableClass
      */
     public function __construct(
         public string $castableClass,

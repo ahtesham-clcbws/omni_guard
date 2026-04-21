@@ -72,10 +72,18 @@ class InvoiceManager extends Component
 
 ---
 
-## 🌟 Acknowledgements
-OmniGuard stands on the shoulders of giants. We have absorbed and enhanced logic from the best MIT-licensed engines in the ecosystem including Spatie (Permission, Data, Discoverer, ActivityLog, Multitenancy) and Caleb Porzio (Sushi).
+## 💎 Credits
+OmniGuard Sovereign is architected and maintained by **[Ahtesham](https://github.com/ahtesham-clcbws)** and the team at **[Broadway Web Services](https://www.clcbws.com)**.
+
+---
+
+## 📞 Support & Inquiry
+For enterprise support, priority feature requests, or custom orchestration consulting, please reach out via:
+- **WhatsApp**: [+91 9810763314](https://wa.me/919810763314)
+- **Website**: [clcbws.com](https://www.clcbws.com)
+- **Email**: support@clcbws.com
 
 ---
 
 ## 📄 License
-The OmniGuard core and all absorbed components are released under the [MIT License](LICENSE.md).
+The OmniGuard core is released under the [MIT License](LICENSE.md).

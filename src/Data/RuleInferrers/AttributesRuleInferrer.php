@@ -1,15 +1,15 @@
 <?php
 
-namespace Spatie\LaravelData\RuleInferrers;
+namespace OmniGuard\Data\RuleInferrers;
 
-use Spatie\LaravelData\Attributes\Validation\Present;
-use Spatie\LaravelData\Attributes\Validation\Sometimes;
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\Validation\PropertyRules;
-use Spatie\LaravelData\Support\Validation\RequiringRule;
-use Spatie\LaravelData\Support\Validation\RuleNormalizer;
-use Spatie\LaravelData\Support\Validation\ValidationContext;
-use Spatie\LaravelData\Support\Validation\ValidationRule;
+use OmniGuard\Data\Attributes\Validation\Present;
+use OmniGuard\Data\Attributes\Validation\Sometimes;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\Validation\PropertyRules;
+use OmniGuard\Data\Support\Validation\RequiringRule;
+use OmniGuard\Data\Support\Validation\RuleNormalizer;
+use OmniGuard\Data\Support\Validation\ValidationContext;
+use OmniGuard\Data\Support\Validation\ValidationRule;
 
 class AttributesRuleInferrer implements RuleInferrer
 {

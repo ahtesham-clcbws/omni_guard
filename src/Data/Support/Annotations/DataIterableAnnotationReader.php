@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Annotations;
+namespace OmniGuard\Data\Support\Annotations;
 
 use Illuminate\Support\Arr;
 use phpDocumentor\Reflection\FqsenResolver;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\Resolvers\ContextResolver;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\Resolvers\ContextResolver;
 
 /**
  * @note To myself, always use the fully qualified class names in pest tests when using anonymous classes

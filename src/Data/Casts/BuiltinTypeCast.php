@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelData\Casts;
+namespace OmniGuard\Data\Casts;
 
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\DataProperty;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\DataProperty;
 
 class BuiltinTypeCast implements Cast, IterableItemCast
 {

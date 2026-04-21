@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Partials;
+namespace OmniGuard\Data\Support\Partials;
 
 use Closure;
 use Laravel\SerializableClosure\SerializableClosure;
-use Spatie\LaravelData\Contracts\IncludeableData;
-use Spatie\LaravelData\Support\Partials\Segments\AllPartialSegment;
-use Spatie\LaravelData\Support\Partials\Segments\FieldsPartialSegment;
-use Spatie\LaravelData\Support\Partials\Segments\NestedPartialSegment;
-use Spatie\LaravelData\Support\Partials\Segments\PartialSegment;
+use OmniGuard\Data\Contracts\IncludeableData;
+use OmniGuard\Data\Support\Partials\Segments\AllPartialSegment;
+use OmniGuard\Data\Support\Partials\Segments\FieldsPartialSegment;
+use OmniGuard\Data\Support\Partials\Segments\NestedPartialSegment;
+use OmniGuard\Data\Support\Partials\Segments\PartialSegment;
 use Stringable;
 
 class Partial implements Stringable

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData;
+namespace OmniGuard\Data;
 
 class Optional
 {

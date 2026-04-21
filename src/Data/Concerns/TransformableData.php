@@ -1,16 +1,16 @@
 <?php
 
-namespace Spatie\LaravelData\Concerns;
+namespace OmniGuard\Data\Concerns;
 
 use Exception;
-use Spatie\LaravelData\Contracts\BaseData as BaseDataContract;
-use Spatie\LaravelData\Contracts\BaseDataCollectable as BaseDataCollectableContract;
-use Spatie\LaravelData\Contracts\ContextableData as ContextableDataContract;
-use Spatie\LaravelData\Contracts\IncludeableData as IncludeableDataContract;
-use Spatie\LaravelData\Support\DataContainer;
-use Spatie\LaravelData\Support\EloquentCasts\DataEloquentCast;
-use Spatie\LaravelData\Support\Transformation\TransformationContext;
-use Spatie\LaravelData\Support\Transformation\TransformationContextFactory;
+use OmniGuard\Data\Contracts\BaseData as BaseDataContract;
+use OmniGuard\Data\Contracts\BaseDataCollectable as BaseDataCollectableContract;
+use OmniGuard\Data\Contracts\ContextableData as ContextableDataContract;
+use OmniGuard\Data\Contracts\IncludeableData as IncludeableDataContract;
+use OmniGuard\Data\Support\DataContainer;
+use OmniGuard\Data\Support\EloquentCasts\DataEloquentCast;
+use OmniGuard\Data\Support\Transformation\TransformationContext;
+use OmniGuard\Data\Support\Transformation\TransformationContextFactory;
 
 trait TransformableData
 {

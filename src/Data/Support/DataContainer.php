@@ -1,16 +1,16 @@
 <?php
 
-namespace Spatie\LaravelData\Support;
+namespace OmniGuard\Data\Support;
 
-use Spatie\LaravelData\Resolvers\DataCollectableFromSomethingResolver;
-use Spatie\LaravelData\Resolvers\DataFromSomethingResolver;
-use Spatie\LaravelData\Resolvers\DataValidatorResolver;
-use Spatie\LaravelData\Resolvers\DecoupledPartialResolver;
-use Spatie\LaravelData\Resolvers\RequestQueryStringPartialsResolver;
-use Spatie\LaravelData\Resolvers\TransformedDataCollectableResolver;
-use Spatie\LaravelData\Resolvers\TransformedDataResolver;
-use Spatie\LaravelData\Resolvers\ValidatedPayloadResolver;
-use Spatie\LaravelData\Support\Factories\DataClassFactory;
+use OmniGuard\Data\Resolvers\DataCollectableFromSomethingResolver;
+use OmniGuard\Data\Resolvers\DataFromSomethingResolver;
+use OmniGuard\Data\Resolvers\DataValidatorResolver;
+use OmniGuard\Data\Resolvers\DecoupledPartialResolver;
+use OmniGuard\Data\Resolvers\RequestQueryStringPartialsResolver;
+use OmniGuard\Data\Resolvers\TransformedDataCollectableResolver;
+use OmniGuard\Data\Resolvers\TransformedDataResolver;
+use OmniGuard\Data\Resolvers\ValidatedPayloadResolver;
+use OmniGuard\Data\Support\Factories\DataClassFactory;
 
 class DataContainer
 {

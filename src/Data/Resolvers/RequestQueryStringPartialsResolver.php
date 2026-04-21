@@ -1,19 +1,19 @@
 <?php
 
-namespace Spatie\LaravelData\Resolvers;
+namespace OmniGuard\Data\Resolvers;
 
 use Illuminate\Http\Request;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\Contracts\BaseDataCollectable;
-use Spatie\LaravelData\Support\DataClass;
-use Spatie\LaravelData\Support\DataConfig;
-use Spatie\LaravelData\Support\Partials\Partial;
-use Spatie\LaravelData\Support\Partials\PartialsCollection;
-use Spatie\LaravelData\Support\Partials\PartialType;
-use Spatie\LaravelData\Support\Partials\Segments\AllPartialSegment;
-use Spatie\LaravelData\Support\Partials\Segments\FieldsPartialSegment;
-use Spatie\LaravelData\Support\Partials\Segments\NestedPartialSegment;
-use Spatie\LaravelData\Support\Partials\Segments\PartialSegment;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\Contracts\BaseDataCollectable;
+use OmniGuard\Data\Support\DataClass;
+use OmniGuard\Data\Support\DataConfig;
+use OmniGuard\Data\Support\Partials\Partial;
+use OmniGuard\Data\Support\Partials\PartialsCollection;
+use OmniGuard\Data\Support\Partials\PartialType;
+use OmniGuard\Data\Support\Partials\Segments\AllPartialSegment;
+use OmniGuard\Data\Support\Partials\Segments\FieldsPartialSegment;
+use OmniGuard\Data\Support\Partials\Segments\NestedPartialSegment;
+use OmniGuard\Data\Support\Partials\Segments\PartialSegment;
 
 class RequestQueryStringPartialsResolver
 {

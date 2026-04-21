@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes\Validation;
+namespace OmniGuard\Data\Attributes\Validation;
 
 use Attribute;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Arr;
 use Illuminate\Validation\Rules\In as BaseIn;
-use Spatie\LaravelData\Support\Validation\References\ExternalReference;
-use Spatie\LaravelData\Support\Validation\ValidationPath;
+use OmniGuard\Data\Support\Validation\References\ExternalReference;
+use OmniGuard\Data\Support\Validation\ValidationPath;
 use UnitEnum;
 
 #[Attribute(Attribute::TARGET_PROPERTY | Attribute::TARGET_PARAMETER)]

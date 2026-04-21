@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelData\Resolvers\Concerns;
+namespace OmniGuard\Data\Resolvers\Concerns;
 
-use Spatie\LaravelData\Exceptions\MaxTransformationDepthReached;
-use Spatie\LaravelData\Support\Transformation\TransformationContext;
+use OmniGuard\Data\Exceptions\MaxTransformationDepthReached;
+use OmniGuard\Data\Support\Transformation\TransformationContext;
 
 trait ChecksTransformationDepth
 {

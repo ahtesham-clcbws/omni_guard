@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Partials;
+namespace OmniGuard\Data\Support\Partials;
 
-use Spatie\LaravelData\Support\DataClass;
+use OmniGuard\Data\Support\DataClass;
 
 enum PartialType
 {

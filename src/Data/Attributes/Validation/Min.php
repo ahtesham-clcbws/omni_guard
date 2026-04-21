@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes\Validation;
+namespace OmniGuard\Data\Attributes\Validation;
 
 use Attribute;
-use Spatie\LaravelData\Support\Validation\References\ExternalReference;
+use OmniGuard\Data\Support\Validation\References\ExternalReference;
 
 #[Attribute(Attribute::TARGET_PROPERTY | Attribute::TARGET_PARAMETER)]
 class Min extends StringValidationAttribute

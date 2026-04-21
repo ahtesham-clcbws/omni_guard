@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Transformation;
+namespace OmniGuard\Data\Support\Transformation;
 
-use Spatie\LaravelData\Contracts\ContextableData;
-use Spatie\LaravelData\Contracts\IncludeableData;
-use Spatie\LaravelData\Support\Partials\Partial;
-use Spatie\LaravelData\Support\Partials\PartialsCollection;
-use Spatie\LaravelData\Support\Wrapping\WrapExecutionType;
+use OmniGuard\Data\Contracts\ContextableData;
+use OmniGuard\Data\Contracts\IncludeableData;
+use OmniGuard\Data\Support\Partials\Partial;
+use OmniGuard\Data\Support\Partials\PartialsCollection;
+use OmniGuard\Data\Support\Wrapping\WrapExecutionType;
 use Stringable;
 
 class TransformationContext implements Stringable

@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes\Validation;
+namespace OmniGuard\Data\Attributes\Validation;
 
 use Attribute;
 use Illuminate\Support\Arr;
-use Spatie\LaravelData\Support\Validation\References\FieldReference;
-use Spatie\LaravelData\Support\Validation\RequiringRule;
+use OmniGuard\Data\Support\Validation\References\FieldReference;
+use OmniGuard\Data\Support\Validation\RequiringRule;
 
 #[Attribute(Attribute::TARGET_PROPERTY | Attribute::TARGET_PARAMETER)]
 class RequiredWithAll extends StringValidationAttribute implements RequiringRule

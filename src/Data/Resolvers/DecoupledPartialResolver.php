@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelData\Resolvers;
+namespace OmniGuard\Data\Resolvers;
 
-use Spatie\LaravelData\Support\Partials\Partial;
-use Spatie\LaravelData\Support\Partials\Segments\AllPartialSegment;
+use OmniGuard\Data\Support\Partials\Partial;
+use OmniGuard\Data\Support\Partials\Segments\AllPartialSegment;
 
 class DecoupledPartialResolver
 {

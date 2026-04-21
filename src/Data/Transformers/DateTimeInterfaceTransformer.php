@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\Transformers;
+namespace OmniGuard\Data\Transformers;
 
 use DateTimeInterface;
 use DateTimeZone;
 use Illuminate\Support\Arr;
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\Transformation\TransformationContext;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\Transformation\TransformationContext;
 
 class DateTimeInterfaceTransformer implements Transformer
 {

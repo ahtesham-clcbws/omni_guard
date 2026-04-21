@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelData\Casts;
+namespace OmniGuard\Data\Casts;
 
 use Illuminate\Support\Enumerable;
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\DataProperty;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\DataProperty;
 
 /** @deprecated enable the iterable casts  */
 class EnumerableCast implements Cast

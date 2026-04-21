@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes\Validation;
+namespace OmniGuard\Data\Attributes\Validation;
 
 use Attribute;
 use Exception;
 use Illuminate\Validation\Rules\Password as BasePassword;
-use Spatie\LaravelData\Support\Validation\References\ExternalReference;
-use Spatie\LaravelData\Support\Validation\ValidationPath;
+use OmniGuard\Data\Support\Validation\References\ExternalReference;
+use OmniGuard\Data\Support\Validation\ValidationPath;
 
 #[Attribute(Attribute::TARGET_PROPERTY | Attribute::TARGET_PARAMETER)]
 class Password extends ObjectValidationAttribute

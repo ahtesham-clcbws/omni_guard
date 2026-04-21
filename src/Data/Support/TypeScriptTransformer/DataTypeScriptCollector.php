@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelData\Support\TypeScriptTransformer;
+namespace OmniGuard\Data\Support\TypeScriptTransformer;
 
 use ReflectionClass;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\TypeScriptTransformer\Collectors\Collector;
-use Spatie\TypeScriptTransformer\Structures\TransformedType;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\TypeScript\Collectors\Collector;
+use OmniGuard\TypeScript\Structures\TransformedType;
 
 class DataTypeScriptCollector extends Collector
 {

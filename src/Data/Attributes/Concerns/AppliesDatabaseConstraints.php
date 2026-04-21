@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes\Concerns;
+namespace OmniGuard\Data\Attributes\Concerns;
 
 use Closure;
 use InvalidArgumentException;
-use Spatie\LaravelData\Support\Validation\Constraints\DatabaseConstraint;
+use OmniGuard\Data\Support\Validation\Constraints\DatabaseConstraint;
 
 trait AppliesDatabaseConstraints
 {

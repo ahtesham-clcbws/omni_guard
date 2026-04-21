@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\LaravelData\Resolvers;
+namespace OmniGuard\Data\Resolvers;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Facades\Validator as ValidatorFacade;
 use Illuminate\Validation\Validator;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\Contracts\ValidateableData;
-use Spatie\LaravelData\Support\Validation\DataRules;
-use Spatie\LaravelData\Support\Validation\ValidationPath;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\Contracts\ValidateableData;
+use OmniGuard\Data\Support\Validation\DataRules;
+use OmniGuard\Data\Support\Validation\ValidationPath;
 
 class DataValidatorResolver
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\LaravelData\Normalizers\Normalized;
+namespace OmniGuard\Data\Normalizers\Normalized;
 
 use Illuminate\Database\Eloquent\MissingAttributeException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use ReflectionProperty;
-use Spatie\LaravelData\Attributes\LoadRelation;
-use Spatie\LaravelData\Support\DataProperty;
+use OmniGuard\Data\Attributes\LoadRelation;
+use OmniGuard\Data\Support\DataProperty;
 
 class NormalizedModel implements Normalized
 {

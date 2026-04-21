@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes;
+namespace OmniGuard\Data\Attributes;
 
 use Attribute;
-use Spatie\LaravelData\Casts\Cast;
-use Spatie\LaravelData\Casts\Castable;
-use Spatie\LaravelData\Casts\CastableCast;
-use Spatie\LaravelData\Exceptions\CannotCreateCastAttribute;
+use OmniGuard\Data\Casts\Cast;
+use OmniGuard\Data\Casts\Castable;
+use OmniGuard\Data\Casts\CastableCast;
+use OmniGuard\Data\Exceptions\CannotCreateCastAttribute;
 
 #[Attribute(Attribute::TARGET_CLASS | Attribute::TARGET_PROPERTY)]
 class WithCastable implements GetsCast
@@ -14,7 +14,7 @@ class WithCastable implements GetsCast
     public array $arguments;
 
     public function __construct(
-        /** @var class-string<\Spatie\LaravelData\Casts\Castable> $castableClass */
+        /** @var class-string<\OmniGuard\Data\Casts\Castable> $castableClass */
         public string $castableClass,
         mixed ...$arguments
     ) {

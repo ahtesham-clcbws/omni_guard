@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Validation\References;
+namespace OmniGuard\Data\Support\Validation\References;
 
-use Spatie\LaravelData\Exceptions\CannotResolveRouteParameterReference;
+use OmniGuard\Data\Exceptions\CannotResolveRouteParameterReference;
 
 class RouteParameterReference implements ExternalReference
 {

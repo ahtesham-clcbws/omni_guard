@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelData\RuleInferrers;
+namespace OmniGuard\Data\RuleInferrers;
 
-use Spatie\LaravelData\Attributes\Validation\Sometimes;
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\Validation\PropertyRules;
-use Spatie\LaravelData\Support\Validation\ValidationContext;
+use OmniGuard\Data\Attributes\Validation\Sometimes;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\Validation\PropertyRules;
+use OmniGuard\Data\Support\Validation\ValidationContext;
 
 class SometimesRuleInferrer implements RuleInferrer
 {

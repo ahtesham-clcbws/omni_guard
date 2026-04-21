@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Validation\Constraints;
+namespace OmniGuard\Data\Support\Validation\Constraints;
 
 use Illuminate\Validation\Rules\Exists;
 use Illuminate\Validation\Rules\Unique;
-use Spatie\LaravelData\Support\Validation\References\ExternalReference;
+use OmniGuard\Data\Support\Validation\References\ExternalReference;
 
 abstract class DatabaseConstraint
 {

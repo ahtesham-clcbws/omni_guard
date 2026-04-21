@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Resolvers;
+namespace OmniGuard\Data\Resolvers;
 
 use Closure;
 use Exception;
@@ -10,18 +10,18 @@ use Illuminate\Pagination\AbstractCursorPaginator;
 use Illuminate\Pagination\AbstractPaginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Enumerable;
-use Spatie\LaravelData\CursorPaginatedDataCollection;
-use Spatie\LaravelData\DataCollection;
-use Spatie\LaravelData\Enums\CustomCreationMethodType;
-use Spatie\LaravelData\Enums\DataTypeKind;
-use Spatie\LaravelData\Exceptions\CannotCreateDataCollectable;
-use Spatie\LaravelData\PaginatedDataCollection;
-use Spatie\LaravelData\Support\Creation\CollectableMetaData;
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\DataConfig;
-use Spatie\LaravelData\Support\DataMethod;
-use Spatie\LaravelData\Support\Factories\DataReturnTypeFactory;
-use Spatie\LaravelData\Support\Types\NamedType;
+use OmniGuard\Data\CursorPaginatedDataCollection;
+use OmniGuard\Data\DataCollection;
+use OmniGuard\Data\Enums\CustomCreationMethodType;
+use OmniGuard\Data\Enums\DataTypeKind;
+use OmniGuard\Data\Exceptions\CannotCreateDataCollectable;
+use OmniGuard\Data\PaginatedDataCollection;
+use OmniGuard\Data\Support\Creation\CollectableMetaData;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\DataConfig;
+use OmniGuard\Data\Support\DataMethod;
+use OmniGuard\Data\Support\Factories\DataReturnTypeFactory;
+use OmniGuard\Data\Support\Types\NamedType;
 
 class DataCollectableFromSomethingResolver
 {

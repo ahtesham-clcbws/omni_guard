@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes\Validation;
+namespace OmniGuard\Data\Attributes\Validation;
 
 use Attribute;
-use Spatie\LaravelData\Support\Validation\References\ExternalReference;
-use Spatie\LaravelData\Tests\Fakes\Enums\DummyBackedEnum;
+use OmniGuard\Data\Support\Validation\References\ExternalReference;
+use OmniGuard\Data\Tests\Fakes\Enums\DummyBackedEnum;
 
 #[Attribute(Attribute::TARGET_PROPERTY | Attribute::TARGET_PARAMETER)]
 class CurrentPassword extends StringValidationAttribute

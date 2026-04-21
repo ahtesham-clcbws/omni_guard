@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Commands;
+namespace OmniGuard\Data\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Str;

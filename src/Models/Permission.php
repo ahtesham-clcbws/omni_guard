@@ -11,7 +11,7 @@ use OmniGuard\Exceptions\PermissionAlreadyExists;
 use OmniGuard\Exceptions\PermissionDoesNotExist;
 use OmniGuard\Guard;
 use OmniGuard\PermissionRegistrar;
-use OmniGuard\Traits\HasRoles;
+use OmniGuard\Traits\HasOmniGuard;
 use OmniGuard\Traits\RefreshesPermissionCache;
 
 /**
@@ -20,7 +20,7 @@ use OmniGuard\Traits\RefreshesPermissionCache;
  */
 class Permission extends Model implements PermissionContract
 {
-    use HasRoles;
+    use HasOmniGuard;
     use RefreshesPermissionCache;
 
     protected $guarded = [];

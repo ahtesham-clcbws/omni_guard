@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\LaravelData\Concerns;
+namespace OmniGuard\Data\Concerns;
 
-use Spatie\LaravelData\Support\Partials\ForwardsToPartialsDefinition;
+use OmniGuard\Data\Support\Partials\ForwardsToPartialsDefinition;
 
 trait IncludeableData
 {

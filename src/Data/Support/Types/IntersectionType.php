@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Types;
+namespace OmniGuard\Data\Support\Types;
 
 class IntersectionType extends CombinationType
 {

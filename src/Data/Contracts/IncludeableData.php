@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Contracts;
+namespace OmniGuard\Data\Contracts;
 
 use Closure;
 

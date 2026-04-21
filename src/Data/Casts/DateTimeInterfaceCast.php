@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\Casts;
+namespace OmniGuard\Data\Casts;
 
 use DateTimeInterface;
 use DateTimeZone;
-use Spatie\LaravelData\Exceptions\CannotCastDate;
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\DataProperty;
+use OmniGuard\Data\Exceptions\CannotCastDate;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\DataProperty;
 
 class DateTimeInterfaceCast implements Cast, IterableItemCast
 {

@@ -1,16 +1,16 @@
 <?php
 
-namespace Spatie\LaravelData\RuleInferrers;
+namespace OmniGuard\Data\RuleInferrers;
 
 use BackedEnum;
-use Spatie\LaravelData\Attributes\Validation\ArrayType;
-use Spatie\LaravelData\Attributes\Validation\BooleanType;
-use Spatie\LaravelData\Attributes\Validation\Enum;
-use Spatie\LaravelData\Attributes\Validation\Numeric;
-use Spatie\LaravelData\Attributes\Validation\StringType;
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\Validation\PropertyRules;
-use Spatie\LaravelData\Support\Validation\ValidationContext;
+use OmniGuard\Data\Attributes\Validation\ArrayType;
+use OmniGuard\Data\Attributes\Validation\BooleanType;
+use OmniGuard\Data\Attributes\Validation\Enum;
+use OmniGuard\Data\Attributes\Validation\Numeric;
+use OmniGuard\Data\Attributes\Validation\StringType;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\Validation\PropertyRules;
+use OmniGuard\Data\Support\Validation\ValidationContext;
 
 class BuiltInTypesRuleInferrer implements RuleInferrer
 {

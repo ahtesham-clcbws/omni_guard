@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\LaravelData\Concerns;
+namespace OmniGuard\Data\Concerns;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Spatie\LaravelData\Support\DataContainer;
-use Spatie\LaravelData\Support\Partials\PartialType;
-use Spatie\LaravelData\Support\Transformation\TransformationContextFactory;
-use Spatie\LaravelData\Support\Wrapping\WrapExecutionType;
+use OmniGuard\Data\Support\DataContainer;
+use OmniGuard\Data\Support\Partials\PartialType;
+use OmniGuard\Data\Support\Transformation\TransformationContextFactory;
+use OmniGuard\Data\Support\Wrapping\WrapExecutionType;
 
 trait ResponsableData
 {

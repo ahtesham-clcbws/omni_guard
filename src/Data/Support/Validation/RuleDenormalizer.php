@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Validation;
+namespace OmniGuard\Data\Support\Validation;
 
 use BackedEnum;
 use DateTimeInterface;
@@ -8,12 +8,12 @@ use Illuminate\Contracts\Validation\InvokableRule as InvokableRuleContract;
 use Illuminate\Contracts\Validation\Rule as RuleContract;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use Spatie\LaravelData\Attributes\Validation\CustomValidationAttribute;
-use Spatie\LaravelData\Attributes\Validation\ObjectValidationAttribute;
-use Spatie\LaravelData\Attributes\Validation\Rule;
-use Spatie\LaravelData\Attributes\Validation\StringValidationAttribute;
-use Spatie\LaravelData\Support\Validation\References\ExternalReference;
-use Spatie\LaravelData\Support\Validation\References\FieldReference;
+use OmniGuard\Data\Attributes\Validation\CustomValidationAttribute;
+use OmniGuard\Data\Attributes\Validation\ObjectValidationAttribute;
+use OmniGuard\Data\Attributes\Validation\Rule;
+use OmniGuard\Data\Attributes\Validation\StringValidationAttribute;
+use OmniGuard\Data\Support\Validation\References\ExternalReference;
+use OmniGuard\Data\Support\Validation\References\FieldReference;
 
 class RuleDenormalizer
 {

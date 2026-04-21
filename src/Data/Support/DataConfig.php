@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\Support;
+namespace OmniGuard\Data\Support;
 
 use ReflectionClass;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\RuleInferrers\RuleInferrer;
-use Spatie\LaravelData\Support\Creation\GlobalCastsCollection;
-use Spatie\LaravelData\Support\Transformation\GlobalTransformersCollection;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\RuleInferrers\RuleInferrer;
+use OmniGuard\Data\Support\Creation\GlobalCastsCollection;
+use OmniGuard\Data\Support\Transformation\GlobalTransformersCollection;
 
 class DataConfig
 {

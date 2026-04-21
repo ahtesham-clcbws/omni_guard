@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Normalizers\Normalized;
+namespace OmniGuard\Data\Normalizers\Normalized;
 
 class UnknownProperty
 {

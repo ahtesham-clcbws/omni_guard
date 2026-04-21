@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\LaravelData\Support;
+namespace OmniGuard\Data\Support;
 
-use Spatie\LaravelData\DataPipes\DataPipe;
-use Spatie\LaravelData\Exceptions\CannotCreateData;
-use Spatie\LaravelData\Normalizers\Normalized\Normalized;
-use Spatie\LaravelData\Normalizers\Normalized\UnknownProperty;
-use Spatie\LaravelData\Normalizers\Normalizer;
-use Spatie\LaravelData\Support\Creation\CreationContext;
+use OmniGuard\Data\DataPipes\DataPipe;
+use OmniGuard\Data\Exceptions\CannotCreateData;
+use OmniGuard\Data\Normalizers\Normalized\Normalized;
+use OmniGuard\Data\Normalizers\Normalized\UnknownProperty;
+use OmniGuard\Data\Normalizers\Normalizer;
+use OmniGuard\Data\Support\Creation\CreationContext;
 
 class ResolvedDataPipeline
 {

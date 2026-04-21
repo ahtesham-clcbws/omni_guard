@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\LaravelData\Concerns;
+namespace OmniGuard\Data\Concerns;
 
-use Spatie\LaravelData\Support\Creation\CreationContextFactory;
+use OmniGuard\Data\Support\Creation\CreationContextFactory;
 
 trait WireableData
 {

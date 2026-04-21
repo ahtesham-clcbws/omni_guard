@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Factories;
+namespace OmniGuard\Data\Support\Factories;
 
 use Exception;
 use ReflectionClass;
@@ -11,22 +11,22 @@ use ReflectionParameter;
 use ReflectionProperty;
 use ReflectionType;
 use ReflectionUnionType;
-use Spatie\LaravelData\Attributes\DataCollectionOf;
-use Spatie\LaravelData\Enums\DataTypeKind;
-use Spatie\LaravelData\Exceptions\CannotFindDataClass;
-use Spatie\LaravelData\Lazy;
-use Spatie\LaravelData\Optional;
-use Spatie\LaravelData\Support\Annotations\CollectionAnnotationReader;
-use Spatie\LaravelData\Support\Annotations\DataIterableAnnotation;
-use Spatie\LaravelData\Support\Annotations\DataIterableAnnotationReader;
-use Spatie\LaravelData\Support\DataAttributesCollection;
-use Spatie\LaravelData\Support\DataPropertyType;
-use Spatie\LaravelData\Support\DataType;
-use Spatie\LaravelData\Support\Types\IntersectionType;
-use Spatie\LaravelData\Support\Types\NamedType;
-use Spatie\LaravelData\Support\Types\Storage\AcceptedTypesStorage;
-use Spatie\LaravelData\Support\Types\Type;
-use Spatie\LaravelData\Support\Types\UnionType;
+use OmniGuard\Data\Attributes\DataCollectionOf;
+use OmniGuard\Data\Enums\DataTypeKind;
+use OmniGuard\Data\Exceptions\CannotFindDataClass;
+use OmniGuard\Data\Lazy;
+use OmniGuard\Data\Optional;
+use OmniGuard\Data\Support\Annotations\CollectionAnnotationReader;
+use OmniGuard\Data\Support\Annotations\DataIterableAnnotation;
+use OmniGuard\Data\Support\Annotations\DataIterableAnnotationReader;
+use OmniGuard\Data\Support\DataAttributesCollection;
+use OmniGuard\Data\Support\DataPropertyType;
+use OmniGuard\Data\Support\DataType;
+use OmniGuard\Data\Support\Types\IntersectionType;
+use OmniGuard\Data\Support\Types\NamedType;
+use OmniGuard\Data\Support\Types\Storage\AcceptedTypesStorage;
+use OmniGuard\Data\Support\Types\Type;
+use OmniGuard\Data\Support\Types\UnionType;
 
 class DataTypeFactory
 {

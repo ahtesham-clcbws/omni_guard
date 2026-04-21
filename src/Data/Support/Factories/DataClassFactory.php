@@ -1,29 +1,29 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Factories;
+namespace OmniGuard\Data\Support\Factories;
 
 use Illuminate\Support\Collection;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionParameter;
 use ReflectionProperty;
-use Spatie\LaravelData\Attributes\AutoLazy;
-use Spatie\LaravelData\Contracts\AppendableData;
-use Spatie\LaravelData\Contracts\EmptyData;
-use Spatie\LaravelData\Contracts\IncludeableData;
-use Spatie\LaravelData\Contracts\PropertyMorphableData;
-use Spatie\LaravelData\Contracts\ResponsableData;
-use Spatie\LaravelData\Contracts\TransformableData;
-use Spatie\LaravelData\Contracts\ValidateableData;
-use Spatie\LaravelData\Contracts\WrappableData;
-use Spatie\LaravelData\Data;
-use Spatie\LaravelData\Enums\DataTypeKind;
-use Spatie\LaravelData\Mappers\ProvidedNameMapper;
-use Spatie\LaravelData\Resolvers\NameMappersResolver;
-use Spatie\LaravelData\Support\Annotations\DataIterableAnnotationReader;
-use Spatie\LaravelData\Support\DataClass;
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\LazyDataStructureProperty;
+use OmniGuard\Data\Attributes\AutoLazy;
+use OmniGuard\Data\Contracts\AppendableData;
+use OmniGuard\Data\Contracts\EmptyData;
+use OmniGuard\Data\Contracts\IncludeableData;
+use OmniGuard\Data\Contracts\PropertyMorphableData;
+use OmniGuard\Data\Contracts\ResponsableData;
+use OmniGuard\Data\Contracts\TransformableData;
+use OmniGuard\Data\Contracts\ValidateableData;
+use OmniGuard\Data\Contracts\WrappableData;
+use OmniGuard\Data\Data;
+use OmniGuard\Data\Enums\DataTypeKind;
+use OmniGuard\Data\Mappers\ProvidedNameMapper;
+use OmniGuard\Data\Resolvers\NameMappersResolver;
+use OmniGuard\Data\Support\Annotations\DataIterableAnnotationReader;
+use OmniGuard\Data\Support\DataClass;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\LazyDataStructureProperty;
 
 class DataClassFactory
 {

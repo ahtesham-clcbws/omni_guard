@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelData\Casts;
+namespace OmniGuard\Data\Casts;
 
 use BackedEnum;
-use Spatie\LaravelData\Exceptions\CannotCastEnum;
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\DataProperty;
+use OmniGuard\Data\Exceptions\CannotCastEnum;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\DataProperty;
 use Throwable;
 
 class EnumCast implements Cast, IterableItemCast

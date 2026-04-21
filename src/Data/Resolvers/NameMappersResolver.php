@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\LaravelData\Resolvers;
+namespace OmniGuard\Data\Resolvers;
 
-use Spatie\LaravelData\Attributes\MapInputName;
-use Spatie\LaravelData\Attributes\MapName;
-use Spatie\LaravelData\Attributes\MapOutputName;
-use Spatie\LaravelData\Mappers\NameMapper;
-use Spatie\LaravelData\Mappers\ProvidedNameMapper;
-use Spatie\LaravelData\Support\DataAttributesCollection;
+use OmniGuard\Data\Attributes\MapInputName;
+use OmniGuard\Data\Attributes\MapName;
+use OmniGuard\Data\Attributes\MapOutputName;
+use OmniGuard\Data\Mappers\NameMapper;
+use OmniGuard\Data\Mappers\ProvidedNameMapper;
+use OmniGuard\Data\Support\DataAttributesCollection;
 
 class NameMappersResolver
 {

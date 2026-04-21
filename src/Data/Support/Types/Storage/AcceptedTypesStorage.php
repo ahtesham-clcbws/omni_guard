@@ -1,17 +1,17 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Types\Storage;
+namespace OmniGuard\Data\Support\Types\Storage;
 
 use Illuminate\Contracts\Pagination\CursorPaginator;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Pagination\AbstractCursorPaginator;
 use Illuminate\Pagination\AbstractPaginator;
 use Illuminate\Support\Enumerable;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\CursorPaginatedDataCollection;
-use Spatie\LaravelData\DataCollection;
-use Spatie\LaravelData\Enums\DataTypeKind;
-use Spatie\LaravelData\PaginatedDataCollection;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\CursorPaginatedDataCollection;
+use OmniGuard\Data\DataCollection;
+use OmniGuard\Data\Enums\DataTypeKind;
+use OmniGuard\Data\PaginatedDataCollection;
 
 class AcceptedTypesStorage
 {

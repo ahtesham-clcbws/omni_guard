@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes\Validation;
+namespace OmniGuard\Data\Attributes\Validation;
 
 abstract class StringValidationAttribute extends ValidationAttribute
 {

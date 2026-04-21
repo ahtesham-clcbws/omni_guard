@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelData\Concerns;
+namespace OmniGuard\Data\Concerns;
 
 use ArrayIterator;
-use Spatie\LaravelData\Support\Transformation\DataContext;
-use Spatie\LaravelData\Support\Transformation\TransformationContextFactory;
+use OmniGuard\Data\Support\Transformation\DataContext;
+use OmniGuard\Data\Support\Transformation\TransformationContextFactory;
 
 /**
  * @template TKey of array-key

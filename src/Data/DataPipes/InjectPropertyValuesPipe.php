@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelData\DataPipes;
+namespace OmniGuard\Data\DataPipes;
 
-use Spatie\LaravelData\Attributes\InjectsPropertyValue;
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\DataClass;
-use Spatie\LaravelData\Support\Skipped;
+use OmniGuard\Data\Attributes\InjectsPropertyValue;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\DataClass;
+use OmniGuard\Data\Support\Skipped;
 
 class InjectPropertyValuesPipe implements DataPipe
 {

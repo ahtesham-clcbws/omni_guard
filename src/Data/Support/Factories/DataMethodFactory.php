@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Factories;
+namespace OmniGuard\Data\Support\Factories;
 
 use Illuminate\Support\Collection;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionParameter;
-use Spatie\LaravelData\Enums\CustomCreationMethodType;
-use Spatie\LaravelData\Support\DataMethod;
-use Spatie\LaravelData\Support\DataType;
+use OmniGuard\Data\Enums\CustomCreationMethodType;
+use OmniGuard\Data\Support\DataMethod;
+use OmniGuard\Data\Support\DataType;
 
 class DataMethodFactory
 {

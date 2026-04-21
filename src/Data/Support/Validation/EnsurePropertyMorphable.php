@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Validation;
+namespace OmniGuard\Data\Support\Validation;
 
 use Closure;
 use Exception;
 use Illuminate\Contracts\Validation\ValidationRule;
-use Spatie\LaravelData\Attributes\Validation\ObjectValidationAttribute;
-use Spatie\LaravelData\Support\DataClass;
+use OmniGuard\Data\Attributes\Validation\ObjectValidationAttribute;
+use OmniGuard\Data\Support\DataClass;
 
 class EnsurePropertyMorphable extends ObjectValidationAttribute implements ValidationRule
 {

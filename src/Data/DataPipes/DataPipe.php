@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelData\DataPipes;
+namespace OmniGuard\Data\DataPipes;
 
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\DataClass;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\DataClass;
 
 interface DataPipe
 {

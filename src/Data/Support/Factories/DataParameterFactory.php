@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Factories;
+namespace OmniGuard\Data\Support\Factories;
 
 use ReflectionClass;
 use ReflectionParameter;
-use Spatie\LaravelData\Support\DataParameter;
+use OmniGuard\Data\Support\DataParameter;
 
 class DataParameterFactory
 {

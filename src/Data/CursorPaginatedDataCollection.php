@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData;
+namespace OmniGuard\Data;
 
 use Closure;
 use Countable;
@@ -8,21 +8,21 @@ use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Pagination\CursorPaginator;
 use Illuminate\Support\Traits\Macroable;
 use IteratorAggregate;
-use Spatie\LaravelData\Concerns\BaseDataCollectable;
-use Spatie\LaravelData\Concerns\ContextableData;
-use Spatie\LaravelData\Concerns\IncludeableData;
-use Spatie\LaravelData\Concerns\ResponsableData;
-use Spatie\LaravelData\Concerns\TransformableData;
-use Spatie\LaravelData\Concerns\WrappableData;
-use Spatie\LaravelData\Contracts\BaseDataCollectable as BaseDataCollectableContract;
-use Spatie\LaravelData\Contracts\ContextableData as ContextableDataContract;
-use Spatie\LaravelData\Contracts\IncludeableData as IncludeableDataContract;
-use Spatie\LaravelData\Contracts\ResponsableData as ResponsableDataContract;
-use Spatie\LaravelData\Contracts\TransformableData as TransformableDataContract;
-use Spatie\LaravelData\Contracts\WrappableData as WrappableDataContract;
-use Spatie\LaravelData\Exceptions\CannotCastData;
-use Spatie\LaravelData\Exceptions\PaginatedCollectionIsAlwaysWrapped;
-use Spatie\LaravelData\Support\EloquentCasts\DataCollectionEloquentCast;
+use OmniGuard\Data\Concerns\BaseDataCollectable;
+use OmniGuard\Data\Concerns\ContextableData;
+use OmniGuard\Data\Concerns\IncludeableData;
+use OmniGuard\Data\Concerns\ResponsableData;
+use OmniGuard\Data\Concerns\TransformableData;
+use OmniGuard\Data\Concerns\WrappableData;
+use OmniGuard\Data\Contracts\BaseDataCollectable as BaseDataCollectableContract;
+use OmniGuard\Data\Contracts\ContextableData as ContextableDataContract;
+use OmniGuard\Data\Contracts\IncludeableData as IncludeableDataContract;
+use OmniGuard\Data\Contracts\ResponsableData as ResponsableDataContract;
+use OmniGuard\Data\Contracts\TransformableData as TransformableDataContract;
+use OmniGuard\Data\Contracts\WrappableData as WrappableDataContract;
+use OmniGuard\Data\Exceptions\CannotCastData;
+use OmniGuard\Data\Exceptions\PaginatedCollectionIsAlwaysWrapped;
+use OmniGuard\Data\Support\EloquentCasts\DataCollectionEloquentCast;
 
 /**
  * @template TKey of array-key
@@ -37,7 +37,7 @@ class CursorPaginatedDataCollection implements Responsable, BaseDataCollectableC
     use WrappableData;
     use TransformableData;
 
-    /** @use \Spatie\LaravelData\Concerns\BaseDataCollectable<TKey, TValue> */
+    /** @use \OmniGuard\Data\Concerns\BaseDataCollectable<TKey, TValue> */
     use BaseDataCollectable;
     use ContextableData;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\LaravelData\Support\VarDumper;
+namespace OmniGuard\Data\Support\VarDumper;
 
-use Spatie\LaravelData\Contracts\TransformableData;
+use OmniGuard\Data\Contracts\TransformableData;
 use Symfony\Component\VarDumper\Cloner\Stub;
 
 class DataVarDumperCaster

@@ -1,18 +1,18 @@
 <?php
 
-namespace Spatie\LaravelData\Resolvers;
+namespace OmniGuard\Data\Resolvers;
 
 use ErrorException;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\Exceptions\CannotPerformPartialOnDataField;
-use Spatie\LaravelData\Lazy;
-use Spatie\LaravelData\Optional;
-use Spatie\LaravelData\Support\DataClass;
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\Lazy\ConditionalLazy;
-use Spatie\LaravelData\Support\Lazy\RelationalLazy;
-use Spatie\LaravelData\Support\Partials\PartialType;
-use Spatie\LaravelData\Support\Transformation\TransformationContext;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\Exceptions\CannotPerformPartialOnDataField;
+use OmniGuard\Data\Lazy;
+use OmniGuard\Data\Optional;
+use OmniGuard\Data\Support\DataClass;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\Lazy\ConditionalLazy;
+use OmniGuard\Data\Support\Lazy\RelationalLazy;
+use OmniGuard\Data\Support\Partials\PartialType;
+use OmniGuard\Data\Support\Transformation\TransformationContext;
 
 class VisibleDataFieldsResolver
 {

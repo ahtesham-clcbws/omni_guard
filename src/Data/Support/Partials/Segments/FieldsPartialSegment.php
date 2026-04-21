@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Partials\Segments;
+namespace OmniGuard\Data\Support\Partials\Segments;
 
 class FieldsPartialSegment extends PartialSegment
 {

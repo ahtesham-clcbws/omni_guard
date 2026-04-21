@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Validation\References;
+namespace OmniGuard\Data\Support\Validation\References;
 
 interface ExternalReference
 {

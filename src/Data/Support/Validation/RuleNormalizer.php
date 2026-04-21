@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Validation;
+namespace OmniGuard\Data\Support\Validation;
 
 use Illuminate\Contracts\Validation\InvokableRule;
 use Illuminate\Contracts\Validation\Rule as RuleContract;
@@ -16,17 +16,17 @@ use Illuminate\Validation\Rules\Password as PasswordRule;
 use Illuminate\Validation\Rules\ProhibitedIf as ProhibitedIfRule;
 use Illuminate\Validation\Rules\RequiredIf as RequiredIfRule;
 use Illuminate\Validation\Rules\Unique as UniqueRule;
-use Spatie\LaravelData\Attributes\Validation\Dimensions;
-use Spatie\LaravelData\Attributes\Validation\Enum;
-use Spatie\LaravelData\Attributes\Validation\Exclude;
-use Spatie\LaravelData\Attributes\Validation\Exists;
-use Spatie\LaravelData\Attributes\Validation\In;
-use Spatie\LaravelData\Attributes\Validation\NotIn;
-use Spatie\LaravelData\Attributes\Validation\Password;
-use Spatie\LaravelData\Attributes\Validation\Prohibited;
-use Spatie\LaravelData\Attributes\Validation\Required;
-use Spatie\LaravelData\Attributes\Validation\Rule;
-use Spatie\LaravelData\Attributes\Validation\Unique;
+use OmniGuard\Data\Attributes\Validation\Dimensions;
+use OmniGuard\Data\Attributes\Validation\Enum;
+use OmniGuard\Data\Attributes\Validation\Exclude;
+use OmniGuard\Data\Attributes\Validation\Exists;
+use OmniGuard\Data\Attributes\Validation\In;
+use OmniGuard\Data\Attributes\Validation\NotIn;
+use OmniGuard\Data\Attributes\Validation\Password;
+use OmniGuard\Data\Attributes\Validation\Prohibited;
+use OmniGuard\Data\Attributes\Validation\Required;
+use OmniGuard\Data\Attributes\Validation\Rule;
+use OmniGuard\Data\Attributes\Validation\Unique;
 use Throwable;
 
 class RuleNormalizer
@@ -35,7 +35,7 @@ class RuleNormalizer
     {
     }
 
-    /** @return \Spatie\LaravelData\Support\Validation\ValidationRule[] */
+    /** @return \OmniGuard\Data\Support\Validation\ValidationRule[] */
     public function execute(mixed $rule): array
     {
         if (is_array($rule)) {

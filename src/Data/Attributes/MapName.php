@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes;
+namespace OmniGuard\Data\Attributes;
 
 use Attribute;
-use Spatie\LaravelData\Mappers\NameMapper;
+use OmniGuard\Data\Mappers\NameMapper;
 
 #[Attribute(Attribute::TARGET_CLASS | Attribute::TARGET_PROPERTY)]
 class MapName

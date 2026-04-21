@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelData\DataPipes;
+namespace OmniGuard\Data\DataPipes;
 
 use Illuminate\Support\Arr;
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\DataClass;
-use Spatie\LaravelData\Support\DataProperty;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\DataClass;
+use OmniGuard\Data\Support\DataProperty;
 
 class MapPropertiesDataPipe implements DataPipe
 {

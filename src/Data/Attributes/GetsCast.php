@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes;
+namespace OmniGuard\Data\Attributes;
 
-use Spatie\LaravelData\Casts\Cast;
+use OmniGuard\Data\Casts\Cast;
 
 interface GetsCast
 {

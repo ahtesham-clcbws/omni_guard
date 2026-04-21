@@ -8,7 +8,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Str;
 
-trait Sushi
+trait OmniVirtual
 {
     protected static $sushiConnection;
 
@@ -55,11 +55,11 @@ trait Sushi
         return realpath(config('sushi.cache-path', storage_path('framework/cache')));
     }
 
-    public static function bootSushi()
+    public static function bootOmniVirtual()
     {
         // Laravel 13 (laravel/framework#55685) throws a LogicException if a new
         // model instance is created while the model is still booting (i.e.
-        // during a boot* trait method). Since Sushi needs to create an instance
+        // during a boot* trait method). Since OmniVirtual needs to create an instance
         // to configure its SQLite connection, we defer that work until after
         // booting has finished using the "whenBooted" method, which was added
         // in Laravel 12.8 (laravel/framework#55286). For older Laravel versions
@@ -67,14 +67,14 @@ trait Sushi
         // original behaviour works fine.
         if (method_exists(static::class, 'whenBooted')) {
             static::whenBooted(function () {
-                static::configureSushiConnection();
+                static::configureOmniVirtualConnection();
             });
         } else {
-            static::configureSushiConnection();
+            static::configureOmniVirtualConnection();
         }
     }
 
-    protected static function configureSushiConnection()
+    protected static function configureOmniVirtualConnection()
     {
         $instance = new static;
 
@@ -157,7 +157,7 @@ trait Sushi
             $this->createTableWithNoData($tableName);
         }
 
-        foreach (array_chunk($rows, $this->getSushiInsertChunkSize()) ?? [] as $inserts) {
+        foreach (array_chunk($rows, $this->getOmniVirtualInsertChunkSize()) ?? [] as $inserts) {
             if (! empty($inserts)) {
                 static::insert($inserts);
             }
@@ -269,7 +269,7 @@ trait Sushi
             : false;
     }
 
-    public function getSushiInsertChunkSize() {
+    public function getOmniVirtualInsertChunkSize() {
         return $this->sushiInsertChunkSize ?? 100;
     }
 

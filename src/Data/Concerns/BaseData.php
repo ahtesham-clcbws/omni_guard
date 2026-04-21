@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Concerns;
+namespace OmniGuard\Data\Concerns;
 
 use Illuminate\Contracts\Pagination\CursorPaginator as CursorPaginatorContract;
 use Illuminate\Contracts\Pagination\Paginator as PaginatorContract;
@@ -9,20 +9,20 @@ use Illuminate\Pagination\AbstractPaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
-use Spatie\LaravelData\CursorPaginatedDataCollection;
-use Spatie\LaravelData\DataCollection;
-use Spatie\LaravelData\DataPipeline;
-use Spatie\LaravelData\DataPipes\AuthorizedDataPipe;
-use Spatie\LaravelData\DataPipes\CastPropertiesDataPipe;
-use Spatie\LaravelData\DataPipes\DefaultValuesDataPipe;
-use Spatie\LaravelData\DataPipes\InjectPropertyValuesPipe;
-use Spatie\LaravelData\DataPipes\MapPropertiesDataPipe;
-use Spatie\LaravelData\DataPipes\ValidatePropertiesDataPipe;
-use Spatie\LaravelData\PaginatedDataCollection;
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\Creation\CreationContextFactory;
-use Spatie\LaravelData\Support\DataConfig;
-use Spatie\LaravelData\Support\DataProperty;
+use OmniGuard\Data\CursorPaginatedDataCollection;
+use OmniGuard\Data\DataCollection;
+use OmniGuard\Data\DataPipeline;
+use OmniGuard\Data\DataPipes\AuthorizedDataPipe;
+use OmniGuard\Data\DataPipes\CastPropertiesDataPipe;
+use OmniGuard\Data\DataPipes\DefaultValuesDataPipe;
+use OmniGuard\Data\DataPipes\InjectPropertyValuesPipe;
+use OmniGuard\Data\DataPipes\MapPropertiesDataPipe;
+use OmniGuard\Data\DataPipes\ValidatePropertiesDataPipe;
+use OmniGuard\Data\PaginatedDataCollection;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\Creation\CreationContextFactory;
+use OmniGuard\Data\Support\DataConfig;
+use OmniGuard\Data\Support\DataProperty;
 
 trait BaseData
 {

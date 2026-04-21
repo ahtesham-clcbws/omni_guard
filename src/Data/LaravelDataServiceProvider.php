@@ -1,19 +1,19 @@
 <?php
 
-namespace Spatie\LaravelData;
+namespace OmniGuard\Data;
 
 use Livewire\Livewire;
-use Spatie\LaravelData\Commands\DataMakeCommand;
-use Spatie\LaravelData\Commands\DataStructuresCacheCommand;
-use Spatie\LaravelData\Contracts\BaseData;
-use Spatie\LaravelData\Resolvers\ContextResolver;
-use Spatie\LaravelData\Support\Caching\DataStructureCache;
-use Spatie\LaravelData\Support\DataConfig;
-use Spatie\LaravelData\Support\Livewire\LivewireDataCollectionSynth;
-use Spatie\LaravelData\Support\Livewire\LivewireDataSynth;
-use Spatie\LaravelData\Support\VarDumper\VarDumperManager;
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
+use OmniGuard\Data\Commands\DataMakeCommand;
+use OmniGuard\Data\Commands\DataStructuresCacheCommand;
+use OmniGuard\Data\Contracts\BaseData;
+use OmniGuard\Data\Resolvers\ContextResolver;
+use OmniGuard\Data\Support\Caching\DataStructureCache;
+use OmniGuard\Data\Support\DataConfig;
+use OmniGuard\Data\Support\Livewire\LivewireDataCollectionSynth;
+use OmniGuard\Data\Support\Livewire\LivewireDataSynth;
+use OmniGuard\Data\Support\VarDumper\VarDumperManager;
+use OmniGuard\Support\PackageTools\Package;
+use OmniGuard\Support\PackageTools\PackageServiceProvider;
 
 class LaravelDataServiceProvider extends PackageServiceProvider
 {

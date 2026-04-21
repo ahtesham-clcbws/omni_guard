@@ -1,22 +1,22 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Factories;
+namespace OmniGuard\Data\Support\Factories;
 
 use ReflectionClass;
 use ReflectionProperty;
-use Spatie\LaravelData\Attributes\AutoLazy;
-use Spatie\LaravelData\Attributes\Computed;
-use Spatie\LaravelData\Attributes\GetsCast;
-use Spatie\LaravelData\Attributes\Hidden;
-use Spatie\LaravelData\Attributes\PropertyForMorph;
-use Spatie\LaravelData\Attributes\WithCastAndTransformer;
-use Spatie\LaravelData\Attributes\WithoutValidation;
-use Spatie\LaravelData\Attributes\WithTransformer;
-use Spatie\LaravelData\Mappers\NameMapper;
-use Spatie\LaravelData\Optional;
-use Spatie\LaravelData\Resolvers\NameMappersResolver;
-use Spatie\LaravelData\Support\Annotations\DataIterableAnnotation;
-use Spatie\LaravelData\Support\DataProperty;
+use OmniGuard\Data\Attributes\AutoLazy;
+use OmniGuard\Data\Attributes\Computed;
+use OmniGuard\Data\Attributes\GetsCast;
+use OmniGuard\Data\Attributes\Hidden;
+use OmniGuard\Data\Attributes\PropertyForMorph;
+use OmniGuard\Data\Attributes\WithCastAndTransformer;
+use OmniGuard\Data\Attributes\WithoutValidation;
+use OmniGuard\Data\Attributes\WithTransformer;
+use OmniGuard\Data\Mappers\NameMapper;
+use OmniGuard\Data\Optional;
+use OmniGuard\Data\Resolvers\NameMappersResolver;
+use OmniGuard\Data\Support\Annotations\DataIterableAnnotation;
+use OmniGuard\Data\Support\DataProperty;
 
 class DataPropertyFactory
 {

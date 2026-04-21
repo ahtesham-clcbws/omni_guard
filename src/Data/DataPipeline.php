@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelData;
+namespace OmniGuard\Data;
 
-use Spatie\LaravelData\DataPipes\DataPipe;
-use Spatie\LaravelData\Normalizers\Normalizer;
-use Spatie\LaravelData\Support\DataConfig;
-use Spatie\LaravelData\Support\ResolvedDataPipeline;
+use OmniGuard\Data\DataPipes\DataPipe;
+use OmniGuard\Data\Normalizers\Normalizer;
+use OmniGuard\Data\Support\DataConfig;
+use OmniGuard\Data\Support\ResolvedDataPipeline;
 
 class DataPipeline
 {
@@ -83,13 +83,13 @@ class DataPipeline
             $this->classString::normalizers()
         );
 
-        /** @var \Spatie\LaravelData\Normalizers\Normalizer[] $normalizers */
+        /** @var \OmniGuard\Data\Normalizers\Normalizer[] $normalizers */
         $normalizers = array_map(
             fn (string|Normalizer $normalizer) => is_string($normalizer) ? app($normalizer) : $normalizer,
             $normalizers
         );
 
-        /** @var \Spatie\LaravelData\DataPipes\DataPipe[] $pipes */
+        /** @var \OmniGuard\Data\DataPipes\DataPipe[] $pipes */
         $pipes = array_map(
             fn (string|DataPipe $pipe) => is_string($pipe) ? app($pipe) : $pipe,
             $this->pipes

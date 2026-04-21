@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Validation;
+namespace OmniGuard\Data\Support\Validation;
 
 use Illuminate\Validation\NestedRules;
 
 class DataRules
 {
     /**
-     * @param array<array|\Spatie\LaravelData\Support\Validation\PropertyRules|NestedRules> $rules
+     * @param array<array|\OmniGuard\Data\Support\Validation\PropertyRules|NestedRules> $rules
      */
     public function __construct(
         public array $rules = [],

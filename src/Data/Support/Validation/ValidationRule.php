@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Validation;
+namespace OmniGuard\Data\Support\Validation;
 
 abstract class ValidationRule
 {

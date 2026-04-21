@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\LaravelData\DataPipes;
+namespace OmniGuard\Data\DataPipes;
 
 use Illuminate\Http\Request;
-use Spatie\LaravelData\Attributes\FromRouteParameter;
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\DataClass;
-use Spatie\LaravelData\Support\Skipped;
+use OmniGuard\Data\Attributes\FromRouteParameter;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\DataClass;
+use OmniGuard\Data\Support\Skipped;
 
 /**
  * @deprecated Use InjectPropertyValuesPipe instead

@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Validation\Constraints;
+namespace OmniGuard\Data\Support\Validation\Constraints;
 
-use Spatie\LaravelData\Support\Validation\References\ExternalReference;
+use OmniGuard\Data\Support\Validation\References\ExternalReference;
 
 class WhereNotConstraint extends DatabaseConstraint
 {

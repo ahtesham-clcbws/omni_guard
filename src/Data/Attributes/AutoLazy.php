@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes;
+namespace OmniGuard\Data\Attributes;
 
 use Attribute;
 use Closure;
-use Spatie\LaravelData\Lazy;
-use Spatie\LaravelData\Support\DataProperty;
+use OmniGuard\Data\Lazy;
+use OmniGuard\Data\Support\DataProperty;
 
 #[Attribute(Attribute::TARGET_CLASS | Attribute::TARGET_PROPERTY)]
 class AutoLazy

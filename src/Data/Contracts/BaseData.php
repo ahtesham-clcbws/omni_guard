@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Contracts;
+namespace OmniGuard\Data\Contracts;
 
 use Illuminate\Contracts\Pagination\CursorPaginator as CursorPaginatorContract;
 use Illuminate\Contracts\Pagination\Paginator as PaginatorContract;
@@ -12,12 +12,12 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
-use Spatie\LaravelData\CursorPaginatedDataCollection;
-use Spatie\LaravelData\DataCollection;
-use Spatie\LaravelData\DataPipeline;
-use Spatie\LaravelData\PaginatedDataCollection;
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\Creation\CreationContextFactory;
+use OmniGuard\Data\CursorPaginatedDataCollection;
+use OmniGuard\Data\DataCollection;
+use OmniGuard\Data\DataPipeline;
+use OmniGuard\Data\PaginatedDataCollection;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\Creation\CreationContextFactory;
 
 /**
  * @template TData

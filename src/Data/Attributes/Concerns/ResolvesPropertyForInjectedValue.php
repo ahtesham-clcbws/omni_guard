@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\LaravelData\Attributes\Concerns;
+namespace OmniGuard\Data\Attributes\Concerns;
 
-use Spatie\LaravelData\Exceptions\CannotFillFromRouteParameterPropertyUsingScalarValue;
-use Spatie\LaravelData\Support\Creation\CreationContext;
-use Spatie\LaravelData\Support\DataProperty;
-use Spatie\LaravelData\Support\Skipped;
+use OmniGuard\Data\Exceptions\CannotFillFromRouteParameterPropertyUsingScalarValue;
+use OmniGuard\Data\Support\Creation\CreationContext;
+use OmniGuard\Data\Support\DataProperty;
+use OmniGuard\Data\Support\Skipped;
 
 trait ResolvesPropertyForInjectedValue
 {

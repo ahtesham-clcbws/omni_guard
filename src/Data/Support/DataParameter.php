@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Support;
+namespace OmniGuard\Data\Support;
 
 class DataParameter
 {

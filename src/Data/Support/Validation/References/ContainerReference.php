@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\LaravelData\Support\Validation\References;
+namespace OmniGuard\Data\Support\Validation\References;
 
 use Illuminate\Container\Container;
 use Illuminate\Container\EntryNotFoundException;
