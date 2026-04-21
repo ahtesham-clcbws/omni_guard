@@ -30,7 +30,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          # Removed lock file dependency for sovereign flexibility
 
       - name: Install dependencies
         run: cd packages/omniguard/docs && npm install

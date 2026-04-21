@@ -70,7 +70,7 @@ class User extends Authenticatable
 
 ---
 
-## 5. The Sovereign Configuration
+## 5. The Helper Configuration
 
 The `config/omniguard.php` file is where you define the ultimate behavior of the system.
 

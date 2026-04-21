@@ -16,7 +16,7 @@ return [
 
     'table_names' => [
         /*
-         * Tables rebranded for Sovereignty.
+         * Simple table mapping for OmniGuard.
          */
         'roles' => 'omni_roles',
         'permissions' => 'omni_permissions',
@@ -35,7 +35,7 @@ return [
     ],
 
     /*
-     * Enterprise Core Settings
+     * Core Helpers & Settings
      */
     'super_admin' => [
         'email'   => env('OMNIGUARD_SUPER_ADMIN_EMAIL', null),

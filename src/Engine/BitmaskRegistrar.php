@@ -17,9 +17,12 @@ class BitmaskRegistrar
         return Cache::rememberForever($this->cacheKey, function () {
             $permissionClass = config('omniguard.models.permission');
             
-            return $permissionClass::orderBy('id')->get()->mapWithKeys(function ($permission, $index) {
-                return [$permission->name => 1 << $index];
-            });
+            return $permissionClass::query()
+                ->whereNotNull('bit_index')
+                ->get()
+                ->mapWithKeys(function ($permission) {
+                    return [$permission->name => 1 << $permission->bit_index];
+                });
         });
     }
 

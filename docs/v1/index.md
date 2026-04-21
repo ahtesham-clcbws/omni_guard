@@ -10,14 +10,11 @@ hero:
     alt: OmniGuard Shield
   actions:
     - theme: brand
-      text: Get Started
-      link: /v1/installation
+      text: Installation Guide
+      link: /docs/v1/installation
     - theme: alt
-      text: The Philosophy
-      link: /v1/index
-    - theme: alt
-      text: View on GitHub
-      link: https://github.com/ahtesham-clcbws/omni_guard
+      text: Usage Guide
+      link: /docs/v1/usage
 
 features:
   - icon: 🛡️
@@ -50,22 +47,20 @@ By keeping things simple, we eliminate version conflicts, reduce memory overhead
 ---
 
 ## 📄 License & Authority
-OmniGuard Sovereign is protected under the **Sovereign Perpetual License**. Permission is granted for use only under the original branding of Ahtesham and Broadway Web Services. Rebranding or white-labeling is strictly prohibited.
+OmniGuard is protected under its standard license terms. Permission is granted for use within your application under the original branding of **Ahtesham** and **Broadway Web Services**.
 
 ---
+
+## 💎 Support & Credits
+OmniGuard was built with care by **Ahtesham** and **Broadway Web Services**. We are committed to keeping this tool helpful and reliable for all our partners.
 
 ## Getting Started
 To get started with OmniGuard, we recommend following the guides in order:
 
-1.  **[Installation](installation.md)**: Setup, Migrations, and Discovery.
-2.  **[Core Concepts: Hierarchy](hierarchy.md)**: Master the Rank-based sorting system.
-3.  **[The Discovery Brain](heuristics.md)**: Leverage heuristic mapping to auto-detect permissions.
-4.  **[Performance: Bitmasking](bitmasking.md)**: Understand JIT binary scaling.
-5.  **[SaaS & Multitenancy](saas-multitenancy.md)**: Scoping access to your tenants.
-6.  **[Security Protocols](security.md)**: Panic Mode, Ghost Mode, and Impersonation.
-7.  **[Usage Reference](usage.md)**: Blade directives and Facade API.
-
----
-
-## Support & Enterprise
-OmniGuard is maintained by **[Broadway Web Services](https://www.clcbws.com)**. For consultation, custom logic, or enterprise deployments, join us on **[WhatsApp](https://wa.me/919810763314)**.
+1.  **[Installation](installation.md)**: Add the helpful core to your Laravel project.
+2.  **[Hierarchy](hierarchy.md)**: Set up your roles and their ranks.
+3.  **[Discovery Brain](heuristics.md)**: Speed up security mapping with auto-discovery.
+4.  **[Performance](bitmasking.md)**: Learn about our ultra-fast bitmasking.
+5.  **[API Reference](usage.md)**: Full details on how to use OmniGuard in your code.
+6.  **[SaaS & Teams](saas-multitenancy.md)**: Use OmniGuard for multi-tenant applications.
+7.  **[Security Guide](security.md)**: Special features like Panic Mode and Impersonation.

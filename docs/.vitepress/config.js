@@ -1,8 +1,8 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: "OmniGuard Sovereign",
-  description: "The Absolute Sovereign Authorization Orchestrator for Laravel",
+  title: "OmniGuard",
+  description: "A friendly and helpful authorization assistant for Laravel",
   base: '/omni_guard/',
   themeConfig: {
     logo: '/shield.svg',
@@ -23,7 +23,7 @@ export default defineConfig({
         text: 'Core Concepts',
         items: [
           { text: 'Hierarchy & Ranking', link: '/v1/hierarchy' },
-          { text: 'The Heuristic Brain', link: '/v1/heuristics' },
+          { text: 'The Discovery Helper', link: '/v1/heuristics' },
           { text: 'Bitmasking Performance', link: '/v1/bitmasking' },
         ]
       },
@@ -40,7 +40,7 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/ahtesham-clcbws/omni_guard' }
     ],
     footer: {
-      message: 'Released under the MIT License.',
+      message: 'A helping hand for your Laravel security.',
       copyright: 'Copyright © 2026-present Ahtesham (Broadway Web Services)'
     },
     search: {

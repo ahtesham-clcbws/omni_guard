@@ -225,9 +225,14 @@ class DataValidationRulesResolver
                 DataRules::create()
             );
 
-            return collect($rules)->keyBy(
-                fn (mixed $rules, string $key) => Str::after($key, "{$attribute}.") // TODO: let's do this better
-            )->all();
+            $prefixLength = strlen($attribute) + 1;
+            $result = [];
+
+            foreach ($rules as $key => $rule) {
+                $result[substr($key, $prefixLength)] = $rule;
+            }
+
+            return $result;
         }));
     }
 
