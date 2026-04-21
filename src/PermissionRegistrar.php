@@ -19,16 +19,6 @@ class PermissionRegistrar
     /** @var \OmniGuard\Engine\TenantManager */
     protected $tenantManager;
 
-    public function __construct(CacheManager $cacheManager)
-    {
-        $this->tenantManager = app(TenantManager::class);
-        $this->permissionClass = config('omniguard.models.permission');
-        $this->roleClass = config('omniguard.models.role');
-        $this->teamResolver = new (config('omniguard.team_resolver', \OmniGuard\DefaultTeamResolver::class));
-
-        $this->cacheManager = $cacheManager;
-        $this->initializeCache();
-    }
     protected Repository $cache;
 
     protected CacheManager $cacheManager;
@@ -65,6 +55,16 @@ class PermissionRegistrar
 
     private bool $isLoadingPermissions = false;
 
+    public function __construct(CacheManager $cacheManager)
+    {
+        $this->tenantManager = app(TenantManager::class);
+        $this->permissionClass = config('omniguard.models.permission');
+        $this->roleClass = config('omniguard.models.role');
+        $this->teamResolver = new (config('omniguard.team_resolver', \OmniGuard\DefaultTeamResolver::class));
+
+        $this->cacheManager = $cacheManager;
+        $this->initializeCache();
+    }
 
     public function initializeCache(): void
     {
@@ -83,16 +83,12 @@ class PermissionRegistrar
 
     protected function getCacheStoreFromConfig(): Repository
     {
-        // the 'default' fallback here is from the permission.php config file,
-        // where 'default' means to use config(cache.default)
         $cacheDriver = config('omniguard.cache.store', 'default');
 
-        // when 'default' is specified, no action is required since we already have the default instance
         if ($cacheDriver === 'default') {
             return $this->cacheManager->store();
         }
 
-        // if an undefined cache store is specified, fallback to 'array' which is Laravel's closest equiv to 'none'
         if (! \array_key_exists($cacheDriver, config('cache.stores'))) {
             $cacheDriver = 'array';
         }
@@ -100,28 +96,16 @@ class PermissionRegistrar
         return $this->cacheManager->store($cacheDriver);
     }
 
-    /**
-     * Set the team id for teams/groups support, this id is used when querying permissions/roles
-     *
-     * @param  int|string|Model|null  $id
-     */
     public function setPermissionsTeamId($id): void
     {
         $this->teamResolver->setPermissionsTeamId($id);
     }
 
-    /**
-     * @return int|string|null
-     */
     public function getPermissionsTeamId()
     {
         return $this->teamResolver->getPermissionsTeamId();
     }
 
-    /**
-     * Register the permission check method on the gate.
-     * We resolve the Gate fresh here, for benefit of long-running instances.
-     */
     public function registerPermissions(Gate $gate): bool
     {
         $gate->before(function (Authorizable $user, string $ability, array &$args = []) {
@@ -129,6 +113,7 @@ class PermissionRegistrar
                 $guard = array_shift($args);
             }
             if (method_exists($user, 'checkPermissionTo')) {
+                /** @var \OmniGuard\Traits\HasPermissions $user */
                 return $user->checkPermissionTo($ability, $guard ?? null) ?: null;
             }
         });
@@ -136,9 +121,6 @@ class PermissionRegistrar
         return true;
     }
 
-    /**
-     * Flush the cache.
-     */
     public function forgetCachedPermissions()
     {
         $this->permissions = null;
@@ -167,11 +149,6 @@ class PermissionRegistrar
         return $this->wildcardPermissionsIndex[get_class($record)][$record->getKey()] = app($record->getWildcardClass(), ['record' => $record])->getIndex();
     }
 
-    /**
-     * Clear already-loaded permissions collection.
-     * This is only intended to be called by the PermissionServiceProvider on boot,
-     * so that long-running instances like Octane or Swoole don't keep old data in memory.
-     */
     public function clearPermissionsCollection(): void
     {
         $this->permissions = null;
@@ -179,44 +156,25 @@ class PermissionRegistrar
         $this->isLoadingPermissions = false;
     }
 
-    /**
-     * @deprecated
-     *
-     * @alias of clearPermissionsCollection()
-     */
     public function clearClassPermissions()
     {
         $this->clearPermissionsCollection();
     }
 
-    /**
-     * Load permissions from cache
-     * And turns permissions array into a \Illuminate\Database\Eloquent\Collection
-     *
-     * Thread-safe implementation to prevent race conditions in concurrent environments
-     * (e.g., Laravel Octane, Swoole, parallel requests)
-     */
     private function loadPermissions(int $retries = 0): void
     {
-        // First check (without lock) - fast path for already loaded permissions
         if ($this->permissions) {
             return;
         }
 
-        // Prevent concurrent loading using a flag-based lock
-        // This protects against cache stampede and duplicate database queries
         if ($this->isLoadingPermissions && $retries < 10) {
-            // Another thread is loading, wait and retry
-            usleep(10000); // Wait 10ms
+            usleep(10000); // 10ms
             $retries++;
-
-            // After wait, recursively check again if permissions were loaded
             $this->loadPermissions($retries);
 
             return;
         }
 
-        // Set loading flag to prevent concurrent loads
         $this->isLoadingPermissions = true;
 
         try {
@@ -232,14 +190,10 @@ class PermissionRegistrar
 
             $this->cachedRoles = $this->alias = $this->except = [];
         } finally {
-            // Always release the loading flag, even if an exception occurs
             $this->isLoadingPermissions = false;
         }
     }
 
-    /**
-     * Get the permissions based on the passed params.
-     */
     public function getPermissions(array $params = [], bool $onlyOne = false): Collection
     {
         $this->loadPermissions();
@@ -306,9 +260,6 @@ class PermissionRegistrar
         return $this->permissionClass::select()->with('roles')->get();
     }
 
-    /**
-     * Changes array keys with alias
-     */
     private function aliasedArray($model): array
     {
         return collect(is_array($model) ? $model : $model->getAttributes())->except($this->except)
@@ -316,15 +267,14 @@ class PermissionRegistrar
             ->all();
     }
 
-    /**
-     * Array for cache alias
-     */
     private function aliasModelFields($newKeys = []): void
     {
         $i = 0;
         $alphas = ! count($this->alias) ? range('a', 'h') : range('j', 'p');
 
-        foreach (array_keys($newKeys->getAttributes()) as $value) {
+        $attributes = $newKeys instanceof Model ? $newKeys->getAttributes() : (array) $newKeys;
+
+        foreach (array_keys($attributes) as $value) {
             if (! isset($this->alias[$value])) {
                 $this->alias[$value] = $alphas[$i++] ?? $value;
             }
@@ -333,9 +283,6 @@ class PermissionRegistrar
         $this->alias = array_diff_key($this->alias, array_flip($this->except));
     }
 
-    /*
-     * Make the cache smaller using an array with only required fields
-     */
     private function getSerializedPermissionsForCache(): array
     {
         $this->except = config('omniguard.cache.column_names_except', ['created_at', 'updated_at', 'deleted_at']);
@@ -414,13 +361,11 @@ class PermissionRegistrar
             return false;
         }
 
-        // check if is UUID/GUID
         $uid = preg_match('/^[\da-f]{8}-[\da-f]{4}-[\da-f]{4}-[\da-f]{4}-[\da-f]{12}$/iD', $value) > 0;
         if ($uid) {
             return true;
         }
 
-        // check if is ULID
         $ulid = strlen($value) == 26 && strspn($value, '0123456789ABCDEFGHJKMNPQRSTVWXYZabcdefghjkmnpqrstvwxyz') == 26 && $value[0] <= '7';
         if ($ulid) {
             return true;

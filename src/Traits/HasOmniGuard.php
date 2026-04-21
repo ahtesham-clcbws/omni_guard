@@ -13,8 +13,9 @@ use OmniGuard\Events\RoleDetached;
 use OmniGuard\PermissionRegistrar;
 
 /**
+ * @property-read int|string $id
+ * @property string $email
  * @mixin \Illuminate\Database\Eloquent\Model
- * @mixin \OmniGuard\Traits\HasOmniGuard
  */
 trait HasOmniGuard
 {
@@ -48,10 +49,15 @@ trait HasOmniGuard
 
             $teams = app(PermissionRegistrar::class)->teams;
             app(PermissionRegistrar::class)->teams = false;
-            $model->roles()->detach();
+            
+            if (method_exists($model, 'roles')) {
+                $model->roles()->detach();
+            }
+
             if ($model instanceof \OmniGuard\Contracts\Permission && method_exists($model, 'users')) {
                 $model->users()->detach();
             }
+            
             app(PermissionRegistrar::class)->teams = $teams;
         });
     }
@@ -70,6 +76,7 @@ trait HasOmniGuard
      */
     public function roles(): BelongsToMany
     {
+        /** @var \Illuminate\Database\Eloquent\Model $this */
         $relation = $this->morphToMany(
             config('omniguard.models.role'),
             'model',
@@ -92,10 +99,6 @@ trait HasOmniGuard
 
     /**
      * Scope the model query to certain roles only.
-     *
-     * @param  string|int|array|Role|Collection|\BackedEnum  $roles
-     * @param  string  $guard
-     * @param  bool  $without
      */
     public function scopeRole(Builder $query, $roles, $guard = null, $without = false): Builder
     {
@@ -126,9 +129,6 @@ trait HasOmniGuard
 
     /**
      * Scope the model query to only those without certain roles.
-     *
-     * @param  string|int|array|Role|Collection|\BackedEnum  $roles
-     * @param  string  $guard
      */
     public function scopeWithoutRole(Builder $query, $roles, $guard = null): Builder
     {
@@ -137,8 +137,6 @@ trait HasOmniGuard
 
     /**
      * Returns array of role ids
-     *
-     * @param  string|int|array|Role|Collection|\BackedEnum  $roles
      */
     private function collectRoles(...$roles): array
     {
@@ -162,21 +160,18 @@ trait HasOmniGuard
 
     /**
      * Assign the given role to the model.
-     *
-     * @param  string|int|array|Role|Collection|\BackedEnum  ...$roles
-     * @return $this
      */
     public function assignRole(...$roles)
     {
         $roles = $this->collectRoles($roles);
 
+        /** @var \Illuminate\Database\Eloquent\Model $model */
         $model = $this->getModel();
         $teamPivot = app(PermissionRegistrar::class)->teams && ! is_a($this, Permission::class) ?
             [app(PermissionRegistrar::class)->teamsKey => getPermissionsTeamId()] : [];
 
         if ($model->exists) {
             if (app(PermissionRegistrar::class)->teams) {
-                // explicit reload in case team has been changed since last load
                 $this->load('roles');
             }
 
@@ -213,9 +208,6 @@ trait HasOmniGuard
 
     /**
      * Revoke the given role from the model.
-     *
-     * @param  string|int|array|Role|Collection|\BackedEnum  ...$role
-     * @return $this
      */
     public function removeRole(...$role)
     {
@@ -238,13 +230,11 @@ trait HasOmniGuard
 
     /**
      * Remove all current roles and set the given ones.
-     *
-     * @param  string|int|array|Role|Collection|\BackedEnum  ...$roles
-     * @return $this
      */
     public function syncRoles(...$roles)
     {
-        if ($this->getModel()->exists) {
+        /** @var \Illuminate\Database\Eloquent\Model $this */
+        if ($this->exists) {
             $this->collectRoles($roles);
             if (config('omniguard.events_enabled')) {
                 $currentRoles = $this->roles()->get();
@@ -262,8 +252,6 @@ trait HasOmniGuard
 
     /**
      * Determine if the model has (one of) the given role(s).
-     *
-     * @param  string|int|array|Role|Collection|\BackedEnum  $roles
      */
     public function hasRole($roles, ?string $guard = null): bool
     {
@@ -280,7 +268,6 @@ trait HasOmniGuard
                 ->when($guard, fn ($q) => $q->where('guard_name', $guard))
                 ->pluck('name')
                 ->contains(function ($name) use ($roles) {
-                    /** @var string|\BackedEnum $name */
                     if ($name instanceof \BackedEnum) {
                         return $name->value == $roles;
                     }
@@ -326,10 +313,6 @@ trait HasOmniGuard
 
     /**
      * Determine if the model has any of the given role(s).
-     *
-     * Alias to hasRole() but without Guard controls
-     *
-     * @param  string|int|array|Role|Collection|\BackedEnum  $roles
      */
     public function hasAnyRole(...$roles): bool
     {
@@ -338,8 +321,6 @@ trait HasOmniGuard
 
     /**
      * Determine if the model has all of the given role(s).
-     *
-     * @param  string|array|Role|Collection|\BackedEnum  $roles
      */
     public function hasAllRoles($roles, ?string $guard = null): bool
     {
@@ -386,8 +367,6 @@ trait HasOmniGuard
 
     /**
      * Determine if the model has exactly all of the given role(s).
-     *
-     * @param  string|array|Role|Collection|\BackedEnum  $roles
      */
     public function hasExactRoles($roles, ?string $guard = null): bool
     {
