@@ -13,11 +13,12 @@ use OmniGuard\Events\RoleDetached;
 use OmniGuard\PermissionRegistrar;
 
 /**
+ * @mixin \Illuminate\Database\Eloquent\Model
  * @mixin \OmniGuard\Traits\HasOmniGuard
  */
 trait HasOmniGuard
 {
-    use HasPermissions;
+    use \OmniGuard\Traits\HasPermissions;
 
     /**
      * Get the highest ranking role for this user.
@@ -48,7 +49,7 @@ trait HasOmniGuard
             $teams = app(PermissionRegistrar::class)->teams;
             app(PermissionRegistrar::class)->teams = false;
             $model->roles()->detach();
-            if (is_a($model, Permission::class)) {
+            if ($model instanceof \OmniGuard\Contracts\Permission && method_exists($model, 'users')) {
                 $model->users()->detach();
             }
             app(PermissionRegistrar::class)->teams = $teams;

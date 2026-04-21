@@ -49,6 +49,11 @@ By removing external runtime dependencies, we eliminate version conflicts, reduc
 
 ---
 
+## 📄 License & Authority
+OmniGuard Sovereign is protected under the **Sovereign Perpetual License**. Permission is granted for use only under the original branding of Ahtesham and Broadway Web Services. Rebranding or white-labeling is strictly prohibited.
+
+---
+
 ## Getting Started
 To get started with OmniGuard, we recommend following the guides in order:
 

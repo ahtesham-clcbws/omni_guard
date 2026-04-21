@@ -91,4 +91,4 @@ For enterprise support, priority feature requests, or custom orchestration consu
 ---
 
 ## 📄 License
-The OmniGuard core is released under the [MIT License](LICENSE.md).
+OmniGuard Sovereign is released under the **Sovereign Perpetual License (Broadway Web Services)**. This software is proprietary and protected. Use is granted only under the original branding and authorship of Ahtesham and Broadway Web Services. See [LICENSE.md](LICENSE.md) for full terms.

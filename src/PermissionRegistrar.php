@@ -19,9 +19,15 @@ class PermissionRegistrar
     /** @var \OmniGuard\Engine\TenantManager */
     protected $tenantManager;
 
-    public function __construct()
+    public function __construct(CacheManager $cacheManager)
     {
         $this->tenantManager = app(TenantManager::class);
+        $this->permissionClass = config('omniguard.models.permission');
+        $this->roleClass = config('omniguard.models.role');
+        $this->teamResolver = new (config('omniguard.team_resolver', \OmniGuard\DefaultTeamResolver::class));
+
+        $this->cacheManager = $cacheManager;
+        $this->initializeCache();
     }
     protected Repository $cache;
 
@@ -59,18 +65,6 @@ class PermissionRegistrar
 
     private bool $isLoadingPermissions = false;
 
-    /**
-     * PermissionRegistrar constructor.
-     */
-    public function __construct(CacheManager $cacheManager)
-    {
-        $this->permissionClass = config('omniguard.models.permission');
-        $this->roleClass = config('omniguard.models.role');
-        $this->teamResolver = new (config('omniguard.team_resolver', DefaultTeamResolver::class));
-
-        $this->cacheManager = $cacheManager;
-        $this->initializeCache();
-    }
 
     public function initializeCache(): void
     {
