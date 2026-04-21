@@ -11,6 +11,8 @@ use OmniGuard\Engine\HierarchyEngine;
 use OmniGuard\Engine\PermissionWalker;
 use OmniGuard\Engine\BitmaskRegistrar;
 use OmniGuard\Engine\TenantManager;
+use OmniGuard\Services\ImpersonationGuard;
+use OmniGuard\Http\Middleware\Impersonate;
 
 class OmniGuardServiceProvider extends ServiceProvider
 {
@@ -28,6 +30,7 @@ class OmniGuardServiceProvider extends ServiceProvider
         $this->app->singleton(\OmniGuard\Engine\PermissionWalker::class);
         $this->app->singleton(\OmniGuard\Engine\BitmaskRegistrar::class);
         $this->app->singleton(\OmniGuard\Engine\TenantManager::class);
+        $this->app->singleton(\OmniGuard\Services\ImpersonationGuard::class);
         $this->app->singleton('omniguard', \OmniGuard\OmniGuardManager::class);
 
         $this->app->bind(PermissionContract::class, function ($app) {
@@ -54,6 +57,8 @@ class OmniGuardServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'omniguard');
         $this->loadRoutesFrom(__DIR__.'/../routes/omniguard.php');
+
+        $this->app['router']->aliasMiddleware('omniguard.impersonate', Impersonate::class);
 
         $this->registerGateInterceptors();
     }

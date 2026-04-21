@@ -206,7 +206,7 @@ class PermissionServiceProvider extends ServiceProvider
 
         $config = $this->app['config'];
 
-        AboutCommand::add('OmniGuard Sovereign', static fn () => [
+        AboutCommand::add('OmniGuard', static fn () => [
             'Features Enabled' => collect($features)
                 ->filter(fn (string $feature, string $name): bool => $config->get("permission.{$feature}"))
                 ->keys()

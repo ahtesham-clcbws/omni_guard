@@ -2,9 +2,9 @@
 layout: home
 
 hero:
-  name: "OmniGuard Sovereign"
-  text: "The Absolute Authority for Laravel"
-  tagline: Absolute Sovereignty. Zero Runtime Dependencies. Mission-Critical stability.
+  name: "OmniGuard"
+  text: "A friendly helper for Laravel"
+  tagline: Lightweight, easy to use, and mission-ready.
   image:
     src: /shield.svg
     alt: OmniGuard Shield
@@ -21,31 +21,31 @@ hero:
 
 features:
   - icon: 🛡️
-    title: Sovereign Core
-    details: Fork-and-Absorb architecture means zero external runtime dependencies. No version conflicts, ever.
+    title: Reliable Core
+    details: Architecture focused on stability with zero external runtime dependencies. No version conflicts, ever.
   - icon: 🧠
     title: Heuristic Brain
     details: Automated Multi-Discovery Hub maps your codebase using semantic synonym mapping and Fuzzy matching.
   - icon: ⚡
-    title: JIT Bitmasking
-    details: Industrial O(1) performance using binary integer comparison. Optimized for $1 budget hosting.
+    title: Fast Performance
+    details: Efficient O(1) performance using binary integer comparison. Optimized for $1 budget hosting.
 ---
 
-> **Absolute Sovereignty. Zero Runtime Dependencies. Mission-Critical Authority.**
+> **Reliable authorization, simple setup, and fast performance.**
 
-Welcome to the official documentation for **OmniGuard**, the absolute authorization orchestrator for Laravel. 
+Welcome to the official documentation for **OmniGuard**, a friendly and helpful authorization manager for Laravel. 
 
-## The Philosophy
-In modern web development, your application's security should not be a "black box" buried under layers of external vendor packages. OmniGuard follows the **Sovereign Philosophy**: it forks, absorbs, and optimizes the absolute best logic from the community directly into your ecosystem. 
+## How we help
+OmniGuard is a tool built to help you manage security in your Laravel application without the headache. We focus on:
 
-By removing external runtime dependencies, we eliminate version conflicts, reduce memory overhead, and give you total ownership of your security brain.
+By keeping things simple, we eliminate version conflicts, reduce memory overhead, and make your application easier to maintain.
 
 ## Key Pillars
-*   **💎 Sovereign Core**: Zero runtime dependencies on external permission packages. 
-*   **🧠 Heuristic Intelligence**: Automatic codebase scanning that maps your controllers and livewire components to permissions without manual entry.
-*   **⚡ JIT Bitmasking**: Industrial-grade performance using binary integer comparison for O(1) authorization checks.
-*   **🏢 Multi-Tenant (OmniTenant)**: Built-in, zero-config SaaS isolation for complex multi-user environments.
-*   **🛡️ Panic Mode Protocol**: A deterministic system-wide fail-safe for critical environments.
+*   **💎 Helpful Core**: Zero runtime dependencies on external permission packages. 
+*   **🧠 Intelligent Discovery**: Automatic codebase scanning that helps you map permissions without manual entry.
+*   **⚡ Fast Performance**: Scalable performance using binary integer comparison.
+*   **🏢 Multi-Tenant Support**: Built-in isolation for complex multi-user environments.
+*   **🛡️ Reliability Protocols**: Simple fail-safes for critical environments.
 
 ---
 

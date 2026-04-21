@@ -1,10 +1,10 @@
-# The Heuristic Discovery Brain
+# The Discovery Brain
 
-OmniGuard is a "Cognitive" orchestrator. Instead of manually entering every permission into a database, OmniGuard uses a **Discovery Brain** to map your codebase structure to authorization state automatically.
+OmniGuard includes a helpful **Discovery Brain** that can help you map your codebase structure to permissions automatically, saving you from repetitive manual entry.
 
 ## #[OmniResource] Attribute
 
-The primary way to signal the Brain is through the `#[OmniResource]` attribute. You can apply this to Controllers, Livewire Components, or even Model classes.
+The primary way to let the brain know about your code is through the `#[OmniResource]` attribute. You can add this to your Controllers or Livewire components.
 
 ```php
 use OmniGuard\Attributes\OmniResource;
@@ -17,17 +17,17 @@ class PayrollController extends Controller
 ```
 
 When you run `php artisan omniguard:sync`, the brain:
-1.  **Scans** your application for these attributes.
-2.  **Analyzes** the public methods (actions) inside the class.
-3.  **Applies Heuristics**: If you have a method `store()`, it automatically maps it to the `finances.create` permission.
+1.  **Looks** for these attributes in your app.
+2.  **Analyzes** the public functions inside the class.
+3.  **Maps them for you**: If you have a `store()` function, it automatically suggests the `finances.create` permission.
 
 ---
 
-## Semantic Synonym Mapping
+## Simple Action Mapping
 
-The Brain doesn't just look for exact words. It uses an internal dictionary of **Semantic Synonyms** to map common actions to standardized permissions.
+The brain uses a simple internal list to map common function names to standard permissions, so you don't have to.
 
-| Method Name | Heuristic Permission |
+| Function Name | Suggested Permission |
 | :--- | :--- |
 | `store`, `save`, `create` | `create` |
 | `index`, `show`, `list` | `view` |
@@ -36,33 +36,33 @@ The Brain doesn't just look for exact words. It uses an internal dictionary of *
 
 ---
 
-## Fuzzy Matching & Groups
+## Helpful Grouping
 
-The `group` parameter in the `#[OmniResource]` attribute acts as the root namespace for the discovered permissions.
+The `group` parameter helps organize your permissions.
 
 - Resource: `Payroll`
-- Method: `calculate()`
-- **Resulting Permission**: `payroll.calculate`
+- Function: `calculate()`
+- **Result**: `payroll.calculate`
 
-If the method doesn't strictly match a known synonym, OmniGuard uses **Fuzzy Matching** to identify if it targets a broad permission category or if it requires a new, unique permission record.
+If a function name doesn't match the standard list, OmniGuard will still try its best to identify what it does or suggest a new permission for you.
 
 ---
 
-## Industrial Syncing
+## Shared Hosting Friendly
 
-The sync engine is designed for **$1 Shared Hosting**. It uses a **Chunked Discovery** protocol to ensure memory usage stays flat, even in a repository with thousands of files.
+The sync process is designed to be very light on memory, which is perfect if you are on a budget hosting plan.
 
 ```bash
 php artisan omniguard:sync --chunk=50
 ```
 
-This command will scan 50 files per pass, serializing the results into a temporary cache before finalizing the authority registry.
+This command will look at 50 files at a time, keeping things running smoothly without overloading the server.
 
 ---
 
-## Manual Overrides
+## You Are Still In Control
 
-The Heuristic Brain is an assistant, not a dictator. You can manually create permissions in your migrations or via the OmniGuard Facade, and the Brain will automatically **Respect and Protect** them, never overwriting manual data.
+The Discovery Brain is just a helper. If you want to create permissions manually in your database or code, OmniGuard will always respect been-hand-crafted data and will never overwrite it.
 
 ```php
 OmniGuard::permission()->findOrCreate('payroll.custom_report');
@@ -72,4 +72,4 @@ OmniGuard::permission()->findOrCreate('payroll.custom_report');
 
 ## Next Steps
 
-Learn how to manage this authority at scale in **[Performance: JIT Bitmasking](bitmasking.md)**.
+Learn how OmniGuard keeps things fast in the **[Performance Guide](bitmasking.md)**.

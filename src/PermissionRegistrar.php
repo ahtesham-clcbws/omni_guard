@@ -140,6 +140,21 @@ class PermissionRegistrar
         $this->wildcardPermissionsIndex = [];
     }
 
+    /**
+     * Get a binary bitmask representing all permissions for a user.
+     */
+    public function getBitmaskForUser(Authorizable $user): string|int
+    {
+        /** @var \OmniGuard\Traits\HasPermissions $user */
+        return $this->cache->remember(
+            "omniguard.bitmask.{$user->getKey()}",
+            $this->cacheExpirationTime,
+            fn () => $user->getAllPermissions()
+                ->whereNotNull('bit_index')
+                ->reduce(fn ($mask, $perm) => $mask | (1 << $perm->bit_index), 0)
+        );
+    }
+
     public function getWildcardPermissionIndex(Model $record): array
     {
         if (isset($this->wildcardPermissionsIndex[get_class($record)][$record->getKey()])) {

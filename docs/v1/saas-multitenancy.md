@@ -1,10 +1,10 @@
-# SaaS & Multi-Tenancy (OmniTenant)
+# SaaS & Multi-Tenancy
 
-OmniGuard is natively built for SaaS. Its **OmniTenant Engine** allows you to isolate permissions and roles within a specific tenant context (Team, School, Organization) without writing custom database scopes.
+OmniGuard includes helpful support for SaaS applications. You can easily keep permissions and roles isolated for different teams, schools, or organizations.
 
 ## Enabling Teams
 
-In `config/omniguard.php`, enable the `teams` flag:
+In your `config/omniguard.php` file, just enable the teams feature:
 
 ```php
 'teams' => true,
@@ -15,36 +15,33 @@ In `config/omniguard.php`, enable the `teams` flag:
 
 ---
 
-## The Tenant Scope
+## Keeping Things Isolated
 
-When `teams` is enabled, all authorization checks become **Context-Aware**. OmniGuard will automatically filter permissions and roles by the current "Active Tenant ID."
+When teams are enabled, OmniGuard will automatically filter permissions based on the current team you are working with.
 
-### Setting the Active Tenant
+### Setting the current team
 
-You can set the tenant globally using the `setPermissionsTeamId` helper:
+You can tell OmniGuard which team is currently active with a simple helper:
 
 ```php
-setPermissionsTeamId($organization->id);
+setPermissionsTeamId($team->id);
 ```
 
-Once set, all calls like `$user->hasPermissionTo('billing.view')` will only look for that permission within the database records associated with that specific `team_id`.
+Once this is set, everything else happens automatically.
 
 ---
 
-## Global vs. Local Roles
+## Roles: Global vs. Team-specific
 
-OmniGuard supports **Sovereign Global Roles**. In your database, if a Role has a `null` team_id, it is considered "Global Authority" and is accessible to users across all tenants.
-
-| Role | Team ID | Access Level |
-| :--- | :--- | :--- |
-| `Super Admin` | `null` | All Tenants |
-| `Organization Manager` | `101` | Only Tenant 101 |
+OmniGuard is flexible with how you manage roles:
+- **Global Roles**: If a role has no `team_id`, it can be used anywhere in your application.
+- **Team Roles**: If a role has a `team_id`, it only works for that specific team.
 
 ---
 
-## Multi-Tenant Middleware
+## Easy Automation
 
-To automate this, OmniGuard suggests a central middleware that identifies the tenant from the URL or session:
+We suggest using a simple middleware to set the team automatically for your users:
 
 ```php
 namespace App\Http\Middleware;
@@ -55,17 +52,11 @@ class ScopeOmniGuard
 {
     public function handle($request, Closure $next)
     {
-        if ($tenant = $request->user()?->active_tenant_id) {
-            setPermissionsTeamId($tenant);
+        if ($teamId = $request->user()?->active_team_id) {
+            setPermissionsTeamId($teamId);
         }
 
         return $next($request);
     }
 }
 ```
-
----
-
-## Next Steps
-
-Learn how OmniGuard achieves industrial performance at scale in **[Performance: JIT Bitmasking](bitmasking.md)**.

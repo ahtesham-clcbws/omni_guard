@@ -1,79 +1,59 @@
 # Role Hierarchy & Ranking
 
-OmniGuard moves beyond flat role systems. It implements a **Sovereign Rank Protocol** where roles are assigned a `sort_order` that determines their authority over one another.
+OmniGuard provides an easy way to manage how roles relate to each other. It uses a simple **Rank System** where roles are assigned a `sort_order` that determines their priority.
 
-## The Authority Rank
+## How it works
 
-In OmniGuard, a **Lower Sort Order = Higher Rank**.
+In OmniGuard, a **Lower Sort Order = Higher Priority**.
 
-- `Super Admin` (sort_order: 1)
-- `Administrator` (sort_order: 10)
-- `Manager` (sort_order: 50)
+- `Admin` (sort_order: 1)
+- `Manager` (sort_order: 10)
+- `Staff` (sort_order: 50)
 - `User` (sort_order: 100)
 
-When performing authorization checks, OmniGuard evaluates the User's highest-ranking role (via `getTopRole()`) to determine their ultimate authority.
+When you check permissions, OmniGuard can look at a user's highest role (via `getTopRole()`) to help decide what they are allowed to do.
 
 ---
 
 ## Role Inheritance
 
-OmniGuard supports recursive role inheritance. A role can inherit all permissions from a child role. 
-
-### Implementation Example:
+OmniGuard can help you pass permissions from one role to another. For example, an Admin can automatically have all the permissions that a Manager has:
 
 ```php
 $manager = Role::findByName('Manager');
 $admin = Role::findByName('Administrator');
 
-// Administrator inherits all permissions currently assigned to Manager
+// Administrator gets all Manager permissions
 $admin->givePermissionTo($manager->permissions);
 ```
 
-While inheritance is useful, OmniGuard encourages the use of **Heuristic Mapping** (see Heuristics) to avoid manual permission assignment.
+While this is useful, OmniGuard also works great with **Discovery Brain** (see the Heuristics guide) which can handle most of this for you.
 
 ---
 
-## The Super Admin Fail-Safe
+## Helpful Admin Override
 
-OmniGuard provides an absolute override for SuperAdmins. Users with the highest possible rank (configurable via `OMNIGUARD_SUPER_ADMIN_EMAIL`) always pass `Gate` checks, even if Panic Mode is enabled.
+OmniGuard provides a simple way to set a "SuperUser" who always passes permission checks. This is great for your own account or for maintenance tasks.
 
-In `App\Models\User.php`:
-
-```php
-public function isSuperAdmin(): bool
-{
-    return $this->email === env('OMNIGUARD_SUPER_ADMIN_EMAIL');
-}
-```
+You can configure this by setting an email in your `.env`:
+`OMNIGUARD_SUPER_ADMIN_EMAIL=your@email.com`
 
 ---
 
-## Query Scoping
+## Filtering Users
 
-OmniGuard adds powerful Eloquent scopes to your User model for role-based filtering:
-
-```php
-// Get all Administrators
-$admins = User::role('Administrator')->get();
-
-// Get users WITHOUT the 'Guest' role
-$nonGuests = User::withoutRole('Guest')->get();
-```
-
----
-
-## Rank Comparisons
-
-You can easily compare roles in your business logic:
+OmniGuard makes it easy to find users based on their roles:
 
 ```php
-if ($user->getTopRole()->hasHigherRankThan($anotherRole)) {
-    // Perform high-clearance action
-}
+// Find all Admins
+$admins = User::role('Admin')->get();
+
+// Find everyone who ISN'T a Guest
+$staff = User::withoutRole('Guest')->get();
 ```
 
 ---
 
 ## Next Steps
 
-Understand how OmniGuard's brain automatically assigns these roles and permissions in the **[Discovery Brain Guide](heuristics.md)**.
+Learn how OmniGuard's brain helps automate your setup in the **[Discovery Brain Guide](heuristics.md)**.

@@ -1,6 +1,6 @@
 {
     "name": "omniguard/omniguard",
-    "description": "The absolute sovereign authorization orchestrator for Laravel. Zero-dependency runtime, heuristic discovery, and JIT binary bitmasking optimized for $1 shared hosting.",
+    "description": "A simple and friendly helper for managing roles and permissions in Laravel applications. Lightweight, easy to setup, and optimized for shared hosting.",
     "type": "library",
     "license": "proprietary",
     "keywords": [
@@ -9,14 +9,8 @@
         "authorization",
         "permissions",
         "rbac",
-        "security",
-        "orchestrator",
-        "zero-dependency",
-        "multitenancy",
-        "high-performance",
-        "sovereign-code",
-        "bitmasking",
-        "heuristic-discovery"
+        "helper",
+        "security"
     ],
     "authors": [
         {

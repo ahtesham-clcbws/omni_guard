@@ -21,7 +21,7 @@ use OmniGuard\Traits\RefreshesPermissionCache;
 class Permission extends Model implements PermissionContract
 {
     use HasOmniGuard;
-    use RefreshesPermissionCache;
+    use \OmniGuard\Traits\RefreshesPermissionCache;
 
     protected $guarded = [];
 
@@ -38,7 +38,19 @@ class Permission extends Model implements PermissionContract
     protected $casts = [
         'is_system' => 'boolean',
         'last_seen_at' => 'datetime',
+        'bit_index' => 'integer',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($permission) {
+            if (is_null($permission->bit_index)) {
+                $permission->bit_index = static::max('bit_index') + 1;
+            }
+        });
+    }
 
     /**
      * @return PermissionContract|Permission

@@ -1,6 +1,6 @@
 # Installation & Setup
 
-OmniGuard is a Sovereign Orchestrator. It is designed to be forked, absorbed, and owned by your application.
+OmniGuard is a simple and helpful authorization manager. It is designed to be easily integrated into your application.
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ OmniGuard is a Sovereign Orchestrator. It is designed to be forked, absorbed, an
 
 ## 1. Composer Installation
 
-Add OmniGuard to your project. Since OmniGuard is a sovereign package, you may be installing it from a local repository or a private registry.
+Add OmniGuard to your project with a simple command:
 
 ```bash
 composer require omniguard/omniguard
@@ -52,7 +52,7 @@ php artisan migrate
 
 ## 4. Setting up the User Model
 
-To grant your User model Sovereign powers, add the `HasOmniGuard` trait:
+To help your User model manage permissions, add the `HasOmniGuard` trait:
 
 ```php
 namespace App\Models;
@@ -96,4 +96,4 @@ This will crawl your controllers and livewire components, identifying `#[OmniRes
 
 ## Next Steps
 
-Now that you have established the Absolute Foundation, explore the **[Core Concepts of Hierarchy](hierarchy.md)** or dive into the **[Discovery Brain](heuristics.md)**.
+Now that you have everything set up, explore the **[Concepts of Hierarchy](hierarchy.md)** or dive into the **[Discovery Brain](heuristics.md)**.

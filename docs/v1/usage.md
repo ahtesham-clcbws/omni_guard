@@ -1,86 +1,54 @@
 # Usage Reference
 
-This guide provides a comprehensive API reference for interacting with the OmniGuard Sovereign Orchestrator.
+This guide provides a simple reference for how to use OmniGuard's helpers in your own application.
 
-## Blade Directives
+## Blade Helpers
 
-OmniGuard provides clean, semantic Blade directives to control your UI based on authority.
+OmniGuard provides clean directives to help you show or hide content in your Blade views.
 
 ### @omniguard
-Checks if the current user has a specific permission.
+Checks if the current user has a permission.
 
 ```blade
 @omniguard('posts.edit')
     <button>Edit Post</button>
 @else
-    <span>Viewing Mode</span>
+    <span>View only</span>
 @endomniguard
 ```
 
-### @omnirole
-Checks if the current user has a specific role (or one of a set of roles).
+---
 
-```blade
-@omnirole('Administrator|Manager')
-    <p>Staff Dashboard</p>
-@endomnirole
-```
+## Model Helpers (Traits)
+
+Adding the `HasOmniGuard` trait to your User model gives you several helpful functions.
+
+### Checking Permissions
+- `$user->hasPermissionTo('name')`: Check if the user is allowed to do something.
+- `$user->hasAnyPermission(...$names)`: Returns true if any of the permissions match.
+
+### Managing Roles
+- `$user->assignRole('Role')`: Give a user a role.
+- `$user->removeRole('Role')`: Take a role away.
+- `$user->hasRole('Role')`: Check if the user has a specific role.
 
 ---
 
-## The HasOmniGuard Trait
+## Global Helpers
 
-Adding this trait to your User model unlocks the core orchestration Methods.
-
-### Permission Methods
-- `$user->hasPermissionTo('permission.name')`: Check for a specific authority.
-- `$user->hasDirectPermission('permission.name')`: Check if granted directly to the user (ignoring roles).
-- `$user->hasAnyPermission(...$permissions)`: Returns true if any match.
-
-### Role Methods
-- `$user->assignRole('Role Name')`: Grant a role to the user.
-- `$user->removeRole('Role Name')`: Revoke a role.
-- `$user->syncRoles(...$roles)`: Wipe existing roles and set new ones.
-- `$user->hasRole('Role Name')`: Check role membership.
-- `$user->getTopRole()`: Returns the Role model with the lowest `sort_order`.
-
----
-
-## The OmniGuard Facade
-
-For global orchestration and management.
+For times when you need to manage things globally.
 
 ```php
 use OmniGuard\Facades\OmniGuard;
 
-// Get the central registrar
-$registrar = OmniGuard::registrar();
-
-// Clear the entire authority cache
+// Clear the cache if you've made manual changes
 OmniGuard::registrar()->forgetCachedPermissions();
 
-// Find or Create authority records
+// Helpful way to find or create a permission
 $permission = OmniGuard::permission()->findOrCreate('reports.view');
 ```
 
 ---
 
-## Common Orchestration Tasks
-
-### Granting Permission to a Role
-```php
-$role = Role::findByName('Manager');
-$role->givePermissionTo('orders.edit');
-```
-
-### Checking Rank
-```php
-if ($user->getTopRole()->hasHigherRankThan(Role::findByName('User'))) {
-    // Highly authorized logic
-}
-```
-
----
-
-## 💎 Support & Enterprise Credits
-OmniGuard is a proprietary software architected by **Ahtesham** and **Broadway Web Services**. A major thank you to **Gemini (AI Architect)** for the mission-critical helping hand in building this Sovereign engine.
+## 💎 Credits
+This project was built with a sincere focus on helping developers by **[Ahtesham](https://github.com/ahtesham-clcbws)** and **[Broadway Web Services](https://www.clcbws.com)**, with a major helping hand from **[Gemini](https://deepmind.google/technologies/gemini/) (AI Architect)**.

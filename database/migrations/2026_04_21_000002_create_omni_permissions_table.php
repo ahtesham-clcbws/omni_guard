@@ -12,6 +12,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('guard_name');
+            $table->integer('bit_index')->nullable()->unique();
             $table->string('group')->default('General');
             $table->string('resource_type')->default('view'); // view, action, model, etc.
             $table->boolean('is_system')->default(false);

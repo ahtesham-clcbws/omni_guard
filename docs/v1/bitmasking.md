@@ -1,55 +1,42 @@
-# Performance: JIT Binary Bitmasking
+# Performance: Fast Authority Checks
 
-OmniGuard is engineered for scale. Standard authorization engines rely on string-based array searching (e.g., `in_array`), which slows down as you add more permissions.
+OmniGuard is built to be snappy and efficient. It uses a simple technique called **Bitmasking** to make authorization checks as fast as possible, so your application stays responsive.
 
-OmniGuard implements **JIT (Just-In-Time) Binary Bitmasking**, achieving **O(1) Performance** regardless of the number of permissions.
+## How it works
 
-## The Bitmask Protocol
+Instead of using long lists of names, OmniGuard assigns each permission a simple number. 
 
-Instead of names, OmniGuard converts your permissions into a unique power-of-two index bit.
-
-| Permission | Bit Index | Binary Value |
-| :--- | :--- | :--- |
-| `user.view` | 0 | `0001` |
-| `user.create` | 1 | `0010` |
-| `user.edit` | 2 | `0100` |
-| `user.delete` | 3 | `1000` |
+| Permission | Index |
+| :--- | :--- |
+| `user.view` | 0 |
+| `user.create` | 1 |
+| `user.edit` | 2 |
 
 ---
 
-## O(1) Binary Comparisons
+## Speedy Comparisons
 
-When a user is authorized, their total permission set is hydrated into a single Integer (the **Bitmask**). Authorization checks are then performed using high-speed CPU-level **Binary Comparison**.
+When a user logs in, OmniGuard combines their permissions into a single, small piece of data. This allows the computer to perform checks almost instantly.
 
-```php
-// Standard PHP Bitmask check
-$authorized = ($userBitmask & $requiredBit) !== 0;
-```
-
-This operation is orders of magnitude faster than iterating through a collection of strings and is executed directly in Redis or memory.
+It's a bit like a row of light switches—OmniGuard can check if the right switch is 'on' in a single step, rather than looking through a long list of papers.
 
 ---
 
-## Optimized for $1 Shared Hosting
+## Shared Hosting Friendly
 
-OmniGuard's JIT implementation is specifically optimized for memory-constrained environments ( budget shared hosting with 256MB-512MB RAM).
+This method is specifically designed to be light on your server's memory. This is perfect if you are on a budget shared hosting plan with limited resources:
 
-1.  **Lazy Hydration**: Bitmasks are only calculated once and cached in the session or Redis.
-2.  **Flat Memory Usage**: Because authorization is integer-based, the memory footprint remains constant as your user base and permission count grow.
+1.  **Light Memory**: Because it uses simple numbers instead of long strings of text, it takes up very little space.
+2.  **Fast**: Your server doesn't have to work hard to check permissions, which helps keep your page loads fast.
 
 ---
 
-## When are Bitmasks Regenerated?
+## Automatic Updates
 
-The JIT engine automatically detects changes in the authority registry. If you assign a new permission to a user or role, the Bitmask is marked as "stale" and will be re-calculated on the next request.
-
-```php
-// Manually marking authority as stale
-OmniGuard::registrar()->clearClassPermissions();
-```
+OmniGuard is smart enough to know when you've changed something. If you add a new role or permission, it will automatically refresh this speed-optimized data for you on the next request.
 
 ---
 
 ## Next Steps
 
-Explore the extreme security protocols available in **[Security Protocols: Panic Mode & Ghost Mode](security.md)**.
+Learn how OmniGuard can help you with security in the **[Security Helpers Guide](security.md)**.

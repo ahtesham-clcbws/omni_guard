@@ -233,6 +233,13 @@ trait HasPermissions
 
         $permission = $this->filterPermission($permission, $guardName);
 
+        /** @var \OmniGuard\Contracts\Permission $permission */
+        if (! is_null($permission->bit_index)) {
+            $mask = app(\OmniGuard\PermissionRegistrar::class)->getBitmaskForUser($this);
+
+            return ($mask & (1 << $permission->bit_index)) !== 0;
+        }
+
         return $this->hasDirectPermission($permission) || $this->hasPermissionViaRole($permission);
     }
 

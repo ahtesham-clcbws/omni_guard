@@ -1,94 +1,80 @@
-# 🛡️ OmniGuard Sovereign Orchestrator
+# 🛡️ OmniGuard
 
-**The Absolute Authority for Laravel (11/12/13).**
+**A simple, helpful authorization manager for Laravel (11/12/13).**
 
-OmniGuard is not a wrapper. It is not an extension. It is a **Sovereign Orchestration Brain** that forks, absorbs, and enhances the core intelligence of proven authorization engines into a single, zero-dependency runtime. 
-
-Designed for mission-critical stability and extreme performance on budget **$1 shared hosting**, OmniGuard moves beyond simple CRUD to handle features, services, and hierarchical state-based access.
+OmniGuard is a tool designed to help you manage roles and permissions in your Laravel applications without adding too much complexity. It focuses on being lightweight, easy to understand, and efficient enough to run on any hosting environment.
 
 ---
 
-## 💎 The Sovereign Philosophy
-OmniGuard operates on the "Fork-and-Absorb" strategy. We have absorbed the core logic of industry standards directly into our namespace to ensure your application remains protected without the bloat of external runtime dependencies.
-- **Zero Runtime Dependencies**: Your vendor folder stays clean. No version conflicts.
-- **Contract-Based Code**: Strict DTO-driven state management (via `OmniGuard\Data`).
-- **Absolute Authority**: Heuristic discovery maps your code to permissions automatically, while giving you 100% override control.
+## 👋 How it helps you
+OmniGuard is built to be a "helping hand" for developers:
+- **Easy Setup**: Get up and running in minutes with a simple installation command.
+- **Auto-Discovery**: It can automatically look at your code and suggest permissions for you, saving you from manual entry.
+- **Fast Performance**: Uses a simple bitmasking system to keep your application snappy even if you have many permissions.
+- **Shared Hosting Friendly**: Designed to use very little memory, so it works perfectly on budget hosting.
+- **Safe Modes**: Includes "Panic Mode" to quickly lock down your site and "Ghost Mode" to test changes safely.
 
 ---
 
-## 🚀 Elite Features
+## 📦 Getting Started
 
-### 🧠 Heuristic Intelligence Engine
-OmniGuard skips manual configuration. Its brain scans your Models, Controllers, Livewire components, and Blade views, using semantic synonym mapping and fuzzy matching to suggest and map permissions instantly.
-
-### ⚡ JIT Binary Bitmasking
-Performance at scale. OmniGuard assigns every permission a unique power-of-two index. Authorization checks use high-speed **Binary Integer Comparison** in Redis/Session for $O(1)$ speed—orders of magnitude faster than conventional string-based array searching.
-
-### 🍃 $1 Hosting Efficiency
-Engineered for ultimate parsimony. Our Discovery Engine utilizes **Chunked Scanning** and file-streaming to stay comfortably under the strict memory limits of budget shared hosting environments.
-
-### 🛡️ Panic Mode & Ghost Mode
-- **Panic Mode Protocol**: A deterministic fail-safe. On system error, all access reverts to **Strict Denial** (except SuperAdmins).
-- **Ghost Mode**: Safely test new roles in production. OmniGuard runs the checks but never denies access—it just logs a "Virtual Denial" for your review.
-
----
-
-## 🪜 Three-Tier Authorization
-1. **Tier 1: Personal Overrides**: Highest priority individual user permissions.
-2. **Tier 2: Role Hierarchy**: Roles with `sort_order` ranking and recursive inheritance.
-3. **Tier 3: Heuristic Default**: Automatic codebase mapping.
-
----
-
-## 📦 Installation
+To add OmniGuard to your project:
 
 ```bash
 composer require omniguard/omniguard
 php artisan omniguard:install
-php artisan omniguard:sync
+php artisan migrate
 ```
 
----
+Then, just add the `HasOmniGuard` trait to your User model:
 
-## 🛠️ Usage
-
-### Blade Directives
-```blade
-@omniguard('student.view')
-    <!-- Authorized content -->
-@else
-    <!-- Forbidden content -->
-@endomniguard
-```
-
-### Writing to the Registry
 ```php
-#[OmniResource(group: 'Billing', icon: 'cash')]
-class InvoiceManager extends Component
+use OmniGuard\Traits\HasOmniGuard;
+
+class User extends Authenticatable
 {
-    // ...
+    use HasOmniGuard;
 }
 ```
 
 ---
 
-## 📖 Extended Documentation
-The absolute, "Laravel-grade" manual for OmniGuard is available in the **[docs/](docs/v1/index.md)** directory. It covers everything from basic setup to JIT Bitmasking and SaaS orchestration.
+## 🛠️ Common Usage
+
+### In your Blade views
+Use the simple `@omniguard` directive to show or hide parts of your UI:
+```blade
+@omniguard('edit.posts')
+    <button>Edit Post</button>
+@else
+    <span>View only</span>
+@endomniguard
+```
+
+### In your code
+Registering your controllers for auto-discovery is easy:
+```php
+#[OmniResource(group: 'Blog')]
+class PostController extends Controller
+{
+    // OmniGuard will help manage your permissions here
+}
+```
 
 ---
 
-## 💎 Credits
-OmniGuard Sovereign is architected and maintained by **[Ahtesham](https://github.com/ahtesham-clcbws)** and the team at **[Broadway Web Services](https://www.clcbws.com)**, with a major helping hand from **[Gemini](https://deepmind.google/technologies/gemini/) (AI Architect)**.
+## 📖 Learn More
+We have prepared easy-to-follow guides in the **[docs/](docs/v1/index.md)** folder to help you with everything from installation to multi-tenancy.
 
 ---
 
-## 📞 Support & Inquiry
-For enterprise support, priority feature requests, or custom orchestration consulting, please reach out via:
+## 💎 Credits & Support
+This project is maintained with care by **[Ahtesham](https://github.com/ahtesham-clcbws)** and **[Broadway Web Services](https://www.clcbws.com)**. We are always happy to help if you have questions or need assistance.
+
 - **WhatsApp**: [+91 9810763314](https://wa.me/919810763314)
-- **Website**: [clcbws.com](https://www.clcbws.com)
 - **Email**: support@clcbws.com
 
 ---
 
 ## 📄 License
-OmniGuard Sovereign is released under the **Sovereign Perpetual License (Broadway Web Services)**. This software is proprietary and protected. Use is granted only under the original branding and authorship of Ahtesham and Broadway Web Services. See [LICENSE.md](LICENSE.md) for full terms.
+OmniGuard is proprietary software from Broadway Web Services. You are welcome to use it exactly as provided under our standard license terms.

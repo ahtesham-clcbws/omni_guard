@@ -1,68 +1,58 @@
-# Security Protocols
+# Security Helpers
 
-OmniGuard is a mission-critical orchestrator. It provides advanced security protocols designed for high-stakes environments where authorization failure is not an option.
+OmniGuard includes some helpful security features designed to give you more control over your application's state without any complexity.
 
-## 🔴 Panic Mode Protocol
+## 🔴 Panic Mode
 
-Panic Mode is a deterministic fail-safe. When your application enters an unstable state (or manually triggered for maintenance), OmniGuard flips its logic to **Strict Denial**.
+Panic Mode is a simple fail-safe. If you need to quickly lock down your application (for example, during maintenance), OmniGuard can flip its logic to **Deny Access** for everyone except administrators.
 
-### Enabling Panic Mode
+### How to use it
 
-In your `.env` file:
+In your `.env` file, just set:
 ```bash
 OMNIGUARD_PANIC_MODE=true
 ```
 
 ### The Behavior:
-- **Normal Users**: All `Gate::check()` calls return `false` instantly. No database calls are made. 
-- **Super Admins**: Remain operational. Users defined in `OMNIGUARD_SUPER_ADMIN_EMAIL` retain full access to fix the system.
-
-You can also trigger it programmatically via the Middleware for specific routes:
-
-```php
-Route::middleware('omniguard.panic')->group(function () {
-    // Critical routes protected by the panic protocol
-});
-```
+- **Regular Users**: All permission checks will return `false` instantly to keep your site safe.
+- **Administrators**: Users defined in your `OMNIGUARD_SUPER_ADMIN_EMAIL` will still have access so they can fix things or perform maintenance.
 
 ---
 
-## 👻 Ghost Mode (Virtual Authorization)
+## 👻 Ghost Mode (Auditing Changes)
 
-Ghost Mode allows you to safely test new roles or permission changes in production without actually denying access to users.
+Ghost Mode is a helpful way to test your permissions before they go "live."
 
 ### The Behavior:
-OmniGuard evaluates the authorization as usual, but instead of denying the request, it logs a **"Virtual Denial"** and allows the user through.
+In Ghost Mode, OmniGuard evaluates the permissions as usual, but instead of actually denying access, it just logs what *would* have happened. This lets you see if your new roles are working correctly without affecting your users.
 
 ```bash
 OMNIGUARD_GHOST_MODE=true
 ```
 
-Use this to audit how a new rank hierarchy would impact your users before committing to the changes.
-
 ---
 
-## 🎭 ImpersonationGuard (Act As)
+## 🎭 Impersonation (Act As)
 
-OmniGuard includes a secure high-level impersonation service. This allows an Administrator to "Act As" another user while maintaining a mandatory, immutable audit trail.
+OmniGuard includes a helpful impersonation service. This allows an administrator to "Act As" another user when troubleshooting something on their behalf.
 
-### Implementation:
+### How it works:
 
 ```php
 use OmniGuard\Services\ImpersonationGuard;
 
-// Start impersonating student ID 10
-ImpersonationGuard::start($studentId);
+// Helping a user with ID 10
+ImpersonationGuard::start($userId);
 
-// Stop impersonating and return to Admin context
+// When finished, go back to your admin account
 ImpersonationGuard::stop();
 ```
 
-### Audit Trail:
-The `ImpersonationGuard` ensures that every action taken while "Acting As" is tagged with the **Original Admin ID** in the logs, ensuring absolute accountability.
+### Staying Accountable:
+To keep things transparent, every time someone uses the "Act As" feature, OmniGuard creates a simple log entry so you always know who was helping whom and when it happened.
 
 ---
 
 ## Next Steps
 
-Learn the final API surface in the **[Usage Reference](usage.md)**.
+Check out the complete **[Usage Reference API](usage.md)** to see how to use these helpers in your code.
